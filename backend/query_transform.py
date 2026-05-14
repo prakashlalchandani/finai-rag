@@ -1,7 +1,10 @@
 import os
+import asyncio
 import time
 from dotenv import load_dotenv
 from groq import Groq
+from config.settings import settings
+from config.clients import groq_client as client
 
 # Load environment variables
 load_dotenv()
@@ -10,7 +13,7 @@ load_dotenv()
 # It will automatically detect os.environ["GROQ_API_KEY"]
 client = Groq()
 
-def generate_hyde_document(query: str, max_retries=3) -> str:
+async def generate_hyde_document(query: str, max_retries=3) -> str:
     """Generates a hypothetical financial document snippet using Groq."""
     prompt = f"""
     You are a financial legal expert. A user has asked this question: '{query}'
@@ -21,11 +24,11 @@ def generate_hyde_document(query: str, max_retries=3) -> str:
     # Retry Loop
     for attempt in range(max_retries):
         try:
-            response = client.chat.completions.create(
+            response = await client.chat.completions.create(
                 messages=[
                     {"role": "user", "content": prompt}
                 ],
-                model="llama-3.1-8b-instant", # Using the blazingly fast 8B model
+                model=settings.ROUTER_MODEL, # Using the blazingly fast 8B model
                 temperature=0.2 # Lower temperature keeps the text formal and factual
             )
             # Extract the text from the Groq response structure
@@ -35,12 +38,12 @@ def generate_hyde_document(query: str, max_retries=3) -> str:
             if attempt < max_retries - 1:
                 wait_time = 2 ** attempt 
                 print(f"Groq API busy. Retrying HyDE in {wait_time} seconds... Error: {e}")
-                time.sleep(wait_time)
+                await asyncio.sleep(wait_time)
             else:
                 print(f"Groq API completely unavailable. Skipping HyDE. Error: {e}")
                 return ""
 
-def generate_multi_queries(query: str, max_retries=3) -> list:
+async def generate_multi_queries(query: str, max_retries=3) -> list:
     """Rewrites the query into multiple formal variations using Groq."""
     prompt = f"""
     Rewrite the following search query into 3 different variations using formal financial and banking terminology.
@@ -50,11 +53,11 @@ def generate_multi_queries(query: str, max_retries=3) -> list:
     
     for attempt in range(max_retries):
         try:
-            response = client.chat.completions.create(
+            response = await client.chat.completions.create(
                 messages=[
                     {"role": "user", "content": prompt}
                 ],
-                model="llama-3.1-8b-instant",
+                model=settings.ROUTER_MODEL,
                 temperature=0.2
             )
             
@@ -68,7 +71,7 @@ def generate_multi_queries(query: str, max_retries=3) -> list:
             if attempt < max_retries - 1:
                 wait_time = 2 ** attempt
                 print(f"Groq API busy. Retrying Multi-Query in {wait_time} seconds... Error: {e}")
-                time.sleep(wait_time)
+                await asyncio.sleep(wait_time)
             else:
                 print(f"Groq API completely unavailable. Skipping Multi-Query. Error: {e}")
                 return []

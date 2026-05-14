@@ -1,36 +1,40 @@
-from fastapi import FastAPI, UploadFile, File
+import langchain
+langchain.debug = True
+from fastapi import FastAPI, UploadFile, File, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 import shutil
 import re
 import uuid
 import os
+
 from chunking import create_chunks
 from query_transform import generate_hyde_document, generate_multi_queries
 from embeddings import create_embeddings
-from vector_store import build_qdrant_index, search_qdrant, get_all_chunks
-from hybrid_search import (
-    build_bm25,
-    bm25_search,
-    hybrid_search,
-    numeric_boost_search,
-    rerank_results,
-)
-from evaluation import check_retrieval
-from generation import generate_answer
+from services.generation_service import GenerationService
+from services.retrieval_service import RetrievalService
+from vector_store import build_qdrant_index
 
-app = FastAPI(title="RAG Retrieval Optimization API")
+from evaluation import check_retrieval
+from config.settings import settings
+from config.logger import logger
+
+# Load environment variables
+load_dotenv()
+
+app = FastAPI(title="FinAudit AI Backend")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], # Vite's default port
+    # Pulling frontend URL from your settings file is a great practice!
+    allow_origins=["http://localhost:5173"], 
     allow_credentials=True,
-    allow_methods=["*"], # Allows GET, POST, etc.
+    allow_methods=["*"], 
     allow_headers=["*"],
 )
 
-# Global pipeline state (Cleaned up)
+# Global pipeline state 
 chunks = None
-embeddings = None
 bm25 = None
 
 @app.get("/")
@@ -38,24 +42,28 @@ def health():
     return {"status": "API is running"}
 
 # -----------------------------
-# Upload and index PDF
+# Upload and index Document
 # -----------------------------
 @app.post("/upload")
-def upload_pdf(file: UploadFile = File(...)):
-    global chunks, embeddings, bm25
+async def upload_pdf(file: UploadFile = File(...)):
 
     file_extension = os.path.splitext(file.filename)[1]
     unique_filename = f"{uuid.uuid4()}{file_extension}"
+    
+    # Ensure directory exists
+    os.makedirs("sample_data", exist_ok=True)
     file_location = f"sample_data/{unique_filename}"
 
     with open(file_location, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    chunks = create_chunks(file_location)
-    embeddings = create_embeddings(chunks)
+    # AWAIT all heavy/network functions!
+    chunks = await create_chunks(file_location)
+    embeddings = await create_embeddings(chunks)
+    await build_qdrant_index(embeddings, chunks, file.filename)
     
-    build_qdrant_index(embeddings, chunks, file.filename)
-    bm25 = build_bm25(chunks)
+    # Local CPU math, no await needed
+    RetrievalService.update_index(chunks)
 
     return {
         "message": "Document uploaded and indexed successfully",
@@ -65,58 +73,60 @@ def upload_pdf(file: UploadFile = File(...)):
 # -----------------------------
 # Search endpoint
 # -----------------------------
+from fastapi import HTTPException # Make sure this is imported at the top!
+
 @app.get("/search")
-def search_query(query: str):
-    global chunks, bm25
-
-    # --- THE STATELESS RECOVERY TRIGGER ---
-    if chunks is None:
-        print("RAM is empty! Recovering state directly from Qdrant database...")
-        chunks = get_all_chunks()
-        if not chunks:
-            return {"error": "Database is completely empty. Upload a PDF first."}
-        # Instantly rebuild the keyword search algorithm in memory
-        bm25 = build_bm25(chunks)
-    # --------------------------------------
-
-    # 1. HyDE Vector Search 
-    # hyde_doc = generate_hyde_document(query)
-    # hyde_embedding = create_embeddings([hyde_doc.lower()])
-    # vector_results = search_qdrant(hyde_embedding[0])
-
-    # 1. Standard Vector Search (HyDE Disabled)
-    # Ab hum fake document ki jagah direct user ki query use kar rahe hain
-    query_embedding = create_embeddings([query.lower()])
-    vector_results = search_qdrant(query_embedding[0])
-
-    # 2. Multi-Query BM25 Search
-    expanded_queries = generate_multi_queries(query)
-    expanded_queries.append(query) 
+async def search_query(
+    query: str, 
+    session_id: str = "default_user",
+    gen_service: GenerationService = Depends(),
+    retrieval_service: RetrievalService = Depends()
+):
+    # ==========================================
+    # PHASE 1: ROUTING
+    # ==========================================
+    routing_decision = await gen_service.route_query(query)
     
-    bm25_results = []
-    for q in expanded_queries:
-        results = bm25_search(bm25, q.lower(), chunks)
-        bm25_results.extend(results)
+    if routing_decision["route"] == "chat":
+        return {
+            "query": query,
+            "answer": routing_decision["chat_response"],
+            "sources_used": [],
+            "routed_via": "Fast Chat Agent"
+        }
+
+    # ==========================================
+    # PHASE 2: TRANSLATION & EXPANSION
+    # ==========================================
+    legal_synonyms = await gen_service.expand_query_with_synonyms(query)
+    enriched_search_query = f"{query} {legal_synonyms}"
     
-    bm25_results = list(dict.fromkeys(bm25_results))
+    # We are still pulling this from query_transform.py for now
+    expanded_queries = await generate_multi_queries(query) 
 
-    # 3. Hybrid Merge 
-    numeric_results = numeric_boost_search(query, chunks)
-    final_results = hybrid_search(vector_results + numeric_results, bm25_results)
-    retrieved_chunks = [chunks[i] for i in final_results if i < len(chunks)]
+    # ==========================================
+    # PHASE 3: HYBRID RETRIEVAL
+    # ==========================================
+    try:
+        best_chunks = await retrieval_service.execute_hybrid_search(
+            original_query=query,
+            enriched_query=enriched_search_query,
+            expanded_queries=expanded_queries
+        )
+    except ValueError as e:
+        # If the database is empty, we safely abort and tell the user
+        raise HTTPException(status_code=400, detail=str(e))
 
-    # 4. Cross-Encoder Re-Ranking 
-    best_chunks = rerank_results(query, retrieved_chunks, top_k=3)
+    # ==========================================
+    # PHASE 4: SYNTHESIS
+    # ==========================================
+    final_answer = await gen_service.generate_answer(query, best_chunks, session_id)
     
-    # 5. LLM Synthesis 
-    final_answer = generate_answer(query, best_chunks)
-
     return {
         "query": query,
         "answer": final_answer,
         "sources_used": best_chunks,
-        "hyde_document_used": "Disabled",
-        "expanded_queries_used": expanded_queries
+        "synonyms_generated": legal_synonyms
     }
 
 # -----------------------------
@@ -142,14 +152,14 @@ def extract_expected_values(chunks):
 # Evaluation endpoint
 # -----------------------------
 @app.get("/evaluate")
-def evaluate_system():
+async def evaluate_system():
     global chunks, bm25
 
     # --- THE STATELESS RECOVERY TRIGGER ---
     if chunks is None:
-        chunks = get_all_chunks()
+        chunks = await get_all_chunks()
         if not chunks:
-            return {"error": "Upload a PDF first."}
+            return {"error": "Upload a Document first."}
         bm25 = build_bm25(chunks)
     # --------------------------------------
 
@@ -160,9 +170,9 @@ def evaluate_system():
     results_summary = []
 
     for query, expected_answer in expected_answers.items():
-        query_embedding = create_embeddings([query.lower()])
+        query_embedding = await create_embeddings([query.lower()])
 
-        vector_results = search_qdrant(query_embedding[0])
+        vector_results = await search_qdrant(query_embedding[0])
         bm25_results = bm25_search(bm25, query.lower(), chunks)
         numeric_results = numeric_boost_search(query, chunks)
 

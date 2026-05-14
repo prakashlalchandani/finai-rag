@@ -1,244 +1,113 @@
-Retrieval Optimization in RAG for Financial Documents
-Overview
+# FinAudit AI - Enterprise RAG Engine
 
-This project implements a Retrieval-Augmented Generation (RAG) retrieval optimization pipeline for structured financial documents such as loan agreements. The system improves retrieval accuracy using semantic embeddings, BM25 keyword search, and hybrid ranking strategies, and exposes functionality through a FastAPI backend service.
+FinAudit AI is an advanced, autonomous financial auditing agent designed to parse complex legal loan agreements, calculate precise financial metrics (EMIs, penalties, disbursals), and provide context-aware conversational insights. 
 
-The objective is to demonstrate how retrieval quality improves when combining vector similarity search with keyword-aware retrieval techniques.
+Built with a state-of-the-art Agentic RAG (Retrieval-Augmented Generation) architecture, it leverages Llama 3, LangChain, and Hybrid Search to eliminate AI hallucinations and deliver enterprise-grade accuracy.
 
-🎯 Problem Statement
+![FinAudit AI UI](frontend/public/favicon.ico) **
 
-Design and optimize a Retrieval-Augmented Generation (RAG) pipeline to improve relevance and accuracy of retrieved document sections by:
+## 🚀 Key Features
 
-experimenting with embedding models
-implementing hybrid retrieval (vector + keyword search)
-improving ranking logic
-evaluating performance using structured queries
-🧠 Approach
+* **Agentic Routing:** Utilizes a high-speed Llama-3.1-8B "Front Door" router to instantly classify and respond to conversational queries, bypassing the heavy RAG pipeline to save tokens and drastically reduce latency.
+* **Stateful Conversational Memory:** Integrated with LangChain (`RunnableWithMessageHistory`) to maintain rolling context, allowing users to ask complex, multi-step follow-up questions using natural pronouns (e.g., "Multiply *that* penalty by 12").
+* **Hybrid Search Pipeline:** Combines dense vector embeddings (Qdrant), keyword matching (BM25), and Cross-Encoder re-ranking to accurately retrieve complex financial clauses hidden deep within dense legal text.
+* **Zero-Hallucination Tool Calling:** Features a secure, Python-based mathematical execution tool accessed via LLM tool-calling, guaranteeing 100% accuracy on financial arithmetic.
+* **Dynamic Markdown UI:** A highly responsive React frontend styled with Tailwind CSS v4, featuring a dark/light mode toggle and `@tailwindcss/typography` for beautifully rendered, highly readable AI responses.
 
-The pipeline processes uploaded PDFs and retrieves relevant document sections using a hybrid retrieval strategy:
+## 🛠️ Tech Stack
 
-PDF Upload
-↓
-Text Extraction
-↓
-Semantic Chunking
-↓
-Embedding Generation
-↓
-Vector Index (FAISS)
-+
-Keyword Index (BM25)
-↓
-Hybrid Retrieval
-↓
-Numeric-aware Boosting
-↓
-Evaluation Metrics
-↓
-FastAPI Endpoints
-⚙️ Features
+**Frontend:**
+* React (Vite)
+* Tailwind CSS v4
+* React-Markdown & Tailwind Typography
+* Axios & Lucide React (Icons)
 
-✅ Semantic chunking for structured financial clauses
-✅ Embedding-based similarity search
-✅ BM25 keyword retrieval
-✅ Hybrid ranking strategy
-✅ Numeric-aware retrieval boost for structured fields
-✅ Retrieval accuracy evaluation pipeline
-✅ Dynamic PDF upload support
-✅ FastAPI backend deployment
-✅ Swagger UI testing interface
+**Backend & AI Pipeline:**
+* FastAPI (Python)
+* Groq Cloud API (Llama-3.3-70B & Llama-3.1-8B)
+* LangChain & LangChain-Groq
+* Qdrant (Vector Database via Docker)
+* Unstructured (Document Parsing)
+* Sentence-Transformers (Embeddings & Re-ranking)
 
-📁 Project Structure
-rag_retrieval_optimization/
-│
-├── app.py
-├── main.py
-├── chunking.py
-├── embeddings.py
-├── vector_store.py
-├── hybrid_search.py
-├── evaluation.py
-├── sample_data/
-│
-└── README.md
-📦 Libraries Used
-Library	Purpose
-pypdf	Extract text from PDFs
-sentence-transformers	Generate semantic embeddings
-faiss-cpu	Vector similarity search
-rank-bm25	Keyword-based retrieval
-fastapi	Backend API service
-uvicorn	ASGI server
-🔍 Retrieval Pipeline Components
-1. Document Chunking
+---
 
-Instead of fixed-length splitting, documents are divided using line-aware semantic chunking to isolate structured clauses such as:
+## ⚙️ Local Setup & Installation
 
-Loan Amount Sanctioned
-Interest Rate
-EMI Amount
-Installments
+### Prerequisites
+* Python 3.9+
+* Node.js & npm
+* Docker Desktop
+* A [Groq API Key](https://console.groq.com/keys)
 
-This significantly improves retrieval precision.
+### 1. Start the Qdrant Vector Database (Docker)
+We use Docker to run Qdrant locally and persistently store vector embeddings. Run this command in your main project directory:
 
-2. Embedding Generation
+**Windows (PowerShell):**
+```powershell
+docker run -p 6333:6333 -p 6334:6334 -v ${PWD}/qdrant_storage:/qdrant/storage:z qdrant/qdrant
 
-Chunks are converted into dense vectors using:
 
-all-MiniLM-L6-v2
+2. Backend Setup
+Open a new terminal and navigate to your backend folder (if separated) or root directory.
 
-This enables semantic similarity matching between queries and document sections.
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-Example:
+# Install dependencies
+pip install fastapi uvicorn groq langchain langchain-groq langchain-community qdrant-client sentence-transformers python-dotenv pydantic unstructured
 
-"What is EMI amount?"
-≈
-"Equated Monthly Installment"
-3. Vector Retrieval (FAISS)
+# Create a .env file and add your Groq API Key
+echo "GROQ_API_KEY=your_actual_api_key_here" > .env
 
-FAISS indexes embeddings for fast nearest-neighbor search:
-
-query → embedding → vector similarity search → candidate chunks
-4. Keyword Retrieval (BM25)
-
-BM25 improves retrieval for structured financial fields where exact matches matter:
-
-interest rate
-loan amount
-installments
-5. Hybrid Retrieval Strategy
-
-Final ranking combines:
-
-Vector similarity
-+
-BM25 keyword scoring
-+
-Numeric-aware boosting
-
-This improves retrieval reliability in financial documents containing structured attributes.
-
-6. Numeric-Aware Boosting
-
-Structured financial attributes often contain numbers:
-
-Loan Amount : 200000
-Interest Rate : 13.65%
-Installments : 96
-
-Numeric-aware boosting ensures these fields rank higher during retrieval.
-
-📊 Evaluation Strategy
-
-Retrieval performance is measured using document-specific benchmark queries:
-
-Example:
-
-What is EMI amount?
-What is interest rate?
-Loan amount sanctioned?
-Number of installments?
-
-Accuracy is calculated by checking whether expected answers appear in retrieved chunks.
-
-Example:
-
-Baseline vector search accuracy: 0.50
-Hybrid retrieval accuracy: 1.00
-Improvement: +50%
-🚀 API Endpoints
-
-The pipeline is deployed using FastAPI.
-
-Health Check
-GET /
-
-Returns API status.
-
-Upload Document
-POST /upload
-
-Uploads and indexes a new PDF dynamically.
-
-Example response:
-
-Document uploaded and indexed successfully
-Search Document
-GET /search?query=What is EMI amount?
-
-Returns relevant document sections.
-
-Example:
-
-EMI Amount : Rs 2546
-Evaluate Retrieval Accuracy
-GET /evaluate
-
-Returns benchmark accuracy results.
-
-Example:
-
-accuracy: 1.0
-🧪 Running the Project
-Step 1: Install Dependencies
-pip install -r requirements.txt
-Step 2: Start API Server
+# Start the FastAPI server
 uvicorn app:app --reload
 
-Open:
+3. Frontend Setup
+Open a new terminal and navigate to your frontend directory.
 
-http://127.0.0.1:8000/docs
+cd frontend
 
-to access Swagger UI.
+# Install dependencies (including markdown parsers)
+npm install
+npm install react-markdown @tailwindcss/typography
 
-Step 3: Upload Document
+# Start the Vite development server
+npm run dev
 
-Use:
+💡 How to Use
+Open the UI at http://localhost:5173.
 
-POST /upload
-Step 4: Run Query
+Click "Upload Agreement" and select a complex .txt, .pdf, or .docx loan agreement.
 
-Use:
+Test the Agentic Router by saying simply: "Hello!" (Notice the instant response).
 
-GET /search
+Test the RAG Pipeline by asking: "What is my exact EMI amount?"
 
-Example:
+Test the Stateful Memory & Tools by asking: "What happens if I miss that payment for a month? Now multiply that penalty by 12."
 
-What is interest rate?
-Step 5: Evaluate Retrieval Accuracy
 
-Use:
+💡 How to Use
+Open the UI at http://localhost:5173.
 
-GET /evaluate
-📈 Results Summary
+Click "Upload Agreement" and select a complex .txt, .pdf, or .docx loan agreement.
 
-The hybrid retrieval pipeline improves structured financial field extraction accuracy by combining:
+Test the Agentic Router by saying simply: "Hello!" (Notice the instant response).
 
-semantic similarity search
-keyword ranking
-numeric-aware boosting
+Test the RAG Pipeline by asking: "What is my exact EMI amount?"
 
-Compared to baseline vector retrieval alone.
+Test the Stateful Memory & Tools by asking: "What happens if I miss that payment for a month? Now multiply that penalty by 12."
 
-🏗️ Design Decisions
+🧠 System Architecture
+Query Input: User sends a query.
 
-Key architectural improvements implemented:
+Router (8B Model): Decides if the query is a simple chat (returns instantly) or requires document retrieval.
 
-paragraph-aware chunking
-hybrid vector + BM25 retrieval
-numeric-field ranking boost
-evaluation normalization logic
-dynamic document indexing
-FastAPI deployment interface
+Query Expansion: Plain English is translated into legal synonyms (e.g., "loan amount" -> "Sanctioned Principal Sum").
 
-These changes significantly improved retrieval precision for structured loan agreements.
+Hybrid Retrieval: Qdrant (Vectors) + BM25 (Keywords) retrieve the top matching document chunks.
 
-🔮 Future Improvements
+Re-Ranking: A Cross-Encoder model scores and re-orders the chunks for maximum relevance.
 
-Potential enhancements:
-
-reranking using cross-encoder models
-metadata-aware chunk indexing
-multi-document indexing support
-caching embeddings
-graph-based retrieval reasoning
+Synthesis (70B Model): LangChain injects past conversation history, reads the retrieved chunks, utilizes the Python calculator tool if math is required, and streams the final Markdown response to the frontend.

@@ -1,60 +1,43 @@
-from qdrant_client import QdrantClient
+from qdrant_client import AsyncQdrantClient
 from qdrant_client.http import models
 from qdrant_client.models import Distance, VectorParams, PointStruct
+from config.settings import settings # <-- FIXED: Imported the lowercase instance
+from config.clients import qdrant_client as client
 import uuid
 
-# Initialize Qdrant persistent storage
-client = QdrantClient(path="./qdrant_storage")
-
-def get_active_collection():
-    """Finds the most recent collection after a server restart."""
-    collections = client.get_collections().collections
-    names = [c.name for c in collections if c.name.startswith("loan_agreements")]
-    return names[-1] if names else "loan_agreements"
-
-# Automatically locate the database name when the server boots up
-current_collection_name = get_active_collection()
-
-
-def build_qdrant_index(embeddings, chunks, filename):
-    global current_collection_name
+async def build_qdrant_index(embeddings, chunks, filename):
     dimension = len(embeddings[0])
 
-    # 1. Housekeeping: Delete old collections so we don't waste hard drive space
-    collections = client.get_collections().collections
-    for c in collections:
-        if c.name.startswith("loan_agreements"):
-            client.delete_collection(c.name)
+    # 1. Housekeeping: Delete the old collection if it exists
+    if await client.collection_exists(collection_name=settings.COLLECTION_NAME):
+        await client.delete_collection(collection_name=settings.COLLECTION_NAME)
 
-    # 2. Generate a fresh, unique collection name
-    current_collection_name = f"loan_agreements_{uuid.uuid4().hex[:8]}"
-
-    print(f"Current collection name: ", current_collection_name)
+    print(f"Creating collection: {settings.COLLECTION_NAME}")
     
-    # 3. Create the clean collection
-    client.create_collection(
-        collection_name=current_collection_name,
+    # 2. Create the clean collection
+    await client.create_collection(
+        collection_name=settings.COLLECTION_NAME,
         vectors_config=VectorParams(size=dimension, distance=Distance.COSINE),
     )
 
-    # 4. Insert points
+    # 3. Insert points
     points = []
     for i, (embedding, chunk) in enumerate(zip(embeddings, chunks)):
         points.append(PointStruct(
             id=str(uuid.uuid4()),
             vector=embedding.tolist(),
-            payload={"text": chunk, "original_index": i, "document_name": filename} # <-- filename add kiya 
+            payload={"text": chunk, "original_index": i, "document_name": filename}
         ))
 
-    client.upsert(
-        collection_name=current_collection_name,
+    await client.upsert(
+        collection_name=settings.COLLECTION_NAME,
         points=points
     )
     return True
 
 
-def search_qdrant(query_embedding, target_document=None, top_k=8):
-    if not client.collection_exists(collection_name=current_collection_name):
+async def search_qdrant(query_embedding, target_document=None):
+    if not await client.collection_exists(collection_name=settings.COLLECTION_NAME):
         return []
 
     search_filter = None
@@ -63,31 +46,31 @@ def search_qdrant(query_embedding, target_document=None, top_k=8):
             must=[models.FieldCondition(key="document_name", match=models.MatchValue(value=target_document))]
         )
 
-    search_result = client.query_points(
-        collection_name=current_collection_name,
+    # 1. First, await the entire response from Qdrant
+    response = await client.query_points(
+        collection_name=settings.COLLECTION_NAME, 
         query=query_embedding.tolist(),
-        query_filter=search_filter, # <-- Yahan filter lagaya
-        limit=top_k
-    ).points
+        query_filter=search_filter, 
+        limit=settings.TOP_K_RESULTS 
+    )
     
-    return [hit.payload["original_index"] for hit in search_result]
+    # 2. Then, extract the points and return the original index!
+    return [hit.payload["original_index"] for hit in response.points]
 
 
-def get_all_chunks():
+async def get_all_chunks():
     """Extracts all text chunks directly from the Qdrant database payloads."""
-    if not client.collection_exists(collection_name=current_collection_name):
+    # <-- ADD AWAIT
+    if not await client.collection_exists(collection_name=settings.COLLECTION_NAME):
         return []
         
-    # Qdrant's scroll API fetches records without needing a search query
-    records, _ = client.scroll(
-        collection_name=current_collection_name,
+    # <-- ADD AWAIT
+    records, _ = await client.scroll(
+        collection_name=settings.COLLECTION_NAME,
         limit=10000,
         with_payload=True,
         with_vectors=False
     )
     
-    # Sort by the original index so the document reads in the correct order
     sorted_records = sorted(records, key=lambda x: x.payload["original_index"])
-    
-    # Extract just the text strings
     return [record.payload["text"] for record in sorted_records]

@@ -3,6 +3,7 @@ fastapi
 uvicorn
 python-multipart
 python-dotenv
+pydantic-settings
 
 # --- AI & Embeddings ---
 groq
@@ -17,6 +18,7 @@ qdrant-client
 # --- Parsing & Chunking ---
 llama-index-core
 unstructured[pdf]
+python-docx
 pypdf
 
 # --- Search & Ranking ---
