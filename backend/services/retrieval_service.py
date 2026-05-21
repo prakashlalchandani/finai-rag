@@ -8,14 +8,14 @@ from config.clients import qdrant_client
 from config.logger import logger
 from embeddings import create_embeddings
 
-# 1. Load heavy models once at startup
 logger.info("Loading CrossEncoder Re-ranker into memory...")
 reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 
 class RetrievalService:
-    # 2. Class-level state (Replaces the dangerous 'global' variables)
-    _chunks = None
-    _bm25 = None
+    # Nested Dictionary structure: { session_id: { filename: [chunks] } }
+    _chunks = {}
+    # Dictionary for BM25 objects per session/document context
+    _bm25 = {}
 
     def __init__(self):
         self.qdrant = qdrant_client
@@ -24,96 +24,169 @@ class RetrievalService:
     # MEMORY MANAGEMENT
     # ==========================================
     @classmethod
-    async def sync_memory_state(cls):
-        """Stateless recovery: Pulls data from Qdrant if the server restarts."""
-        logger.warning("RAM is empty! Recovering state directly from Qdrant database...")
+    async def sync_memory_state(cls, session_id: str):
+        """Stateless recovery: Pulls ALL documents for this session from Qdrant if server restarts."""
+        logger.warning(f"RAM is empty for {session_id}! Recovering all documents from Qdrant...")
         if not await qdrant_client.collection_exists(collection_name=settings.COLLECTION_NAME):
             return False
             
         records, _ = await qdrant_client.scroll(
             collection_name=settings.COLLECTION_NAME,
+            scroll_filter=models.Filter(
+                must=[models.FieldCondition(key="session_id", match=models.MatchValue(value=session_id))]
+            ),
             limit=10000,
             with_payload=True,
             with_vectors=False
         )
         
-        sorted_records = sorted(records, key=lambda x: x.payload["original_index"])
-        cls._chunks = [record.payload["text"] for record in sorted_records]
+        if not records:
+            return False
+
+        # Initialize session structures
+        cls._chunks[session_id] = {}
         
-        tokenized = [chunk.split() for chunk in cls._chunks]
-        cls._bm25 = BM25Okapi(tokenized)
-        logger.info("Memory state successfully recovered.")
+        # Group chunks by their document_name natively
+        for record in records:
+            doc_name = record.payload.get("document_name", "unknown_document")
+            chunk_text = record.payload["text"]
+            orig_index = record.payload["original_index"]
+            
+            if doc_name not in cls._chunks[session_id]:
+                cls._chunks[session_id][doc_name] = []
+            
+            cls._chunks[session_id][doc_name].append((orig_index, chunk_text))
+
+        # Sort chunks back into original order and finalize the structure
+        for doc_name in cls._chunks[session_id]:
+            cls._chunks[session_id][doc_name].sort(key=lambda x: x[0])
+            cls._chunks[session_id][doc_name] = [text for _, text in cls._chunks[session_id][doc_name]]
+            
+            # Cache individual BM25 for this document
+            tokenized = [chunk.split() for chunk in cls._chunks[session_id][doc_name]]
+            if session_id not in cls._bm25:
+                cls._bm25[session_id] = {}
+            cls._bm25[session_id][doc_name] = BM25Okapi(tokenized)
+
+        logger.info(f"Successfully recovered {len(cls._chunks[session_id])} documents for session {session_id}.")
         return True
 
     @classmethod
-    def update_index(cls, new_chunks):
-        """Updates the memory cache instantly after a new file is uploaded."""
-        cls._chunks = new_chunks
-        tokenized = [chunk.split() for chunk in cls._chunks]
-        cls._bm25 = BM25Okapi(tokenized)
-        logger.info(f"Memory index updated with {len(new_chunks)} chunks.")
+    def update_index(cls, session_id: str, filename: str, new_chunks: list):
+        """Appends a new document into the session memory instead of overwriting."""
+        if session_id not in cls._chunks:
+            cls._chunks[session_id] = {}
+        if session_id not in cls._bm25:
+            cls._bm25[session_id] = {}
+
+        # Save chunks under the specific filename
+        cls._chunks[session_id][filename] = new_chunks
+        
+        # Build BM25 for this specific document
+        tokenized = [chunk.split() for chunk in new_chunks]
+        cls._bm25[session_id][filename] = BM25Okapi(tokenized)
+        
+        logger.info(f"Memory index appended with '{filename}' ({len(new_chunks)} chunks) for {session_id}.")
 
     # ==========================================
     # SEARCH PIPELINE
     # ==========================================
-    async def execute_hybrid_search(self, original_query: str, enriched_query: str, expanded_queries: list):
-        """Runs the entire hybrid retrieval and reranking pipeline."""
-        
-        # 1. Safety Check
-        if self.__class__._chunks is None:
-            success = await self.sync_memory_state()
-            if not success:
-                raise ValueError("Database is empty. Please upload a document.")
-
-        chunks = self.__class__._chunks
-        bm25 = self.__class__._bm25
-
-        # 2. Vector Search (Qdrant)
-        query_embedding = await create_embeddings([enriched_query.lower()])
-        response = await self.qdrant.query_points(
-            collection_name=settings.COLLECTION_NAME,
-            query=query_embedding[0].tolist(),
-            limit=settings.TOP_K_RESULTS
-        )
-        vector_results = [hit.payload["original_index"] for hit in response.points]
-
-        # 3. Keyword Search (BM25)
-        bm25_results = []
-        all_queries = expanded_queries + [original_query, enriched_query]
-        for q in all_queries:
-            scores = bm25.get_scores(q.lower().split())
-            ranked = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
-            bm25_results.extend(ranked[:3])
-        bm25_results = list(dict.fromkeys(bm25_results)) # Remove duplicates
-
-        # 4. Numeric Boost Search
-        numeric_results = []
-        numbers_in_query = re.findall(r'\d+', original_query)
-        if numbers_in_query:
-            for i, chunk in enumerate(chunks):
-                if any(num in chunk for num in numbers_in_query):
-                    numeric_results.append(i)
-        numeric_results = numeric_results[:3]
-
-        # 5. Hybrid Merge
-        combined_indices = []
-        max_len = max(len(vector_results + numeric_results), len(bm25_results))
-        for i in range(max_len):
-            if i < len(vector_results) and vector_results[i] not in combined_indices:
-                combined_indices.append(vector_results[i])
-            if i < len(bm25_results) and bm25_results[i] not in combined_indices:
-                combined_indices.append(bm25_results[i])
-            if len(combined_indices) >= settings.TOP_K_RESULTS * 2:
-                break
+    async def execute_hybrid_search(self, original_query: str, enriched_query: str, expanded_queries: list, session_id: str, document_selector: str = "all"):
+                """Runs hybrid retrieval filtering by session_id and conditionally by document_name."""
                 
-        retrieved_chunks = [chunks[i] for i in combined_indices if i < len(chunks)]
+                # 1. Recovery Safety Check (FIXED: changed cls to self.__class__)
+                if session_id not in self.__class__._chunks:
+                    success = await self.sync_memory_state(session_id)
+                    if not success:
+                        raise ValueError("No documents found for this session. Please upload a document first.")
 
-        # 6. Cross-Encoder Re-Ranking
-        if not retrieved_chunks:
-            return []
-            
-        pairs = [[enriched_query, chunk] for chunk in retrieved_chunks]
-        scores = reranker.predict(pairs)
-        ranked_pairs = sorted(zip(scores, retrieved_chunks), reverse=True)
-        
-        return [chunk for score, chunk in ranked_pairs][:settings.TOP_K_RESULTS]
+                # 2. Compile Context (Specific Document vs All Documents)
+                active_chunks = []
+                
+                if document_selector == "all":
+                    # Flatten all documents chunks into a single list for global search
+                    for doc_name, chunks in self.__class__._chunks[session_id].items():
+                        active_chunks.extend(chunks)
+                    
+                    # Dynamically compile BM25 for the global selection
+                    tokenized_all = [chunk.split() for chunk in active_chunks]
+                    bm25_engine = BM25Okapi(tokenized_all)
+                    
+                    # Setup Qdrant filter for just the session
+                    qdrant_filter = models.Filter(
+                        must=[models.FieldCondition(key="session_id", match=models.MatchValue(value=session_id))]
+                    )
+                else:
+                    if document_selector not in self.__class__._chunks[session_id]:
+                        raise ValueError(f"Document '{document_selector}' not found in active session.")
+                        
+                    active_chunks = self.__class__._chunks[session_id][document_selector]
+                    bm25_engine = self.__class__._bm25[session_id][document_selector]
+                    
+                    # Setup Qdrant filter for session AND specific document
+                    qdrant_filter = models.Filter(
+                        must=[
+                            models.FieldCondition(key="session_id", match=models.MatchValue(value=session_id)),
+                            models.FieldCondition(key="document_name", match=models.MatchValue(value=document_selector))
+                        ]
+                    )
+
+                if not active_chunks:
+                    return []
+
+                # ... baaki ka tera vector search aur keyword search wala code same rahega ...
+
+                # 3. Vector Search (Qdrant)
+                query_embedding = await create_embeddings([enriched_query.lower()])
+                response = await self.qdrant.query_points(
+                    collection_name=settings.COLLECTION_NAME,
+                    query=query_embedding[0].tolist(),
+                    query_filter=qdrant_filter,
+                    limit=settings.TOP_K_RESULTS
+                )
+                
+                # If searching "all", indices map differently, so we extract raw text directly from Qdrant payloads
+                vector_chunks = [hit.payload["text"] for hit in response.points]
+
+                # 4. Keyword Search (BM25)
+                bm25_chunks = []
+                all_queries = expanded_queries + [original_query, enriched_query]
+                for q in all_queries:
+                    scores = bm25_engine.get_scores(q.lower().split())
+                    ranked_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
+                    for idx in ranked_indices[:3]:
+                        if idx < len(active_chunks):
+                            bm25_chunks.append(active_chunks[idx])
+                bm25_chunks = list(dict.fromkeys(bm25_chunks))
+
+                # 5. Numeric Boost Search
+                numeric_chunks = []
+                numbers_in_query = re.findall(r'\d+', original_query)
+                if numbers_in_query:
+                    for chunk in active_chunks:
+                        if any(num in chunk for num in numbers_in_query):
+                            numeric_chunks.append(chunk)
+                numeric_chunks = numeric_chunks[:3]
+
+                # 6. Hybrid Merge (Combining results smoothly)
+                combined_chunks = []
+                max_len = max(len(vector_chunks + numeric_chunks), len(bm25_chunks))
+                for i in range(max_len):
+                    if i < len(vector_chunks) and vector_chunks[i] not in combined_chunks:
+                        combined_chunks.append(vector_chunks[i])
+                    if i < len(bm25_chunks) and bm25_chunks[i] not in combined_chunks:
+                        combined_chunks.append(bm25_chunks[i])
+                    if i < len(numeric_chunks) and numeric_chunks[i] not in combined_chunks:
+                        combined_chunks.append(numeric_chunks[i])
+                    if len(combined_chunks) >= settings.TOP_K_RESULTS * 2:
+                        break
+
+                # 7. Cross-Encoder Re-Ranking
+                if not combined_chunks:
+                    return []
+                    
+                pairs = [[enriched_query, chunk] for chunk in combined_chunks]
+                scores = reranker.predict(pairs)
+                ranked_pairs = sorted(zip(scores, combined_chunks), reverse=True)
+                
+                return [chunk for score, chunk in ranked_pairs][:settings.TOP_K_RESULTS]

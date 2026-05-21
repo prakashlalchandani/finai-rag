@@ -1,8 +1,14 @@
 import json
+import asyncio
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_community.chat_message_histories import ChatMessageHistory
-from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain_core.messages import HumanMessage, AIMessage
+
+# --- New Database Imports ---
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select
+import models.model as models
+# ----------------------------
 
 from config.settings import settings
 from config.clients import groq_client
@@ -10,22 +16,44 @@ from config.logger import logger
 
 class GenerationService:
     def __init__(self):
-        # State isolated to this specific service instance
-        self.store = {}
         self.client = groq_client
-        
-        # Initialize LangChain LLM once when the service is created
         self.llm = ChatGroq(
             model=settings.SYNTHESIS_MODEL,
             temperature=0,
             api_key=settings.GROQ_API_KEY
         )
 
-    def _get_session_history(self, session_id: str):
-        """Internal helper to manage chat history."""
-        if session_id not in self.store:
-            self.store[session_id] = ChatMessageHistory()
-        return self.store[session_id]
+    async def get_chat_history_from_db(self, db: AsyncSession, session_id: str):
+        """PostgreSQL se specific session ki chat history nikalta hai."""
+        stmt = select(models.Message).where(
+            models.Message.session_id == session_id
+        ).order_by(models.Message.created_at.asc())
+        
+        result = await db.execute(stmt)
+        db_messages = result.scalars().all()
+        
+        # LangChain compatible format mein convert karo
+        langchain_history = []
+        for msg in db_messages:
+            if msg.role == "user":
+                langchain_history.append(HumanMessage(content=msg.text))
+            elif msg.role == "ai":
+                langchain_history.append(AIMessage(content=msg.text))
+        return langchain_history
+
+    async def save_message_to_db(self, db: AsyncSession, session_id: str, role: str, text: str):
+        """Naye chat message ko database mein permanently save karta hai."""
+        # Ensure session exists first
+        session_check = await db.get(models.ChatSession, session_id)
+        if not session_check:
+            new_session = models.ChatSession(id=session_id, user_id=1, session_name=f"Chat {session_id[:8]}")
+            db.add(new_session)
+            await db.flush() # Memory state validate karo bina commit kiye
+            
+        new_msg = models.Message(session_id=session_id, role=role, text=text)
+        db.add(new_msg)
+        await db.commit()
+        return new_msg
 
     async def route_query(self, user_query: str):
         """The Front Door Supervisor Agent."""
@@ -75,9 +103,39 @@ class GenerationService:
         except Exception as e:
             logger.error(f"Query expansion failed. Error: {e}")
             return ""
+        
+    async def generate_multi_queries(self, query: str, max_retries: int = 3) -> list:
+        """Rewrites the query into multiple formal variations using Groq."""
+        prompt = f"""
+        Rewrite the following search query into 3 different variations using formal financial and banking terminology.
+        Return only the queries, separated by newlines. Do not use bullet points or numbers.
+        Original query: '{query}'
+        """
+        
+        for attempt in range(max_retries):
+            try:
+                response = await self.client.chat.completions.create(
+                    messages=[{"role": "user", "content": prompt}],
+                    model=settings.ROUTER_MODEL,
+                    temperature=0.2
+                )
+                
+                text_output = response.choices[0].message.content.strip()
+                queries = [q.strip() for q in text_output.split('\n') if q.strip()]
+                logger.info(f"Multi-queries generated: {queries}")
+                return queries
+                
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    wait_time = 2 ** attempt
+                    logger.warning(f"Groq API busy. Retrying Multi-Query in {wait_time}s... Error: {e}")
+                    await asyncio.sleep(wait_time) # Non-blocking wait!
+                else:
+                    logger.error(f"Groq API unavailable. Skipping Multi-Query. Error: {e}")
+                    return []
 
-    async def generate_answer(self, query: str, retrieved_chunks: list, session_id: str):
-        """Synthesizes the final answer using LangChain."""
+    async def generate_answer(self, query: str, retrieved_chunks: list, session_id: str, db: AsyncSession):
+        """Synthesizes the final answer using DB Chat History."""
         context = "\n\n".join(retrieved_chunks)
         
         system_prompt = (
@@ -87,6 +145,9 @@ class GenerationService:
             "3. EXTRACT CAREFULLY.\n"
         )
 
+        # 1. DB se pichli history lekar aao
+        chat_history = await self.get_chat_history_from_db(db, session_id)
+
         prompt = ChatPromptTemplate.from_messages([
             ("system", system_prompt),
             MessagesPlaceholder(variable_name="chat_history"), 
@@ -94,18 +155,17 @@ class GenerationService:
         ])
 
         chain = prompt | self.llm
+        logger.info(f"Synthesizing response for session: {session_id} using DB history...")
 
-        chain_with_history = RunnableWithMessageHistory(
-            chain,
-            self._get_session_history,
-            input_messages_key="query",
-            history_messages_key="chat_history",
-        )
+        # 2. Invoke Chain with active history list
+        response = await chain.ainvoke({
+            "query": query, 
+            "context": context,
+            "chat_history": chat_history
+        })
 
-        logger.info(f"Synthesizing response for session: {session_id}...")
+        # 3. Save User Query and AI Response to DB asynchronously
+        await self.save_message_to_db(db, session_id, "user", query)
+        await self.save_message_to_db(db, session_id, "ai", response.content)
 
-        response = await chain_with_history.ainvoke(
-            {"query": query, "context": context},
-            config={"configurable": {"session_id": session_id}}
-        )
         return response.content

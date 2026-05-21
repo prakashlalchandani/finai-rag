@@ -1,10 +1,13 @@
+import re
+import asyncio # <-- Naya import event loop threading ke liye
+
 from unstructured.partition.auto import partition
 from llama_index.core import Document
-from llama_index.core.node_parser import HierarchicalNodeParser
+from llama_index.core.node_parser import SentenceSplitter
 
 from config.settings import settings
 from config.logger import logger
-from config.clients import groq_client # <-- Importing the centralized client!
+from config.clients import groq_client
 
 async def summarize_table(table_html):
     """Uses the lightning-fast Groq model to convert a raw table into natural sentences asynchronously."""
@@ -18,7 +21,6 @@ async def summarize_table(table_html):
     """
     
     try:
-        # FIXED: Added 'await' to the async network call
         response = await groq_client.chat.completions.create(
             model=settings.ROUTER_MODEL,
             messages=[{"role": "user", "content": prompt}],
@@ -29,16 +31,20 @@ async def summarize_table(table_html):
         logger.warning(f"Table summarization failed. Error: {e}")
         return "Table summarization unavailable."
 
-async def create_chunks(file_location):
-    """Extracts and chunks text and tables asynchronously."""
-    logger.info("Extracting text and tables using Unstructured...")
-    
-    # 1. The Pro-Level Table Extractor (Unstructured)
-    elements = partition(
-        filename=file_location,
+def extract_pdf_sync(file_loc):
+    """Yeh synchronous function hai jo background thread me chalega."""
+    return partition(
+        filename=file_loc,
         strategy="hi_res",
         infer_table_structure=True
     )
+
+async def create_chunks(file_location):
+    """Extracts and chunks text and tables asynchronously without blocking the event loop."""
+    logger.info("Extracting text and tables using Unstructured (hi_res mode) in background thread...")
+    
+    # 1. FIXED: Offloaded to a background thread to prevent blocking FastAPI
+    elements = await asyncio.to_thread(extract_pdf_sync, file_location)
     
     processed_texts = []
     
@@ -48,7 +54,6 @@ async def create_chunks(file_location):
             logger.info("Table detected! Generating semantic summary with Groq...")
             table_html = el.metadata.text_as_html if hasattr(el.metadata, 'text_as_html') and el.metadata.text_as_html else str(el)
             
-            # FIXED: Added 'await' since summarize_table is now async
             table_summary = await summarize_table(table_html)
             
             processed_texts.append(f"RAW TABLE DATA:\n{str(el)}\n\nTABLE SUMMARY:\n{table_summary}")
@@ -61,9 +66,9 @@ async def create_chunks(file_location):
     document = Document(text=clean_text)
     
     # 4. The Enterprise Chunking Tree (LlamaIndex)
-    logger.info("Building Hierarchical nodes...")
-    node_parser = HierarchicalNodeParser.from_defaults(
-        chunk_sizes=[2048, 512, 128]
+    logger.info("Chunking text using SentenceSplitter...")
+    node_parser = SentenceSplitter(
+        chunk_size=1024, chunk_overlap=200
     )
     nodes = node_parser.get_nodes_from_documents([document])
     

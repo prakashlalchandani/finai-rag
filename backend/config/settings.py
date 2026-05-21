@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     QDRANT_URL: str = "http://localhost:6333"
     FRONTEND_URL: str = "http://localhost:5173"
     COLLECTION_NAME: str = "finaudit_agreements"
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:db_sql123@localhost:5432/finaudit_db"
 
     # ==========================================
     # 3. AI Models (Groq)

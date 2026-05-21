@@ -1,48 +1,73 @@
+import asyncio
+import os
 from chunking import create_chunks
-from embeddings import create_embeddings, model
-# THE FIX: Updated imports to use Qdrant
-from vector_store import build_qdrant_index, search_qdrant 
-from hybrid_search import build_bm25, bm25_search, hybrid_search
-from evaluation import test_questions, check_retrieval
+from embeddings import create_embeddings
+from vector_store import build_qdrant_index
+from services.generation_service import GenerationService
+from services.retrieval_service import RetrievalService
+from config.logger import logger
 
-def run_evaluation(pdf_path):
+async def run_cli_pipeline(pdf_path: str):
+    # 1. Initialize Services
+    gen_service = GenerationService()
+    ret_service = RetrievalService()
 
-    chunks = create_chunks(pdf_path)
-    embeddings = create_embeddings(chunks)
+    # 2. Process and Index (The Upload Phase)
+    logger.info(f"Processing document: {pdf_path}")
+    if not os.path.exists(pdf_path):
+        print(f"Error: File {pdf_path} not found.")
+        return
 
-    # THE FIX: Build the Qdrant persistent index instead of FAISS
-    build_qdrant_index(embeddings, chunks)
+    chunks = await create_chunks(pdf_path)
+    embeddings = await create_embeddings(chunks)
     
-    bm25 = build_bm25(chunks)
+    # Index to Qdrant
+    filename = os.path.basename(pdf_path)
+    await build_qdrant_index(embeddings, chunks, filename)
+    
+    # Update the service's memory state immediately
+    ret_service.update_index(chunks)
 
-    correct = 0
-    total = len(test_questions)
+    print("\n--- Document Indexed Successfully ---")
 
-    for query, expected_answer in test_questions.items():
+    # 3. Interactive Search Loop
+    while True:
+        query = input("\nAsk a question about the document (or type 'exit' to quit): ")
+        if query.lower() in ['exit', 'quit']:
+            break
 
-        query_embedding = model.encode([query.lower()])
+        print("🔍 Searching and generating answer...")
 
-        # THE FIX: Use Qdrant search. Notice we pass [0] to get the specific vector array
-        vector_results = search_qdrant(query_embedding[0])
+        # A. Routing & Translation
+        routing_decision = await gen_service.route_query(query)
+        if routing_decision["route"] == "chat":
+            print(f"\nAI (Chat): {routing_decision['chat_response']}")
+            continue
 
-        bm25_results = bm25_search(bm25, query, chunks)
+        legal_synonyms = await gen_service.expand_query_with_synonyms(query)
+        enriched_query = f"{query} {legal_synonyms}"
+        multi_queries = await gen_service.generate_multi_queries(query)
 
-        final_results = hybrid_search(vector_results, bm25_results)
+        # B. Hybrid Retrieval & Reranking
+        try:
+            best_chunks = await ret_service.execute_hybrid_search(
+                original_query=query,
+                enriched_query=enriched_query,
+                expanded_queries=multi_queries
+            )
+        except Exception as e:
+            print(f"Retrieval Error: {e}")
+            continue
 
-        retrieved_chunks = [chunks[i] for i in final_results]
+        # C. Synthesis
+        final_answer = await gen_service.generate_answer(query, best_chunks, "cli_session")
 
-        result = check_retrieval(expected_answer, retrieved_chunks)
-
-        print("\nQuery:", query)
-        print("Match Found:", result)
-
-        if result:
-            correct += 1
-
-    accuracy = correct / total
-
-    print("\nFinal Accuracy:", accuracy)
+        print(f"\nAI (RAG): {final_answer}")
+        print("-" * 30)
+        print(f"Sources Used: {len(best_chunks)} chunks.")
 
 if __name__ == "__main__":
-    pdf_path = input("Enter PDF path for evaluation: ")
-    run_evaluation(pdf_path)
+    path = input("Enter PDF path: ").strip()
+    # Remove quotes if the user copied path as "C:\path\to\file.pdf"
+    path = path.replace('"', '').replace("'", "")
+    asyncio.run(run_cli_pipeline(path))
