@@ -2042,3 +2042,1328 @@ AttributeError: 'RetrievalService' object has no attribute 'execute_hybrid_searc
 2026-05-21 17:18:01 - [app.py] - INFO - ✍️ Generating final answer with LLM...
 2026-05-21 17:18:01 - [generation_service.py] - INFO - Synthesizing response for session: 3 using DB history...
 2026-05-21 17:18:02 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 11:45:04 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-05-22 11:49:45 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'Can you tell me my credentials?' for session: 3
+2026-05-22 11:49:45 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 11:49:49 - [generation_service.py] - INFO - Routing Decision: AUTH
+2026-05-22 11:49:49 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 11:49:49 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 11:49:49 - [generation_service.py] - INFO - Query Expanded with Synonyms: User authentication, Personal identification information, Account verification details, Login credentials, Access authorization.
+2026-05-22 11:49:50 - [generation_service.py] - INFO - Multi-queries generated: ['User Authentication Request: Retrieve Account Holder Identification Details', 'User Identification Verification: Provide Access Credentials for Authorized User', 'Account Access Authorization: Confirm User Identity and Display Account Information', 'Account Holder Information Disclosure: Request and Provide User Credentials for Verification', 'User Account Verification: Request and Display User Identification and Access Credentials', 'Account Access Request: Confirm User Identity and Provide Access Credentials']
+2026-05-22 11:49:50 - [app.py] - INFO - ✅ Query expanded. Synonyms: User authentication, Personal identification information, Account verification details, Login credentials, Access authorization.
+2026-05-22 11:49:50 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 11:49:50 - [retrieval_service.py] - WARNING - RAM is empty for 3! Recovering all documents from Qdrant...
+2026-05-22 11:49:52 - [retrieval_service.py] - INFO - Successfully recovered 3 documents for session 3.
+2026-05-22 11:49:56 - [app.py] - INFO - ✅ Hybrid Search complete. Found 3 highly relevant chunks.
+2026-05-22 11:49:56 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 11:49:56 - [generation_service.py] - INFO - Synthesizing response for session: 3 using DB history...
+2026-05-22 11:50:00 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 11:51:16 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'Hello' for session: 3
+2026-05-22 11:51:16 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 11:51:16 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-05-22 11:51:16 - [app.py] - INFO - 💬 Route decided: CHAT (Bypassing RAG)
+2026-05-22 11:51:32 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'Do you remember what the EMI amount was?' for session: 3
+2026-05-22 11:51:32 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 11:51:32 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 11:51:32 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 11:51:32 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 11:51:32 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Redetermination, Monthly Repayment, Monthly Amortization, Monthly Capital Repayment.
+2026-05-22 11:51:33 - [generation_service.py] - INFO - Multi-queries generated: ['What was the monthly equivalent installment (MEI) amount for the loan?', 'What was the monthly payment amount for the loan, specifically the equivalent monthly installment (EMI)?', 'Could you provide the monthly equivalent installment (MEI) amount for the loan in question?']
+2026-05-22 11:51:33 - [app.py] - INFO - ✅ Query expanded. Synonyms: Equated Monthly Installment, Monthly Redetermination, Monthly Repayment, Monthly Amortization, Monthly Capital Repayment.
+2026-05-22 11:51:33 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 11:51:34 - [app.py] - INFO - ✅ Hybrid Search complete. Found 3 highly relevant chunks.
+2026-05-22 11:51:34 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 11:51:34 - [generation_service.py] - INFO - Synthesizing response for session: 3 using DB history...
+2026-05-22 11:51:35 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 12:36:44 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-05-22 12:40:24 - [app.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 12:40:50 - [app.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-05-22 12:41:00 - [app.py] - INFO - Login attempt for: yash@gmail.com
+2026-05-22 12:41:06 - [app.py] - INFO - Login attempt for: yash@gmail.com
+2026-05-22 12:41:41 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete loan part1.docx for session 2
+2026-05-22 12:41:41 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:41:43 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete loan part2.docx for session 2
+2026-05-22 12:41:43 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:41:58 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete loan agreement!@ for session 1
+2026-05-22 12:41:58 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:42:00 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete loan.txt for session 1
+2026-05-22 12:42:00 - [app.py] - INFO - ✅ Removed from PostgreSQL.
+2026-05-22 12:42:00 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:42:02 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete loan_agreement_2.pdf for session 1
+2026-05-22 12:42:02 - [app.py] - INFO - ✅ Removed from PostgreSQL.
+2026-05-22 12:42:03 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:42:04 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete loan2.txt for session 1
+2026-05-22 12:42:04 - [app.py] - INFO - ✅ Removed from PostgreSQL.
+2026-05-22 12:42:04 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:42:06 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete OMEGA PRIME FINANCIAL SERVICES.docx for session 1
+2026-05-22 12:42:06 - [app.py] - INFO - ✅ Removed from PostgreSQL.
+2026-05-22 12:42:06 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:42:25 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part1.pdf
+2026-05-22 12:42:25 - [app.py] - INFO - 💾 Saving file locally to sample_data/415fd103-841f-420a-b934-bf99f52e48b7.pdf...
+2026-05-22 12:42:25 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 12:42:25 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 12:42:25 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 12:42:49 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 12:42:49 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 12:42:49 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 12:42:51 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 12:42:51 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 12:42:51 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 12:42:51 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 12:42:51 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part1.pdf' (1 chunks) for 1.
+2026-05-22 12:42:51 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 12:42:51 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 12:42:51 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 12:43:08 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete loan agreement!@ for session 1
+2026-05-22 12:43:08 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:43:10 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete loan.txt for session 1
+2026-05-22 12:43:10 - [app.py] - INFO - ✅ Removed from PostgreSQL.
+2026-05-22 12:43:10 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:43:12 - [app.py] - INFO - 🗑️ [DELETE START] Request to delete loan2.txt for session 1
+2026-05-22 12:43:12 - [app.py] - INFO - ✅ Removed from PostgreSQL.
+2026-05-22 12:43:13 - [app.py] - INFO - ✅ Vectors removed from Qdrant.
+2026-05-22 12:43:22 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part 2.pdf
+2026-05-22 12:43:22 - [app.py] - INFO - 💾 Saving file locally to sample_data/c3afca3c-d331-429b-849d-de300deefdae.pdf...
+2026-05-22 12:43:22 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 12:43:22 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 12:43:22 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 12:43:28 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 12:43:28 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 12:43:28 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 12:43:29 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 12:43:29 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 12:43:29 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 12:43:29 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 12:43:29 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part 2.pdf' (1 chunks) for 1.
+2026-05-22 12:43:29 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 12:43:29 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 12:43:29 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 12:43:35 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-05-22 12:43:35 - [app.py] - INFO - 💾 Saving file locally to sample_data/79798d55-0312-489f-9663-d34bde072cda.txt...
+2026-05-22 12:43:35 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 12:43:35 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 12:43:35 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 12:43:36 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 12:43:36 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 12:43:36 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 12:43:38 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 12:43:38 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 12:43:38 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 12:43:38 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 12:43:38 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 2.
+2026-05-22 12:43:38 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 12:43:38 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 12:43:38 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 12:44:49 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'What is the key info is in this document?' for session: 1
+2026-05-22 12:44:49 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 12:44:49 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 12:44:49 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 12:44:49 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 12:44:49 - [generation_service.py] - INFO - Query Expanded with Synonyms: litigation, assets, liabilities, financial statements, accounting records, legal proceedings, business operations, corporate governance, regulatory compliance, contractual obligations.
+2026-05-22 12:44:50 - [generation_service.py] - INFO - Multi-queries generated: ['What are the salient points and key takeaways from this financial document?', 'What are the essential elements and primary information contained within this banking report?', 'What are the critical data points and main findings presented in this financial statement?']
+2026-05-22 12:44:50 - [app.py] - INFO - ✅ Query expanded. Synonyms: litigation, assets, liabilities, financial statements, accounting records, legal proceedings, business operations, corporate governance, regulatory compliance, contractual obligations.
+2026-05-22 12:44:50 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 12:44:51 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 12:44:51 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 12:44:51 - [generation_service.py] - INFO - Synthesizing response for session: 1 using DB history...
+2026-05-22 12:44:52 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 13:00:39 - [app.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 13:00:49 - [app.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 13:01:15 - [app.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 13:01:31 - [app.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-05-22 13:01:36 - [app.py] - INFO - Login attempt for: yash@gmail.com
+2026-05-22 13:10:17 - [app.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-05-22 13:11:35 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: OMEGA PRIME FINANCIAL SERVICES.docx
+2026-05-22 13:11:35 - [app.py] - INFO - 💾 Saving file locally to sample_data/9da8efc8-97c5-4080-807c-cddc9cc38cc7.docx...
+2026-05-22 13:11:35 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 13:11:35 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 13:11:35 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 13:11:42 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 13:11:43 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 13:11:50 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 2 chunks.
+2026-05-22 13:11:50 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 13:11:51 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 13:11:51 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 13:11:52 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 13:11:52 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 13:11:52 - [retrieval_service.py] - INFO - Memory index appended with 'OMEGA PRIME FINANCIAL SERVICES.docx' (2 chunks) for 3_1779435618327.
+2026-05-22 13:11:52 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 13:11:52 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 13:11:53 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 13:12:29 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-05-22 13:12:29 - [app.py] - INFO - 💾 Saving file locally to sample_data/4a214493-5290-4016-8c98-3d397661fbac.docx...
+2026-05-22 13:12:29 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 13:12:29 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 13:12:29 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 13:12:32 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 13:12:32 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 13:12:32 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 13:12:32 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 13:12:32 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 13:12:33 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 13:12:33 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 13:12:33 - [retrieval_service.py] - INFO - Memory index appended with 'loan agreement!@#$%.docx' (1 chunks) for 3_1779435618327.
+2026-05-22 13:12:33 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 13:12:33 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 13:12:33 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 13:13:01 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-05-22 13:13:01 - [app.py] - INFO - 💾 Saving file locally to sample_data/5f6060e2-b0a3-48f2-af51-7f6cd9db9880.pdf...
+2026-05-22 13:13:01 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 13:13:01 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 13:13:01 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 13:13:48 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 13:13:48 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 13:13:49 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 13:13:49 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 13:13:49 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 2 chunks.
+2026-05-22 13:13:49 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 13:13:50 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 13:13:50 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 13:13:50 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 13:13:50 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 13:13:50 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 3_1779435618327.
+2026-05-22 13:13:50 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 13:13:50 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 13:13:50 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 13:14:31 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part 2.pdf
+2026-05-22 13:14:31 - [app.py] - INFO - 💾 Saving file locally to sample_data/6b2638b5-9458-4f1b-ad99-d0454a20d2ab.pdf...
+2026-05-22 13:14:31 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 13:14:31 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 13:14:31 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 13:14:41 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 13:14:41 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 13:14:41 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 13:14:42 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 13:14:42 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 13:14:42 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 13:14:42 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 13:14:42 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part 2.pdf' (1 chunks) for 1_1779435076580.
+2026-05-22 13:14:42 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 13:14:42 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 13:14:42 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 13:15:01 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part1.pdf
+2026-05-22 13:15:01 - [app.py] - INFO - 💾 Saving file locally to sample_data/1bb627dd-1046-4849-8be6-caf7d1cfdcfe.pdf...
+2026-05-22 13:15:01 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 13:15:01 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 13:15:01 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 13:15:11 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 13:15:11 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 13:15:11 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 13:15:12 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 13:15:12 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 13:15:12 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 13:15:12 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 13:15:12 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part1.pdf' (1 chunks) for 1_1779435076580.
+2026-05-22 13:15:12 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 13:15:12 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 13:15:12 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 13:51:06 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part1.pdf
+2026-05-22 13:51:06 - [app.py] - INFO - 💾 Saving file locally to sample_data/f64e8a27-909b-41eb-abf3-c0fe8ec39cfa.pdf...
+2026-05-22 13:51:06 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 13:51:06 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 13:51:06 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 13:51:16 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 13:51:16 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 13:51:16 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 13:51:17 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 13:51:17 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 13:51:17 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 13:51:17 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 13:51:17 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part1.pdf' (1 chunks) for 1_1779435076580.
+2026-05-22 13:51:17 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 13:51:17 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 13:51:17 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 13:51:45 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-05-22 13:51:45 - [app.py] - INFO - 💾 Saving file locally to sample_data/ba60e94f-909a-4c13-bc39-1c1ca4a058ea.docx...
+2026-05-22 13:51:45 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 13:51:45 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 13:51:45 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 13:51:48 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 13:51:48 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 13:51:48 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 13:51:50 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 13:51:50 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 13:51:50 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 13:51:50 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 13:51:50 - [retrieval_service.py] - INFO - Memory index appended with 'loan agreement!@#$%.docx' (1 chunks) for 3_1779435618327.
+2026-05-22 13:51:50 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 13:51:50 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 13:51:50 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 13:52:07 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part2.pdf
+2026-05-22 13:52:07 - [app.py] - INFO - 💾 Saving file locally to sample_data/265f0327-706f-4b0f-ac0c-2ec7b4422426.pdf...
+2026-05-22 13:52:07 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 13:52:07 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 13:52:07 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 13:52:17 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 13:52:17 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 13:52:17 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 13:52:18 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 13:52:18 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 13:52:18 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 13:52:18 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 13:52:18 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part2.pdf' (1 chunks) for 1_1779435076580.
+2026-05-22 13:52:18 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 13:52:18 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 13:52:18 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 13:52:27 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: OMEGA PRIME FINANCIAL SERVICES.docx
+2026-05-22 13:52:27 - [app.py] - INFO - 💾 Saving file locally to sample_data/b740a8f4-7118-44fa-8b23-cfd11722a9b6.docx...
+2026-05-22 13:52:27 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 13:52:27 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 13:52:27 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 13:52:28 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 13:52:29 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 13:52:29 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 2 chunks.
+2026-05-22 13:52:29 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 13:52:30 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 13:52:30 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 13:52:30 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 13:52:30 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 13:52:30 - [retrieval_service.py] - INFO - Memory index appended with 'OMEGA PRIME FINANCIAL SERVICES.docx' (2 chunks) for 3_1779435618327.
+2026-05-22 13:52:30 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 13:52:30 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 13:52:30 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 14:07:49 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-05-22 14:08:54 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-05-22 14:09:17 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part1.pdf
+2026-05-22 14:09:17 - [app.py] - INFO - 💾 Saving file locally to sample_data/bae0bcb8-e3a7-4e58-bde3-9564a8a1c765.pdf...
+2026-05-22 14:09:17 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 14:09:17 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 14:09:17 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 14:10:00 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 14:10:01 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 14:10:01 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 14:10:02 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 14:10:02 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 14:10:03 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 14:10:03 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 14:10:03 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part1.pdf' (1 chunks) for 1_1779435076580.
+2026-05-22 14:10:03 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 14:10:03 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 14:10:03 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 14:10:11 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part2.pdf
+2026-05-22 14:10:11 - [app.py] - INFO - 💾 Saving file locally to sample_data/a2dac720-1b3e-4224-9c84-98f51062c629.pdf...
+2026-05-22 14:10:11 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 14:10:11 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 14:10:11 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 14:10:21 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-05-22 14:10:21 - [app.py] - INFO - 💾 Saving file locally to sample_data/fb486bb9-f766-41f0-a77e-7103ab74c440.docx...
+2026-05-22 14:10:21 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 14:10:21 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 14:10:21 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 14:10:23 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 14:10:23 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 14:10:23 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 14:10:24 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 14:10:24 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 14:10:24 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 14:10:24 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 14:10:24 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part2.pdf' (1 chunks) for 1_1779435076580.
+2026-05-22 14:10:24 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 14:10:24 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 14:10:24 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 14:10:25 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 14:10:25 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 14:10:25 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 14:10:25 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 14:10:25 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 14:10:26 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 14:10:26 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 14:10:26 - [retrieval_service.py] - INFO - Memory index appended with 'loan agreement!@#$%.docx' (1 chunks) for 3_1779435618327.
+2026-05-22 14:10:26 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 14:10:26 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 14:10:26 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 14:15:37 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'Give me all information about RENT' for session: 1_1779435076580
+2026-05-22 14:15:37 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:15:38 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:15:38 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:15:38 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:15:41 - [generation_service.py] - INFO - Query Expanded with Synonyms: Here's a comprehensive overview of RENT:
+
+**What is RENT?**
+
+RENT is a rock musical written by Jonathan Larson, based on Giacomo Puccini's opera La Bohème. The musical premiered on Broadway in 1996 and has since become a cultural phenomenon.
+
+**Plot**
+
+The story revolves around a group of artists living in New York City's East Village in the late 1980s. The main characters are:
+
+1. Mark Cohen: A filmmaker and the narrator of the story.
+2. Roger Davis: A musician and Mark's roommate.
+3. Mimi Márquez: A dancer and Roger's love interest.
+4. Tom Collins: A computer genius and HIV-positive activist.
+5. Angel Dumott Schunard: A drag queen and street musician.
+6. Maureen Johnson: Mark's ex-girlfriend and a performance artist.
+7. Benjamin Coffin III: A lawyer and Maureen's new boyfriend.
+
+The story explores themes of love, loss, and living in the moment, set against the backdrop of the AIDS epidemic and the gentrification of the East Village.
+
+**Music**
+
+The RENT soundtrack features a diverse range of musical styles, including rock, pop, jazz, and musical theater. Some of the most popular songs include:
+
+1. "Seasons of Love"
+2. "La Vie Bohème"
+3. "Take Me or Leave Me"
+4. "Light My Candle"
+5. "Without You"
+
+**Impact**
+
+RENT has had a significant impact on popular culture, inspiring numerous productions, adaptations, and spin-offs. The musical has been translated into multiple languages and has been performed in over 40 countries.
+
+**Awards and Recognition**
+
+RENT won four Tony Awards in 1996, including Best Musical, Best Book of a Musical, Best Original Score, and Best Lighting Design. The musical has also been nominated for several other awards, including the Pulitzer Prize for Drama.
+
+**Legacy**
+
+RENT has become a cultural touchstone, symbolizing the spirit of creativity, nonconformity, and community that defined the East Village in the 1980s. The musical has inspired countless fans to pursue their passions and live life to the fullest.
+
+**Trivia**
+
+* Jonathan Larson died suddenly on the eve of the musical's off-Broadway premiere, at the age of 35.
+* The original cast recording of RENT has sold over 1 million copies worldwide.
+* RENT has been performed over 9,000 times on Broadway and has grossed over $400 million in ticket sales.
+
+**Adaptations**
+
+RENT has been adapted into several forms, including:
+
+1. Film: A movie adaptation of the musical was released in 2005, starring Anthony Rapp, Adam Pascal, and Idina Menzel.
+2. Television: A live television production of RENT was broadcast on Fox in 2015, starring Anthony Rapp, Adam Pascal, and Kiersey Clemons.
+3. Stage: RENT has been performed in numerous productions around the world, including a 20th-anniversary production on Broadway in 2016.
+
+**Impact on LGBTQ+ Community**
+
+RENT has had a significant impact on the LGBTQ+ community, providing a platform for representation and visibility. The musical features several LGBTQ+ characters, including Angel, who is a drag queen and a symbol of resilience and self-expression.
+
+**Impact on AIDS Awareness**
+
+RENT has also raised awareness about the AIDS epidemic and the importance of HIV prevention and treatment. The musical features several characters who are living with HIV, including Tom Collins and Angel, and explores the emotional and psychological impact of the disease on individuals and communities.
+
+**Impact on Theater Community**
+
+RENT has had a significant impact on the theater community, inspiring a new generation of artists and producers to create innovative and inclusive work. The musical has also paved the way for other rock musicals, such as Spring Awakening and Next to Normal.
+
+**Impact on Pop Culture**
+
+RENT has had a significant impact on popular culture, influencing music, film, and television. The musical's themes of love, loss, and living in the moment have resonated with audiences around the world, making it a cultural touchstone for generations to come.
+
+**Impact on Social Justice**
+
+RENT has also had a significant impact on social justice, exploring themes of gentrification, poverty, and inequality. The musical has inspired audiences to take action and advocate for social justice, making it a powerful tool for change.
+
+**Impact on Education**
+
+RENT has been used as a teaching tool in schools and universities, providing a platform for exploring themes of identity, community, and social justice. The musical has also been used to teach about the history of the AIDS epidemic and the importance of HIV prevention and treatment.
+
+**Impact on Mental Health**
+
+RENT has also had a significant impact on mental health, exploring themes of anxiety, depression, and trauma. The musical has inspired audiences to prioritize their mental health and seek help when needed, making it a powerful tool for promoting mental wellness.
+
+**Impact on Community**
+
+RENT has had a significant impact on community, providing a platform for artists and activists to come together and create change. The musical has inspired audiences to build stronger, more inclusive communities, making it a powerful tool for social change.
+
+**Impact on Arts Education**
+
+RENT has also had a significant impact on arts education, providing a platform for students to explore their creativity and develop their skills. The musical has inspired educators to incorporate arts education into their curricula, making it a powerful tool for promoting arts education.
+
+**Impact on Disability Rights**
+
+RENT has also had a significant impact on disability rights, featuring a character with HIV and exploring themes of accessibility and inclusion. The musical has inspired audiences to prioritize disability rights and advocate for greater accessibility and inclusion.
+
+**Impact on Environmentalism**
+
+RENT has also had a significant impact on environmentalism, exploring themes of gentrification and the impact of human activity on the environment. The musical has inspired audiences to prioritize environmentalism and take action to protect the planet.
+
+**Impact on Feminism**
+
+RENT has also had a significant impact on feminism, featuring a strong female character in Maureen and exploring themes of female empowerment and independence. The musical has inspired audiences to prioritize feminism and advocate for greater equality and justice.
+
+**Impact on Intersectionality**
+
+RENT has also had a significant impact on intersectionality, featuring characters from diverse backgrounds and exploring themes of identity, community, and social justice. The musical has inspired audiences to prioritize intersectionality and advocate for greater inclusion and equity.
+
+**Impact on Activism**
+
+RENT has also had a significant impact on activism, providing a platform for artists and activists to come together and create change. The musical has inspired audiences to take action and advocate for social justice, making it a powerful tool for promoting activism.
+
+**Impact on Philanthropy**
+
+RENT has also had a significant impact on philanthropy, inspiring audiences to give back to their communities and support social justice causes. The musical has raised millions of dollars for various charities and organizations, making it a powerful tool for promoting philanthropy.
+
+**Impact on Tourism**
+
+RENT has also had a significant impact on tourism, inspiring audiences to visit New York City and explore the East Village. The musical has become a major tourist attraction, with fans visiting the iconic locations featured in the show.
+
+**Impact on Business**
+
+RENT has also had a significant impact on business, inspiring entrepreneurs and small business owners to create innovative and inclusive work. The musical has become a cultural touchstone, with fans incorporating RENT-themed merchandise and branding into their businesses.
+
+**Impact on Technology**
+
+RENT has also had a significant impact on technology, inspiring innovators and entrepreneurs to create new and innovative products and services. The musical has become a cultural touchstone, with fans incorporating RENT-themed technology and gadgets into their daily lives.
+
+**Impact on Sports**
+
+RENT has also had a significant impact on sports, inspiring athletes and teams to prioritize social justice and community engagement. The musical has become a cultural touchstone, with fans incorporating RENT-themed sports merchandise and branding into their teams and leagues.
+
+**Impact on Food and Beverage**
+
+RENT has also had a significant impact on food and beverage, inspiring chefs and restaurateurs to create innovative and inclusive menus. The musical has become a cultural touchstone, with fans incorporating RENT-themed food and drink into their restaurants and cafes.
+
+**Impact on Fashion**
+
+RENT has also had a significant impact on fashion, inspiring designers and brands to create innovative and inclusive clothing and accessories. The musical has become a cultural touchstone, with fans incorporating RENT-themed fashion into their wardrobes and style.
+
+**Impact on Beauty and Wellness**
+
+RENT has also had a significant impact on beauty and wellness, inspiring entrepreneurs and innovators to create new and innovative products and services. The musical has become a cultural touchstone, with fans incorporating RENT-themed beauty and wellness products into their daily routines.
+
+**Impact on Home Decor**
+
+RENT has also had a significant impact on home decor, inspiring designers and brands to create innovative and inclusive furniture and decor. The musical has become a cultural touchstone, with fans incorporating RENT-themed home decor into their living spaces.
+
+**Impact on Travel**
+
+RENT has also had a significant impact on travel, inspiring tourists and travelers to visit New York City and explore the East Village. The musical has become a cultural touchstone, with fans visiting the iconic locations featured in the show.
+
+**Impact on Education Technology**
+
+RENT has also had a significant impact on education technology, inspiring innovators and entrepreneurs to create new and innovative products and services. The musical has become a cultural touchstone, with fans incorporating RENT-themed education technology into their classrooms and learning environments.
+
+**Impact on Healthcare**
+
+RENT has also had a significant impact on healthcare, inspiring healthcare professionals and innovators to create new and innovative treatments and services. The musical has become a cultural touchstone, with fans incorporating RENT-themed healthcare products and services into their daily lives.
+
+**Impact on Non-Profit Sector**
+
+RENT has also had a significant impact on the non-profit
+2026-05-22 14:15:41 - [generation_service.py] - INFO - Multi-queries generated: ['Rental Income Data Retrieval', 'Lease Obligation Information Request', 'Request for Rental Income and Expense Data', 'Rental Yield and Cash Flow Analysis', 'Lease Agreement Terms and Conditions', 'Rental Property Financial Performance Metrics', 'Lease Obligation Accounting and Compliance']
+2026-05-22 14:15:41 - [app.py] - INFO - ✅ Query expanded. Synonyms: Here's a comprehensive overview of RENT:
+
+**What is RENT?**
+
+RENT is a rock musical written by Jonathan Larson, based on Giacomo Puccini's opera La Bohème. The musical premiered on Broadway in 1996 and has since become a cultural phenomenon.
+
+**Plot**
+
+The story revolves around a group of artists living in New York City's East Village in the late 1980s. The main characters are:
+
+1. Mark Cohen: A filmmaker and the narrator of the story.
+2. Roger Davis: A musician and Mark's roommate.
+3. Mimi Márquez: A dancer and Roger's love interest.
+4. Tom Collins: A computer genius and HIV-positive activist.
+5. Angel Dumott Schunard: A drag queen and street musician.
+6. Maureen Johnson: Mark's ex-girlfriend and a performance artist.
+7. Benjamin Coffin III: A lawyer and Maureen's new boyfriend.
+
+The story explores themes of love, loss, and living in the moment, set against the backdrop of the AIDS epidemic and the gentrification of the East Village.
+
+**Music**
+
+The RENT soundtrack features a diverse range of musical styles, including rock, pop, jazz, and musical theater. Some of the most popular songs include:
+
+1. "Seasons of Love"
+2. "La Vie Bohème"
+3. "Take Me or Leave Me"
+4. "Light My Candle"
+5. "Without You"
+
+**Impact**
+
+RENT has had a significant impact on popular culture, inspiring numerous productions, adaptations, and spin-offs. The musical has been translated into multiple languages and has been performed in over 40 countries.
+
+**Awards and Recognition**
+
+RENT won four Tony Awards in 1996, including Best Musical, Best Book of a Musical, Best Original Score, and Best Lighting Design. The musical has also been nominated for several other awards, including the Pulitzer Prize for Drama.
+
+**Legacy**
+
+RENT has become a cultural touchstone, symbolizing the spirit of creativity, nonconformity, and community that defined the East Village in the 1980s. The musical has inspired countless fans to pursue their passions and live life to the fullest.
+
+**Trivia**
+
+* Jonathan Larson died suddenly on the eve of the musical's off-Broadway premiere, at the age of 35.
+* The original cast recording of RENT has sold over 1 million copies worldwide.
+* RENT has been performed over 9,000 times on Broadway and has grossed over $400 million in ticket sales.
+
+**Adaptations**
+
+RENT has been adapted into several forms, including:
+
+1. Film: A movie adaptation of the musical was released in 2005, starring Anthony Rapp, Adam Pascal, and Idina Menzel.
+2. Television: A live television production of RENT was broadcast on Fox in 2015, starring Anthony Rapp, Adam Pascal, and Kiersey Clemons.
+3. Stage: RENT has been performed in numerous productions around the world, including a 20th-anniversary production on Broadway in 2016.
+
+**Impact on LGBTQ+ Community**
+
+RENT has had a significant impact on the LGBTQ+ community, providing a platform for representation and visibility. The musical features several LGBTQ+ characters, including Angel, who is a drag queen and a symbol of resilience and self-expression.
+
+**Impact on AIDS Awareness**
+
+RENT has also raised awareness about the AIDS epidemic and the importance of HIV prevention and treatment. The musical features several characters who are living with HIV, including Tom Collins and Angel, and explores the emotional and psychological impact of the disease on individuals and communities.
+
+**Impact on Theater Community**
+
+RENT has had a significant impact on the theater community, inspiring a new generation of artists and producers to create innovative and inclusive work. The musical has also paved the way for other rock musicals, such as Spring Awakening and Next to Normal.
+
+**Impact on Pop Culture**
+
+RENT has had a significant impact on popular culture, influencing music, film, and television. The musical's themes of love, loss, and living in the moment have resonated with audiences around the world, making it a cultural touchstone for generations to come.
+
+**Impact on Social Justice**
+
+RENT has also had a significant impact on social justice, exploring themes of gentrification, poverty, and inequality. The musical has inspired audiences to take action and advocate for social justice, making it a powerful tool for change.
+
+**Impact on Education**
+
+RENT has been used as a teaching tool in schools and universities, providing a platform for exploring themes of identity, community, and social justice. The musical has also been used to teach about the history of the AIDS epidemic and the importance of HIV prevention and treatment.
+
+**Impact on Mental Health**
+
+RENT has also had a significant impact on mental health, exploring themes of anxiety, depression, and trauma. The musical has inspired audiences to prioritize their mental health and seek help when needed, making it a powerful tool for promoting mental wellness.
+
+**Impact on Community**
+
+RENT has had a significant impact on community, providing a platform for artists and activists to come together and create change. The musical has inspired audiences to build stronger, more inclusive communities, making it a powerful tool for social change.
+
+**Impact on Arts Education**
+
+RENT has also had a significant impact on arts education, providing a platform for students to explore their creativity and develop their skills. The musical has inspired educators to incorporate arts education into their curricula, making it a powerful tool for promoting arts education.
+
+**Impact on Disability Rights**
+
+RENT has also had a significant impact on disability rights, featuring a character with HIV and exploring themes of accessibility and inclusion. The musical has inspired audiences to prioritize disability rights and advocate for greater accessibility and inclusion.
+
+**Impact on Environmentalism**
+
+RENT has also had a significant impact on environmentalism, exploring themes of gentrification and the impact of human activity on the environment. The musical has inspired audiences to prioritize environmentalism and take action to protect the planet.
+
+**Impact on Feminism**
+
+RENT has also had a significant impact on feminism, featuring a strong female character in Maureen and exploring themes of female empowerment and independence. The musical has inspired audiences to prioritize feminism and advocate for greater equality and justice.
+
+**Impact on Intersectionality**
+
+RENT has also had a significant impact on intersectionality, featuring characters from diverse backgrounds and exploring themes of identity, community, and social justice. The musical has inspired audiences to prioritize intersectionality and advocate for greater inclusion and equity.
+
+**Impact on Activism**
+
+RENT has also had a significant impact on activism, providing a platform for artists and activists to come together and create change. The musical has inspired audiences to take action and advocate for social justice, making it a powerful tool for promoting activism.
+
+**Impact on Philanthropy**
+
+RENT has also had a significant impact on philanthropy, inspiring audiences to give back to their communities and support social justice causes. The musical has raised millions of dollars for various charities and organizations, making it a powerful tool for promoting philanthropy.
+
+**Impact on Tourism**
+
+RENT has also had a significant impact on tourism, inspiring audiences to visit New York City and explore the East Village. The musical has become a major tourist attraction, with fans visiting the iconic locations featured in the show.
+
+**Impact on Business**
+
+RENT has also had a significant impact on business, inspiring entrepreneurs and small business owners to create innovative and inclusive work. The musical has become a cultural touchstone, with fans incorporating RENT-themed merchandise and branding into their businesses.
+
+**Impact on Technology**
+
+RENT has also had a significant impact on technology, inspiring innovators and entrepreneurs to create new and innovative products and services. The musical has become a cultural touchstone, with fans incorporating RENT-themed technology and gadgets into their daily lives.
+
+**Impact on Sports**
+
+RENT has also had a significant impact on sports, inspiring athletes and teams to prioritize social justice and community engagement. The musical has become a cultural touchstone, with fans incorporating RENT-themed sports merchandise and branding into their teams and leagues.
+
+**Impact on Food and Beverage**
+
+RENT has also had a significant impact on food and beverage, inspiring chefs and restaurateurs to create innovative and inclusive menus. The musical has become a cultural touchstone, with fans incorporating RENT-themed food and drink into their restaurants and cafes.
+
+**Impact on Fashion**
+
+RENT has also had a significant impact on fashion, inspiring designers and brands to create innovative and inclusive clothing and accessories. The musical has become a cultural touchstone, with fans incorporating RENT-themed fashion into their wardrobes and style.
+
+**Impact on Beauty and Wellness**
+
+RENT has also had a significant impact on beauty and wellness, inspiring entrepreneurs and innovators to create new and innovative products and services. The musical has become a cultural touchstone, with fans incorporating RENT-themed beauty and wellness products into their daily routines.
+
+**Impact on Home Decor**
+
+RENT has also had a significant impact on home decor, inspiring designers and brands to create innovative and inclusive furniture and decor. The musical has become a cultural touchstone, with fans incorporating RENT-themed home decor into their living spaces.
+
+**Impact on Travel**
+
+RENT has also had a significant impact on travel, inspiring tourists and travelers to visit New York City and explore the East Village. The musical has become a cultural touchstone, with fans visiting the iconic locations featured in the show.
+
+**Impact on Education Technology**
+
+RENT has also had a significant impact on education technology, inspiring innovators and entrepreneurs to create new and innovative products and services. The musical has become a cultural touchstone, with fans incorporating RENT-themed education technology into their classrooms and learning environments.
+
+**Impact on Healthcare**
+
+RENT has also had a significant impact on healthcare, inspiring healthcare professionals and innovators to create new and innovative treatments and services. The musical has become a cultural touchstone, with fans incorporating RENT-themed healthcare products and services into their daily lives.
+
+**Impact on Non-Profit Sector**
+
+RENT has also had a significant impact on the non-profit
+2026-05-22 14:15:41 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:15:45 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:15:45 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:15:45 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779435076580 using DB history...
+2026-05-22 14:15:46 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:16:00 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'Give me all information about RENT' for session: 3_1779435618327
+2026-05-22 14:16:00 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:16:00 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:16:00 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:16:00 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:16:02 - [generation_service.py] - INFO - Query Expanded with Synonyms: Here's a comprehensive overview of RENT:
+
+**What is RENT?**
+
+RENT is a rock musical written by Jonathan Larson, based on Giacomo Puccini's opera La Bohème. The musical premiered on Broadway in 1996 and has since become a cultural phenomenon.
+
+**Plot**
+
+The story revolves around a group of artists living in New York City's East Village in the late 1980s. The main characters are:
+
+1. Mark Cohen: A filmmaker and the narrator of the story.
+2. Roger Davis: A musician and Mark's roommate.
+3. Mimi Márquez: A dancer and Roger's love interest.
+4. Tom Collins: A computer genius and HIV-positive activist.
+5. Angel Dumott Schunard: A drag queen and street musician.
+6. Maureen Johnson: Mark's ex-girlfriend and a performance artist.
+7. Benjamin Coffin III: A lawyer and Maureen's new love interest.
+
+The story explores themes of love, loss, and living in the moment, set against the backdrop of the AIDS epidemic and the gentrification of the East Village.
+
+**Music**
+
+The RENT soundtrack features a diverse range of musical styles, including rock, pop, jazz, and musical theater. Some of the most popular songs include:
+
+1. "Seasons of Love"
+2. "La Vie Bohème"
+3. "Take Me or Leave Me"
+4. "Light My Candle"
+5. "Without You"
+
+**Impact**
+
+RENT was a critical and commercial success, winning four Tony Awards, including Best Musical. It has been performed in over 30 countries and has been translated into multiple languages. The musical has also been adapted into a film, released in 2005.
+
+**Themes**
+
+Some of the major themes in RENT include:
+
+1. Living in the moment: The characters in RENT are all struggling to make a living and find their place in the world, but they are also determined to enjoy the present moment.
+2. Love and relationships: The musical explores the complexities of romantic relationships, including the challenges of maintaining intimacy and connection in the face of adversity.
+3. Identity: The characters in RENT are all struggling to find their place in the world and define themselves as artists, activists, and individuals.
+4. Community: The musical highlights the importance of community and the need for support and connection in times of struggle.
+
+**Awards and nominations**
+
+RENT has won numerous awards and nominations, including:
+
+* 4 Tony Awards (1996)
+* 1 Pulitzer Prize (1996)
+* 1 Grammy Award (1997)
+* 1 Drama Desk Award (1996)
+
+**Legacy**
+
+RENT has had a lasting impact on the musical theater world and has inspired a new generation of artists and activists. The musical's themes of living in the moment, love, and community continue to resonate with audiences today.
+
+**Trivia**
+
+* Jonathan Larson died suddenly on the eve of the musical's opening night, due to an undiagnosed heart condition.
+* The musical was originally titled "Boho Days" and was later changed to RENT.
+* The character of Angel was inspired by a real-life drag queen who was a friend of Jonathan Larson's.
+* The musical features a diverse cast and explores themes of identity, community, and social justice.
+2026-05-22 14:16:02 - [generation_service.py] - INFO - Multi-queries generated: ['Leasehold Obligations Information Request: Provide comprehensive data regarding rental agreements and lease terms.', 'Query for Rental Arrangements: Retrieve all relevant information on rental contracts, lease durations, and associated financial obligations.', 'Request for Rental Property Data: Obtain detailed information on leasehold properties, including rental income, lease terms, and associated financial metrics.']
+2026-05-22 14:16:02 - [app.py] - INFO - ✅ Query expanded. Synonyms: Here's a comprehensive overview of RENT:
+
+**What is RENT?**
+
+RENT is a rock musical written by Jonathan Larson, based on Giacomo Puccini's opera La Bohème. The musical premiered on Broadway in 1996 and has since become a cultural phenomenon.
+
+**Plot**
+
+The story revolves around a group of artists living in New York City's East Village in the late 1980s. The main characters are:
+
+1. Mark Cohen: A filmmaker and the narrator of the story.
+2. Roger Davis: A musician and Mark's roommate.
+3. Mimi Márquez: A dancer and Roger's love interest.
+4. Tom Collins: A computer genius and HIV-positive activist.
+5. Angel Dumott Schunard: A drag queen and street musician.
+6. Maureen Johnson: Mark's ex-girlfriend and a performance artist.
+7. Benjamin Coffin III: A lawyer and Maureen's new love interest.
+
+The story explores themes of love, loss, and living in the moment, set against the backdrop of the AIDS epidemic and the gentrification of the East Village.
+
+**Music**
+
+The RENT soundtrack features a diverse range of musical styles, including rock, pop, jazz, and musical theater. Some of the most popular songs include:
+
+1. "Seasons of Love"
+2. "La Vie Bohème"
+3. "Take Me or Leave Me"
+4. "Light My Candle"
+5. "Without You"
+
+**Impact**
+
+RENT was a critical and commercial success, winning four Tony Awards, including Best Musical. It has been performed in over 30 countries and has been translated into multiple languages. The musical has also been adapted into a film, released in 2005.
+
+**Themes**
+
+Some of the major themes in RENT include:
+
+1. Living in the moment: The characters in RENT are all struggling to make a living and find their place in the world, but they are also determined to enjoy the present moment.
+2. Love and relationships: The musical explores the complexities of romantic relationships, including the challenges of maintaining intimacy and connection in the face of adversity.
+3. Identity: The characters in RENT are all struggling to find their place in the world and define themselves as artists, activists, and individuals.
+4. Community: The musical highlights the importance of community and the need for support and connection in times of struggle.
+
+**Awards and nominations**
+
+RENT has won numerous awards and nominations, including:
+
+* 4 Tony Awards (1996)
+* 1 Pulitzer Prize (1996)
+* 1 Grammy Award (1997)
+* 1 Drama Desk Award (1996)
+
+**Legacy**
+
+RENT has had a lasting impact on the musical theater world and has inspired a new generation of artists and activists. The musical's themes of living in the moment, love, and community continue to resonate with audiences today.
+
+**Trivia**
+
+* Jonathan Larson died suddenly on the eve of the musical's opening night, due to an undiagnosed heart condition.
+* The musical was originally titled "Boho Days" and was later changed to RENT.
+* The character of Angel was inspired by a real-life drag queen who was a friend of Jonathan Larson's.
+* The musical features a diverse cast and explores themes of identity, community, and social justice.
+2026-05-22 14:16:02 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:16:04 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:16:04 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:16:04 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779435618327 using DB history...
+2026-05-22 14:16:04 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:16:11 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-05-22 14:16:11 - [app.py] - INFO - 💾 Saving file locally to sample_data/4c19130e-0f0b-4e08-8033-b2f920b80efc.txt...
+2026-05-22 14:16:11 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 14:16:11 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 14:16:11 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 14:16:11 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 14:16:11 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 14:16:11 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 14:16:12 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 14:16:12 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 14:16:13 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 14:16:13 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 14:16:13 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 3_1779435618327.
+2026-05-22 14:16:13 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 14:16:13 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 14:16:13 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 14:16:25 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'Give me all information about RENT' for session: 3_1779435618327
+2026-05-22 14:16:25 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:16:26 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:16:26 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:16:26 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:16:27 - [generation_service.py] - INFO - Query Expanded with Synonyms: Here's a comprehensive overview of RENT:
+
+**What is RENT?**
+
+RENT is a rock musical written by Jonathan Larson, based on Giacomo Puccini's opera La Bohème. The musical premiered on Broadway in 1996 and has since become a cultural phenomenon.
+
+**Plot**
+
+The story revolves around a group of artists living in New York City's East Village in the late 1980s. The main characters are:
+
+1. Mark Cohen: A filmmaker and the narrator of the story.
+2. Roger Davis: A musician and Mark's roommate.
+3. Mimi Márquez: A dancer and Roger's love interest.
+4. Tom Collins: A computer genius and HIV-positive activist.
+5. Angel Dumott Schunard: A drag queen and street musician.
+6. Maureen Johnson: Mark's ex-girlfriend and a performance artist.
+7. Benjamin Coffin III: A lawyer and Maureen's new boyfriend.
+
+The story explores themes of love, loss, and living in the moment, set against the backdrop of the AIDS epidemic and the gentrification of the East Village.
+
+**Music**
+
+The RENT soundtrack features a diverse range of musical styles, including rock, pop, jazz, and musical theater. Some of the most popular songs include:
+
+1. "Seasons of Love"
+2. "La Vie Bohème"
+3. "Take Me or Leave Me"
+4. "Light My Candle"
+5. "Without You"
+
+**Impact**
+
+RENT was a critical and commercial success, winning four Tony Awards, including Best Musical. It has been performed in over 30 countries and has been translated into multiple languages. The musical has also been adapted into a film, released in 2005.
+
+**Themes**
+
+Some of the key themes explored in RENT include:
+
+1. Living in the moment: The characters in RENT are often focused on the present moment, rather than worrying about the future or past.
+2. Love and relationships: The musical explores a range of romantic relationships, including same-sex relationships and friendships.
+3. Identity: The characters in RENT are all struggling to find their place in the world and define themselves.
+4. Community: The musical highlights the importance of community and the connections between people.
+5. Social justice: RENT addresses issues such as poverty, homelessness, and the AIDS epidemic.
+
+**Awards and nominations**
+
+RENT has won numerous awards, including:
+
+* 4 Tony Awards (1996)
+* 1 Pulitzer Prize for Drama (1996)
+* 1 Grammy Award for Best Musical Show Album (1997)
+* 1 Drama Desk Award for Outstanding Musical (1996)
+
+**Legacy**
+
+RENT has had a lasting impact on the musical theater world and beyond. It has inspired a new generation of artists and has been credited with helping to revitalize the Broadway musical. The musical's themes of love, acceptance, and living in the moment continue to resonate with audiences today.
+
+**Trivia**
+
+* Jonathan Larson died suddenly on the eve of the musical's off-Broadway premiere, due to an undiagnosed heart condition.
+* The musical was originally titled "Boho Days" and was later changed to RENT.
+* The character of Angel was inspired by a real-life drag queen who was a friend of Larson's.
+* The musical's iconic song "Seasons of Love" was written in just 20 minutes, and Larson was so exhausted that he had to be carried out of the room by his friends.
+2026-05-22 14:16:27 - [generation_service.py] - INFO - Multi-queries generated: ['Rental Income Data Retrieval', 'Rental Income Information Request', 'Request for Rental Income Data and Related Financial Information', 'Rental Income and Expense Details Inquiry', 'Rental Income and Lease Agreement Data Retrieval', 'Rental Income and Cash Flow Analysis Request', 'Rental Income and Property Valuation Information Inquiry']
+2026-05-22 14:16:27 - [app.py] - INFO - ✅ Query expanded. Synonyms: Here's a comprehensive overview of RENT:
+
+**What is RENT?**
+
+RENT is a rock musical written by Jonathan Larson, based on Giacomo Puccini's opera La Bohème. The musical premiered on Broadway in 1996 and has since become a cultural phenomenon.
+
+**Plot**
+
+The story revolves around a group of artists living in New York City's East Village in the late 1980s. The main characters are:
+
+1. Mark Cohen: A filmmaker and the narrator of the story.
+2. Roger Davis: A musician and Mark's roommate.
+3. Mimi Márquez: A dancer and Roger's love interest.
+4. Tom Collins: A computer genius and HIV-positive activist.
+5. Angel Dumott Schunard: A drag queen and street musician.
+6. Maureen Johnson: Mark's ex-girlfriend and a performance artist.
+7. Benjamin Coffin III: A lawyer and Maureen's new boyfriend.
+
+The story explores themes of love, loss, and living in the moment, set against the backdrop of the AIDS epidemic and the gentrification of the East Village.
+
+**Music**
+
+The RENT soundtrack features a diverse range of musical styles, including rock, pop, jazz, and musical theater. Some of the most popular songs include:
+
+1. "Seasons of Love"
+2. "La Vie Bohème"
+3. "Take Me or Leave Me"
+4. "Light My Candle"
+5. "Without You"
+
+**Impact**
+
+RENT was a critical and commercial success, winning four Tony Awards, including Best Musical. It has been performed in over 30 countries and has been translated into multiple languages. The musical has also been adapted into a film, released in 2005.
+
+**Themes**
+
+Some of the key themes explored in RENT include:
+
+1. Living in the moment: The characters in RENT are often focused on the present moment, rather than worrying about the future or past.
+2. Love and relationships: The musical explores a range of romantic relationships, including same-sex relationships and friendships.
+3. Identity: The characters in RENT are all struggling to find their place in the world and define themselves.
+4. Community: The musical highlights the importance of community and the connections between people.
+5. Social justice: RENT addresses issues such as poverty, homelessness, and the AIDS epidemic.
+
+**Awards and nominations**
+
+RENT has won numerous awards, including:
+
+* 4 Tony Awards (1996)
+* 1 Pulitzer Prize for Drama (1996)
+* 1 Grammy Award for Best Musical Show Album (1997)
+* 1 Drama Desk Award for Outstanding Musical (1996)
+
+**Legacy**
+
+RENT has had a lasting impact on the musical theater world and beyond. It has inspired a new generation of artists and has been credited with helping to revitalize the Broadway musical. The musical's themes of love, acceptance, and living in the moment continue to resonate with audiences today.
+
+**Trivia**
+
+* Jonathan Larson died suddenly on the eve of the musical's off-Broadway premiere, due to an undiagnosed heart condition.
+* The musical was originally titled "Boho Days" and was later changed to RENT.
+* The character of Angel was inspired by a real-life drag queen who was a friend of Larson's.
+* The musical's iconic song "Seasons of Love" was written in just 20 minutes, and Larson was so exhausted that he had to be carried out of the room by his friends.
+2026-05-22 14:16:27 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:16:29 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:16:29 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:16:29 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779435618327 using DB history...
+2026-05-22 14:16:29 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:17:19 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'EMI amount?' for session: 3_1779435618327
+2026-05-22 14:17:19 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:17:19 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:17:19 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:17:19 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:17:19 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Amortization Payment, Periodic Repayment Amount, Monthly Loan Repayment, Scheduled Monthly Payment.
+2026-05-22 14:17:20 - [generation_service.py] - INFO - Multi-queries generated: ['Monthly Installment Amount Inquiry', 'Monthly Payment Amount Request', 'Mortgage or Loan Installment Amount Calculation Requirement', 'Monthly Payment Calculation Request', 'Installment Amount Determination Query', 'Loan or Credit Facility Repayment Amount Enquiry', 'Monthly Repayment Amount Calculation', 'Installment Amount Calculation for Financial Obligations', 'Loan or Mortgage Repayment Schedule Inquiry']
+2026-05-22 14:17:20 - [app.py] - INFO - ✅ Query expanded. Synonyms: Equated Monthly Installment, Monthly Amortization Payment, Periodic Repayment Amount, Monthly Loan Repayment, Scheduled Monthly Payment.
+2026-05-22 14:17:20 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:17:21 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:17:21 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:17:21 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779435618327 using DB history...
+2026-05-22 14:17:21 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:17:33 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'If I not pay it on time?' for session: 3_1779435618327
+2026-05-22 14:17:33 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:17:33 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:17:33 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:17:33 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:17:33 - [generation_service.py] - INFO - Query Expanded with Synonyms: Late payment, non-payment penalty, default interest, delinquency fee, overdue charge.
+2026-05-22 14:17:33 - [generation_service.py] - INFO - Multi-queries generated: ['What are the consequences of a delayed payment?', 'What happens if a payment is not made within the stipulated timeframe?', 'What are the repercussions of failing to meet a scheduled payment obligation?']
+2026-05-22 14:17:33 - [app.py] - INFO - ✅ Query expanded. Synonyms: Late payment, non-payment penalty, default interest, delinquency fee, overdue charge.
+2026-05-22 14:17:33 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:17:35 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:17:35 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:17:35 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779435618327 using DB history...
+2026-05-22 14:17:35 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:18:06 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'Purpose of loan?' for session: 3_1779435618327
+2026-05-22 14:18:06 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:18:06 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:18:06 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:18:06 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:18:06 - [generation_service.py] - INFO - Query Expanded with Synonyms: Mortgage financing, debt obligation, financial liability, pecuniary obligation, pecuniary debt.
+2026-05-22 14:18:07 - [generation_service.py] - INFO - Multi-queries generated: ['Loan Objectives', 'Loan Purpose Clarification', 'Objectives of the Loan Facility', 'Loan Purpose Definition', 'Purpose of the Loan Facility', 'Loan Objective Specification', 'Loan Objectives and Terms', 'Loan Facility Purpose Statement', 'Loan Purpose and Conditions']
+2026-05-22 14:18:07 - [app.py] - INFO - ✅ Query expanded. Synonyms: Mortgage financing, debt obligation, financial liability, pecuniary obligation, pecuniary debt.
+2026-05-22 14:18:07 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:18:08 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:18:08 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:18:08 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779435618327 using DB history...
+2026-05-22 14:18:09 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:19:51 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'panelty on not repayment of loan?' for session: 3_1779435618327
+2026-05-22 14:19:51 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:19:52 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:19:52 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:19:52 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:19:52 - [generation_service.py] - INFO - Query Expanded with Synonyms: Default interest, Late payment fees, Compound interest, Prepayment penalty, Liquidated damages.
+2026-05-22 14:19:52 - [generation_service.py] - INFO - Multi-queries generated: ['Default interest rate on non-performing loans?', 'Penalty for non-compliance with loan repayment obligations?', 'Consequences of default on loan repayment and associated interest charges?']
+2026-05-22 14:19:52 - [app.py] - INFO - ✅ Query expanded. Synonyms: Default interest, Late payment fees, Compound interest, Prepayment penalty, Liquidated damages.
+2026-05-22 14:19:52 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:19:53 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:19:53 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:19:53 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779435618327 using DB history...
+2026-05-22 14:19:54 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:21:40 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'WHat if in-case borrower runaway without repaying the loan?' for session: 3_1779435618327
+2026-05-22 14:21:40 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:21:41 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:21:41 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:21:41 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:21:41 - [generation_service.py] - INFO - Query Expanded with Synonyms: Default on loan repayment, Non-payment of loan, Loan delinquency, Credit default, Unpaid loan balance.
+2026-05-22 14:21:41 - [generation_service.py] - INFO - Multi-queries generated: ['What are the implications of a borrower defaulting on a loan and failing to repay the principal amount?', "What are the potential risks and consequences of a loan becoming delinquent due to a borrower's inability to repay the outstanding balance?", "In the event of a borrower's non-performance, what are the available options for recovering the loan principal and accrued interest?"]
+2026-05-22 14:21:42 - [app.py] - INFO - ✅ Query expanded. Synonyms: Default on loan repayment, Non-payment of loan, Loan delinquency, Credit default, Unpaid loan balance.
+2026-05-22 14:21:42 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:21:43 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:21:43 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:21:43 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779435618327 using DB history...
+2026-05-22 14:21:44 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:23:49 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'What is the total lease duration' for session: 1_1779435076580
+2026-05-22 14:23:49 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:23:49 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:23:49 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:23:49 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:23:49 - [generation_service.py] - INFO - Query Expanded with Synonyms: Fixed-term, contractual period, lease term, tenancy duration, rental tenure.
+2026-05-22 14:23:50 - [generation_service.py] - INFO - Multi-queries generated: ['Lease Term Calculation Request: What is the aggregate duration of the lease agreement?', 'Lease Contract Analysis: What is the total period of the lease commitment?', 'Contractual Obligation Duration: What is the cumulative lease term?']
+2026-05-22 14:23:50 - [app.py] - INFO - ✅ Query expanded. Synonyms: Fixed-term, contractual period, lease term, tenancy duration, rental tenure.
+2026-05-22 14:23:50 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:23:50 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:23:50 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:23:50 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779435076580 using DB history...
+2026-05-22 14:23:51 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:24:56 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'What is the total lease duration' for session: 1_1779435076580
+2026-05-22 14:24:56 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:24:56 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:24:56 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:24:56 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:24:57 - [generation_service.py] - INFO - Query Expanded with Synonyms: Fixed-term period, contractual tenure, leasehold term, tenancy duration, rental agreement span.
+2026-05-22 14:24:57 - [generation_service.py] - INFO - Multi-queries generated: ['Lease Term Duration Calculation', 'What is the aggregate lease term length', 'What is the total lease tenure', 'What is the cumulative lease contract duration']
+2026-05-22 14:24:57 - [app.py] - INFO - ✅ Query expanded. Synonyms: Fixed-term period, contractual tenure, leasehold term, tenancy duration, rental agreement span.
+2026-05-22 14:24:57 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:24:58 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:24:58 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:24:58 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779435076580 using DB history...
+2026-05-22 14:24:58 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 14:26:42 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'what would be the last month as per 3 years of tenure?' for session: 1_1779435076580
+2026-05-22 14:26:42 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 14:26:42 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 14:26:42 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 14:26:42 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 14:26:43 - [generation_service.py] - INFO - Query Expanded with Synonyms: June, November, December, May, April, March, February, January, October, September, August, July.
+2026-05-22 14:26:43 - [generation_service.py] - INFO - Multi-queries generated: ['What would be the final month of the third anniversary of a given employment period?', 'What is the last month of a three-year service duration?', 'What would be the last calendar month of a three-year tenure period?']
+2026-05-22 14:26:43 - [app.py] - INFO - ✅ Query expanded. Synonyms: June, November, December, May, April, March, February, January, October, September, August, July.
+2026-05-22 14:26:43 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 14:26:44 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 14:26:44 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 14:26:44 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779435076580 using DB history...
+2026-05-22 14:26:45 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 15:05:28 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part1.docx
+2026-05-22 15:05:28 - [app.py] - INFO - 💾 Saving file locally to sample_data/16953529-bd31-47f9-a455-067f9517d579.docx...
+2026-05-22 15:05:28 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 15:05:28 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 15:05:28 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 15:05:30 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 15:05:31 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 15:05:31 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 15:05:32 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 15:05:32 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 15:05:32 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 15:05:32 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 15:05:32 - [retrieval_service.py] - INFO - Memory index appended with 'loan part1.docx' (1 chunks) for 1_1779435076580.
+2026-05-22 15:05:32 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 15:05:32 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 15:05:32 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 15:05:59 - [app.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part1.docx
+2026-05-22 15:05:59 - [app.py] - INFO - 💾 Saving file locally to sample_data/ed225bc8-3315-47b7-b668-3055ab728ede.docx...
+2026-05-22 15:05:59 - [app.py] - INFO - ✅ File saved successfully.
+2026-05-22 15:05:59 - [app.py] - INFO - 🔪 [CHUNKING START] Initiating text extraction and chunking...
+2026-05-22 15:05:59 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 15:05:59 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 15:05:59 - [app.py] - INFO - ✅ [CHUNKING SUCCESS] Created 1 chunks.
+2026-05-22 15:05:59 - [app.py] - INFO - 🧠 [EMBEDDING START] Sending chunks to Google Gemini API...
+2026-05-22 15:06:00 - [app.py] - INFO - ✅ [EMBEDDING SUCCESS] Embeddings generated successfully.
+2026-05-22 15:06:00 - [app.py] - INFO - 🗄️ [DATABASE START] Indexing vectors into Qdrant for {session_id}...
+2026-05-22 15:06:01 - [app.py] - INFO - ✅ [DATABASE SUCCESS] Qdrant index built successfully.
+2026-05-22 15:06:01 - [app.py] - INFO - 🔄 Updating local memory (BM25 & Chunks) for {session_id}...
+2026-05-22 15:06:01 - [retrieval_service.py] - INFO - Memory index appended with 'loan part1.docx' (1 chunks) for 1_1779435076580.
+2026-05-22 15:06:01 - [app.py] - INFO - ✅ Local memory updated.
+2026-05-22 15:06:01 - [app.py] - INFO - 💾 Saving document metadata to PostgreSQL...
+2026-05-22 15:06:01 - [app.py] - INFO - 🎉 [UPLOAD PIPELINE COMPLETE] Document is ready for queries.
+2026-05-22 15:06:24 - [app.py] - INFO - 🔍 [QUERY START] Received query: 'purpose of loan?' for session: 1_1779435076580
+2026-05-22 15:06:24 - [app.py] - INFO - 🚦 Routing query...
+2026-05-22 15:06:24 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 15:06:24 - [app.py] - INFO - 📚 Route decided: RAG (Initiating retrieval pipeline)
+2026-05-22 15:06:24 - [app.py] - INFO - 🔄 Expanding query with synonyms and variations...
+2026-05-22 15:06:24 - [generation_service.py] - INFO - Query Expanded with Synonyms: Mortgage financing, debt obligation, financial liability, pecuniary obligation, pecuniary liability.
+2026-05-22 15:06:25 - [generation_service.py] - INFO - Multi-queries generated: ['Purpose of loan financing: What are the primary objectives of a loan issuance?', 'Objectives of loan disbursement: What are the intended uses of loan proceeds?', 'Loan utilization criteria: What are the acceptable purposes for loan repayment?']
+2026-05-22 15:06:25 - [app.py] - INFO - ✅ Query expanded. Synonyms: Mortgage financing, debt obligation, financial liability, pecuniary obligation, pecuniary liability.
+2026-05-22 15:06:25 - [app.py] - INFO - 🔎 Executing Hybrid Search (Vector + BM25 + Cross-Encoder)...
+2026-05-22 15:06:26 - [app.py] - INFO - ✅ Hybrid Search complete. Found 1 highly relevant chunks.
+2026-05-22 15:06:26 - [app.py] - INFO - ✍️ Generating final answer with LLM...
+2026-05-22 15:06:26 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779435076580 using DB history...
+2026-05-22 15:06:27 - [app.py] - INFO - 🎉 [QUERY COMPLETE] Answer generated successfully.
+2026-05-22 19:21:21 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-05-22 19:21:50 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 19:22:18 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan.txt
+2026-05-22 19:22:18 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 19:22:28 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 19:22:30 - [retrieval_service.py] - INFO - Memory index appended with 'loan.txt' (1 chunks) for 1_1779457911584.
+2026-05-22 19:23:11 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Key information about laon agreement?' for session: 1_1779457911584
+2026-05-22 19:23:11 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 19:23:12 - [generation_service.py] - INFO - Query Expanded with Synonyms: Loan agreement, credit agreement, debt obligation, financial obligation, secured loan contract.
+2026-05-22 19:23:12 - [generation_service.py] - INFO - Multi-queries generated: ['Loan Agreement Disclosure Requirements', 'Loan Agreement Terms and Conditions Overview', 'Key Provisions of a Loan Agreement Contract', 'Loan Agreement Documentation and Disclosure Standards', 'Loan Agreement Terms and Conditions Explanation', 'Loan Agreement Contractual Obligations and Responsibilities', 'Loan Agreement Disclosure Statement and Terms', 'Loan Agreement Contractual Provisions and Clauses', 'Loan Agreement Terms and Conditions Explanation and Disclosure', 'Loan Agreement Contractual Obligations and Disclosure', 'Loan Agreement Terms and Conditions Overview and Explanation', 'Loan Agreement Disclosure Statement and Contractual Provisions']
+2026-05-22 19:23:14 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779457911584 using DB history...
+2026-05-22 19:35:15 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Can you explain it to me in more simpler language' for session: 1_1779457911584
+2026-05-22 19:35:16 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 19:35:16 - [generation_service.py] - INFO - Query Expanded with Synonyms: You want me to take a phrase or question and come up with 3-5 related words that are specific to law and finance, and then list them out in a comma-separated list.
+2026-05-22 19:35:16 - [generation_service.py] - INFO - Multi-queries generated: ["Can you provide a succinct and clear elucidation of the concept in layman's terms?", 'Could you offer a concise and straightforward explanation of the subject matter, avoiding technical jargon?', 'Would you be able to articulate the key points in a manner that is easily comprehensible to a non-expert audience?']
+2026-05-22 19:35:17 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779457911584 using DB history...
+2026-05-22 19:38:41 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-05-22 19:39:50 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-05-22 19:39:50 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 19:40:38 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 19:40:38 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 19:40:39 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 19:40:39 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 19:40:43 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 3_1779458921763.
+2026-05-22 19:41:46 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Number of instalments and tenure of loan in month and year?' for session: 3_1779458921763
+2026-05-22 19:41:47 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 19:41:47 - [generation_service.py] - INFO - Query Expanded with Synonyms: Amortization period, loan duration, repayment term, loan tenor, loan maturity period.
+2026-05-22 19:41:48 - [generation_service.py] - INFO - Multi-queries generated: ['Number of amortization periods and loan term in monthly and annual formats.', 'Amortization schedule details including the number of installments and loan duration in both monthly and yearly perspectives.', 'Information on loan repayment structure comprising the total number of installments and loan tenor in both monthly and annual timeframes.']
+2026-05-22 19:41:49 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779458921763 using DB history...
+2026-05-22 19:42:54 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Maintanance charge and address of house?' for session: 1_1779457911584
+2026-05-22 19:42:55 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 19:42:55 - [generation_service.py] - INFO - Query Expanded with Synonyms: Service charge, Ground rent, Annual levy, Maintenance fee, Property tax, Council tax, Local authority tax, Municipal tax, Property levy.
+2026-05-22 19:42:56 - [generation_service.py] - INFO - Multi-queries generated: ['Maintenance Fee and Property Address Inquiry', 'Maintenance Charge and Residential Address Information Request', 'Maintenance Fee and Property Location Details Search', 'Maintenance Charge and Address of the Premises Query', 'Maintenance Fee and Property Address Information Retrieval', 'Maintenance Charge and Residential Address Data Request']
+2026-05-22 19:42:56 - [chat.py] - ERROR - ❌ [QUERY FAILED]: division by zero
+Traceback (most recent call last):
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\api\routers\chat.py", line 41, in search_query
+    best_chunks = await retrieval_service.execute_hybrid_search(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\services\retrieval_service.py", line 113, in execute_hybrid_search
+    bm25_engine = BM25Okapi(tokenized_all)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\rank_bm25.py", line 83, in __init__
+    super().__init__(corpus, tokenizer)
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\rank_bm25.py", line 27, in __init__
+    nd = self._initialize(corpus)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\rank_bm25.py", line 52, in _initialize
+    self.avgdl = num_doc / self.corpus_size
+                 ~~~~~~~~^~~~~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2026-05-22 19:43:23 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'address of house?' for session: 1_1779457911584
+2026-05-22 19:43:23 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-05-22 19:44:14 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'details of office space and maintenance?' for session: 1_1779457911584
+2026-05-22 19:44:14 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 19:44:14 - [generation_service.py] - INFO - Query Expanded with Synonyms: Commercial property lease agreement, facilities management contract, real estate asset maintenance, property upkeep agreement, landlord-tenant obligations.
+2026-05-22 19:44:15 - [generation_service.py] - INFO - Multi-queries generated: ['Facilities Management Requirements for Office Premises', 'Office Space Allocation and Maintenance Costs', 'Details of Office Accommodation and Associated Facilities Expenses', 'Office Infrastructure and Maintenance Services Specifications', 'Office Space and Facilities Management Policies and Procedures', 'Office Accommodation and Maintenance Expenses Breakdown', 'Office Space and Maintenance Services Contractual Obligations']
+2026-05-22 19:44:15 - [chat.py] - ERROR - ❌ [QUERY FAILED]: 400: Document 'COMMERCIAL LEASE AGREEMENT part1.pdf' not found in active session.
+Traceback (most recent call last):
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\api\routers\chat.py", line 41, in search_query
+    best_chunks = await retrieval_service.execute_hybrid_search(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\services\retrieval_service.py", line 121, in execute_hybrid_search
+    raise ValueError(f"Document '{document_selector}' not found in active session.")
+ValueError: Document 'COMMERCIAL LEASE AGREEMENT part1.pdf' not found in active session.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\api\routers\chat.py", line 46, in search_query
+    raise HTTPException(status_code=400, detail=str(e))
+fastapi.exceptions.HTTPException: 400: Document 'COMMERCIAL LEASE AGREEMENT part1.pdf' not found in active session.
+2026-05-22 19:44:51 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the security deposit?' for session: 1_1779457911584
+2026-05-22 19:44:52 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 19:44:53 - [generation_service.py] - INFO - Query Expanded with Synonyms: Reimbursement, refundable deposit, prepaid rent, earnest money, down payment.
+2026-05-22 19:44:53 - [generation_service.py] - INFO - Multi-queries generated: ['What is the amount of the initial deposit required to secure a financial obligation?', 'What is the initial payment or deposit required to guarantee the fulfillment of a contractual agreement?', 'What is the amount of the upfront payment or deposit required to secure a financial commitment or guarantee?']
+2026-05-22 19:44:53 - [chat.py] - ERROR - ❌ [QUERY FAILED]: 400: Document 'COMMERCIAL LEASE AGREEMENT part1.pdf' not found in active session.
+Traceback (most recent call last):
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\api\routers\chat.py", line 41, in search_query
+    best_chunks = await retrieval_service.execute_hybrid_search(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\services\retrieval_service.py", line 121, in execute_hybrid_search
+    raise ValueError(f"Document '{document_selector}' not found in active session.")
+ValueError: Document 'COMMERCIAL LEASE AGREEMENT part1.pdf' not found in active session.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\api\routers\chat.py", line 46, in search_query
+    raise HTTPException(status_code=400, detail=str(e))
+fastapi.exceptions.HTTPException: 400: Document 'COMMERCIAL LEASE AGREEMENT part1.pdf' not found in active session.
+2026-05-22 19:45:47 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Name of borrower and lender?' for session: 3_1779458921763
+2026-05-22 19:45:48 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 19:45:48 - [generation_service.py] - INFO - Query Expanded with Synonyms: Debtor, Creditor, Obligor, Obligee, Mortgagor, Mortgagee.
+2026-05-22 19:45:48 - [generation_service.py] - INFO - Multi-queries generated: ['Debtor Identification and Creditor Details', 'Lender and Borrower Information', 'Identification of Obligor and Obligee', 'Borrower and Lender Entity Details', 'Creditor and Debtor Party Information', 'Obligor and Obligee Identification']
+2026-05-22 19:45:50 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779458921763 using DB history...
+2026-05-22 19:47:09 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part1.docx
+2026-05-22 19:47:09 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 19:47:10 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 19:47:11 - [retrieval_service.py] - INFO - Memory index appended with 'loan part1.docx' (1 chunks) for 3_1779458921763.
+2026-05-22 19:47:49 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-05-22 19:47:57 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part1.docx
+2026-05-22 19:47:57 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 19:47:57 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 19:47:58 - [retrieval_service.py] - INFO - Memory index appended with 'loan part1.docx' (1 chunks) for 3_1779459470158.
+2026-05-22 19:48:11 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part2.docx
+2026-05-22 19:48:11 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 19:48:11 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 19:48:12 - [retrieval_service.py] - INFO - Memory index appended with 'loan part2.docx' (1 chunks) for 3_1779459470158.
+2026-05-22 19:49:27 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Net amount of loan and grace period of EMI?' for session: 3_1779459470158
+2026-05-22 19:49:28 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 19:49:28 - [generation_service.py] - INFO - Query Expanded with Synonyms: Loan principal balance, outstanding principal amount, residual loan balance, remaining loan principal, principal balance due.
+2026-05-22 19:49:28 - [generation_service.py] - INFO - Multi-queries generated: ['Outstanding principal balance and interest-free moratorium period of an installment loan?', 'Outstanding principal balance and interest-free moratorium period of an amortizing loan?', 'Principal balance and interest-free repayment holiday period of an installment loan?', 'Principal balance and interest-free repayment holiday period of an amortizing loan?', 'Outstanding principal balance and interest-free repayment moratorium period of a loan?', 'Outstanding principal balance and interest-free repayment moratorium period of an amortizing loan?', 'Principal balance and interest-free repayment holiday period of a loan?', 'Principal balance and interest-free repayment moratorium period of an installment loan?', 'Outstanding principal balance and interest-free repayment holiday period of an amortizing loan?']
+2026-05-22 19:49:30 - [generation_service.py] - INFO - Synthesizing response for session: 3_1779459470158 using DB history...
+2026-05-22 19:50:32 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-05-22 19:50:49 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_3.pdf
+2026-05-22 19:50:49 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 19:51:39 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 19:51:40 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 19:51:41 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_3.pdf' (1 chunks) for 2_1779459633433.
+2026-05-22 20:12:46 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-05-22 20:12:55 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-05-22 20:12:55 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 20:12:59 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 20:13:00 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 2_1779460966703.
+2026-05-22 20:13:40 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the key information I need to know about both document?' for session: 1_1779457911584
+2026-05-22 20:13:40 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 20:13:40 - [generation_service.py] - INFO - Query Expanded with Synonyms: liable parties, signatories, contractual obligations, stipulations, codicils.
+2026-05-22 20:13:41 - [generation_service.py] - INFO - Multi-queries generated: ['Key Performance Indicators (KPIs) for Document Analysis', 'What essential data points should be considered when evaluating both documents?', 'Critical Information Requirements (CIRs) for Document Review', 'What are the primary data elements necessary for a comprehensive understanding of both documents?', 'Document Analysis Checklist', 'What are the key data points and metrics that must be extracted and analyzed from both documents?']
+2026-05-22 20:13:41 - [chat.py] - ERROR - ❌ [QUERY FAILED]: division by zero
+Traceback (most recent call last):
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\api\routers\chat.py", line 41, in search_query
+    best_chunks = await retrieval_service.execute_hybrid_search(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\services\retrieval_service.py", line 113, in execute_hybrid_search
+    bm25_engine = BM25Okapi(tokenized_all)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\rank_bm25.py", line 83, in __init__
+    super().__init__(corpus, tokenizer)
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\rank_bm25.py", line 27, in __init__
+    nd = self._initialize(corpus)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\internship\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\rank_bm25.py", line 52, in _initialize
+    self.avgdl = num_doc / self.corpus_size
+                 ~~~~~~~~^~~~~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2026-05-22 20:13:57 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 20:14:06 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part1.pdf
+2026-05-22 20:14:06 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 20:14:16 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 20:14:17 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part1.pdf' (1 chunks) for 1_1779461038110.
+2026-05-22 20:14:47 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the key information I need to know about this document?' for session: 1_1779461038110
+2026-05-22 20:14:48 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 20:14:48 - [generation_service.py] - INFO - Query Expanded with Synonyms: Litigation, contractual obligations, financial disclosure, fiduciary duty, asset valuation.
+2026-05-22 20:14:49 - [generation_service.py] - INFO - Multi-queries generated: ['What are the essential data points and key takeaways associated with this document?', 'What are the primary considerations and critical information elements relevant to this document?', 'What are the salient points and core data requirements that need to be understood in relation to this document?']
+2026-05-22 20:14:50 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779461038110 using DB history...
+2026-05-22 20:36:49 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part1.pdf
+2026-05-22 20:36:49 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 20:37:00 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 20:37:01 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part1.pdf' (1 chunks) for 1_1779461038110.
+2026-05-22 20:46:10 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-05-22 20:46:24 - [run_evals.py] - INFO - Initializing Retrieval Memory for Evaluation...
+2026-05-22 20:46:24 - [retrieval_service.py] - WARNING - RAM is empty for default_user_1! Recovering all documents from Qdrant...
+2026-05-22 20:46:25 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Installment Payment, Monthly Amortization Payment, Monthly Loan Repayment.
+2026-05-22 20:46:26 - [generation_service.py] - INFO - Multi-queries generated: ['Monthly Installment Amount Calculation', 'What is the monthly equivalent amortization amount for a loan?', 'What is the periodic payment amount for a loan?', 'What is the monthly principal and interest repayment amount for a loan?']
+2026-05-22 20:46:26 - [retrieval_service.py] - WARNING - RAM is empty for default_user_1! Recovering all documents from Qdrant...
+2026-05-22 20:46:26 - [generation_service.py] - INFO - Query Expanded with Synonyms: Default interest, Late payment fee, Penalty interest, Default charges, Late payment surcharge.
+2026-05-22 20:46:26 - [generation_service.py] - INFO - Multi-queries generated: ['Late Payment Penalty Definition Inquiry', 'Default Interest Rate and Late Fee Calculation', 'Penalty for Delayed Payment Assessment', 'Late Payment Charge and Fee Structure', 'Default Penalty and Late Payment Fee Analysis', 'Late Payment Penalty and Interest Rate Determination']
+2026-05-22 20:46:26 - [retrieval_service.py] - WARNING - RAM is empty for default_user_1! Recovering all documents from Qdrant...
+2026-05-22 20:46:27 - [generation_service.py] - INFO - Query Expanded with Synonyms: Landholder, Property owner, Lessors, Proprietor, Premises owner.
+2026-05-22 20:46:27 - [generation_service.py] - INFO - Multi-queries generated: ["Landlord identification in a rental contract: What is the lessor's identity in the lease document?", 'Identification of the property owner in a rental agreement: What is the name of the lessor in the lease contract?', 'Lessor information in a lease agreement: What is the identity of the party who holds title to the property in the lease document?']
+2026-05-22 20:46:27 - [retrieval_service.py] - WARNING - RAM is empty for default_user_1! Recovering all documents from Qdrant...
+2026-05-22 20:48:49 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Who is the landlord in the lease agreement?' for session: 1_1779461038110
+2026-05-22 20:48:49 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 20:48:50 - [generation_service.py] - INFO - Query Expanded with Synonyms: Landholder, Property owner, Lessors, Proprietor.
+2026-05-22 20:48:50 - [generation_service.py] - INFO - Multi-queries generated: ['Landlord Identification in Lease Contract', 'Who is the lessor identified in the lease document?', 'What is the identity of the party designated as the lessor in the lease agreement?', "Can you provide information on the lessor's identity as specified in the lease contract?"]
+2026-05-22 20:48:52 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779461038110 using DB history...
+2026-05-22 20:50:09 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'There is a name of landlord in document look carefully' for session: 1_1779461038110
+2026-05-22 20:50:10 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 20:50:10 - [generation_service.py] - INFO - Query Expanded with Synonyms: Landholder, Proprietor, Property Owner, Lessors, Landlord
+2026-05-22 20:50:10 - [generation_service.py] - INFO - Multi-queries generated: ["Landlord's Name Identification in Document:", '"Extract landlord\'s name from document and verify its accuracy"', 'Identification of Landlord Entity in Financial Records:', '"Locate and retrieve landlord entity information from financial documents for verification purposes"', "Verification of Landlord's Identity in Transactional Documents:", '"Search and confirm landlord\'s identity in transactional documents for authentication and validation"']
+2026-05-22 20:50:11 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779461038110 using DB history...
+2026-05-22 20:50:36 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Tenant name?' for session: 1_1779461038110
+2026-05-22 20:50:37 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-05-22 20:51:17 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: OMEGA PRIME FINANCIAL SERVICES.docx
+2026-05-22 20:51:17 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 20:51:19 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-05-22 20:51:20 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 20:51:21 - [retrieval_service.py] - INFO - Memory index appended with 'OMEGA PRIME FINANCIAL SERVICES.docx' (2 chunks) for 2_1779460966703.
+2026-05-22 20:51:34 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the EMI amount?' for session: 2_1779460966703
+2026-05-22 20:51:35 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 20:51:35 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Installment Payment, Monthly Amortization Payment, Monthly Loan Repayment.
+2026-05-22 20:51:35 - [generation_service.py] - INFO - Multi-queries generated: ['Monthly Installment Amount Calculation', 'What is the monthly equivalent amortization amount for a loan?', 'What is the periodic payment amount for a loan?', 'What is the monthly principal and interest repayment amount for a loan?']
+2026-05-22 20:51:36 - [generation_service.py] - INFO - Synthesizing response for session: 2_1779460966703 using DB history...
+2026-05-22 20:52:34 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-05-22 20:52:34 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 20:52:36 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 20:52:37 - [retrieval_service.py] - INFO - Memory index appended with 'loan agreement!@#$%.docx' (1 chunks) for 2_1779460966703.
+2026-05-22 20:52:58 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the EMI amount?' for session: 2_1779460966703
+2026-05-22 20:52:58 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 20:52:58 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Installment Payment, Monthly Amortization Payment, Monthly Loan Repayment.
+2026-05-22 20:52:59 - [generation_service.py] - INFO - Multi-queries generated: ['Monthly Installment Amount Calculation', 'What is the monthly installment amount of a loan?', 'What is the periodic payment amount for a loan?', 'What is the monthly payment amount for a loan?', 'Monthly Installment Amount Calculation', 'What is the amount of the monthly installment for a loan?', 'What is the periodic loan repayment amount?', 'What is the monthly loan repayment amount?', 'Monthly Installment Amount Calculation', 'What is the monthly amortization amount for a loan?', 'What is the periodic loan installment amount?', 'What is the monthly loan installment amount?']
+2026-05-22 20:53:00 - [generation_service.py] - INFO - Synthesizing response for session: 2_1779460966703 using DB history...
+2026-05-22 21:47:10 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 21:47:25 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 21:52:21 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-05-22 21:52:37 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 21:55:57 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-05-22 22:08:58 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-05-22 22:08:58 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-05-22 22:08:59 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-05-22 22:09:00 - [retrieval_service.py] - INFO - Memory index appended with 'loan agreement!@#$%.docx' (1 chunks) for 1_1779467157366.
+2026-05-22 22:24:31 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hii' for session: 1_1779467157366
+2026-05-22 22:24:31 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-05-22 22:25:03 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Borrower name lender name emi amount panelty on late payment' for session: 1_1779467157366
+2026-05-22 22:25:04 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-05-22 22:25:04 - [generation_service.py] - INFO - Query Expanded with Synonyms: Borrower, Debtor, Obligor, Mortgagor, Credit Taker, 
+Lender, Creditor, Mortgagee, Lessor, 
+Equated Monthly Installment, EMI, 
+Late Payment Penalty, Default Fee, Default Charge, Late Payment Charge, Overdue Fee, Interest on Overdue Amount, Penalty for Delayed Payment.
+2026-05-22 22:25:05 - [generation_service.py] - INFO - Multi-queries generated: ['Debt Obligor Identification:', 'Lender Identification Number and Borrower Name with Associated Monthly Installment Amount and Late Payment Penalty Details', 'Borrower and Lender Information with Emolument and Default Fee Data:', 'Retrieve Borrower and Lender Information Including Monthly Installment Amount and Late Payment Penalty Details', 'Loan Obligor and Lender Data with Emolument and Default Fee Information:', 'Extract Loan Obligor and Lender Data Including Monthly Emolument Amount and Default Fee Details', 'Borrower and Lender Identification with Emolument and Default Fee Information:', 'Identify Borrower and Lender Information Including Monthly Emolument Amount and Default Fee Details', 'Loan and Borrower Information with Emolument and Default Fee Data:', 'Retrieve Loan and Borrower Information Including Monthly Emolument Amount and Default Fee Details', 'Borrower and Lender Information with Emolument and Default Fee Details:', 'Extract Borrower and Lender Information Including Monthly Emolument Amount and Default Fee Details']
+2026-05-22 22:25:06 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779467157366 using DB history...

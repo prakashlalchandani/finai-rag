@@ -6,7 +6,7 @@ from qdrant_client.http import models
 from config.settings import settings
 from config.clients import qdrant_client
 from config.logger import logger
-from embeddings import create_embeddings
+from services.embeddings import create_embeddings
 
 logger.info("Loading CrossEncoder Re-ranker into memory...")
 reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")

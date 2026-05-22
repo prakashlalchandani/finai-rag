@@ -1,9 +1,15 @@
 # --- Backend ---
 backend/RAG312/
-backend/__pycache__/
+**/__pycache__/
+*.pyc
 backend/.env
 backend/qdrant_storage/
 backend/sample_data/
+backend/logs/
+
+# --- Database ---
+*.db
+*.sqlite3
 
 # --- Frontend ---
 frontend/node_modules/

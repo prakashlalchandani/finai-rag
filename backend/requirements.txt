@@ -5,6 +5,12 @@ python-multipart
 python-dotenv
 pydantic-settings
 
+# --- Database & Auth (NAYE PACKAGES) ---
+sqlalchemy
+asyncpg
+passlib[bcrypt]
+python-jose[cryptography]
+
 # --- AI & Embeddings ---
 groq
 google-genai
