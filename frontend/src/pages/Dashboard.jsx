@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from '../components/Sidebar/Sidebar';
-import ChatWindow from '../components/Chat/ChatWindow';
-import ChatInput from '../components/Chat/ChatInput';
+import Sidebar from '../components/sidebar/Sidebar';
+import ChatWindow from '../components/chat/ChatWindow';
+import ChatInput from '../components/chat/ChatInput';
 import { documentAPI, chatAPI } from '../api/api';
 
 const Dashboard = () => {

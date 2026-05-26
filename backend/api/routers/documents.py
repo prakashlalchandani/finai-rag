@@ -11,6 +11,7 @@ from config.logger import logger
 from config.settings import settings
 from config.clients import qdrant_client
 from qdrant_client.http import models as qmodels
+from config.auth import get_current_user
 
 # Naye folder structure ke hisaab se imports update kiye hain
 from services.chunking import create_chunks
@@ -23,10 +24,13 @@ router = APIRouter()
 @router.post("/upload")
 async def upload_pdf(
     file: UploadFile = File(...),
-    session_id: str = Form("default_user"),
-    db: AsyncSession = Depends(get_db)
+    session_id: str = Form(...),
+    db: AsyncSession = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
 ):
     logger.info(f"📥 [UPLOAD START] Receiving file: {file.filename}")
+    if not session_id.startswith(f"{current_user.id}_"):
+        raise HTTPException(status_code=403, detail="Invalid session_id for current user")
     try:
         file_extension = os.path.splitext(file.filename)[1]
         unique_filename = f"{uuid.uuid4()}{file_extension}"
@@ -42,11 +46,8 @@ async def upload_pdf(
         
         RetrievalService.update_index(session_id, file.filename, chunks)
 
-        user_id_str = str(session_id).split('_')[0]
-        actual_user_id = int(user_id_str) if user_id_str.isdigit() else 1
-
         db_doc = models.Document(
-            user_id=actual_user_id,
+            user_id=current_user.id,
             filename=file.filename,
             unique_filename=unique_filename,
             status="indexed"
@@ -62,11 +63,16 @@ async def upload_pdf(
         raise HTTPException(status_code=500, detail=f"Upload failed: {str(e)}")
 
 @router.get("/documents")
-async def get_user_documents(session_id: str = "default_user", db: AsyncSession = Depends(get_db)):
+async def get_user_documents(
+    session_id: str, 
+    db: AsyncSession = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
+):
     try:
-        user_id_str = str(session_id).split('_')[0]
-        user_id = int(user_id_str) if user_id_str.isdigit() else 1
-        stmt = select(models.Document.filename).where(models.Document.user_id == user_id).distinct()
+        if not session_id.startswith(f"{current_user.id}_"):
+            raise HTTPException(status_code=403, detail="Invalid session_id for current user")
+
+        stmt = select(models.Document.filename).where(models.Document.user_id == current_user.id).distinct()
         result = await db.execute(stmt)
         return {"documents": result.scalars().all()}
     except Exception as e:
@@ -74,12 +80,17 @@ async def get_user_documents(session_id: str = "default_user", db: AsyncSession 
         return {"documents": []}
 
 @router.delete("/documents/{filename}")
-async def delete_document(filename: str, session_id: str = "default_user", db: AsyncSession = Depends(get_db)):
+async def delete_document(
+    filename: str, 
+    session_id: str, 
+    db: AsyncSession = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
+):
     try:
-        user_id_str = str(session_id).split('_')[0]
-        user_id = int(user_id_str) if user_id_str.isdigit() else 1
+        if not session_id.startswith(f"{current_user.id}_"):
+            raise HTTPException(status_code=403, detail="Invalid session_id for current user")
         
-        stmt = select(models.Document).where(models.Document.user_id == user_id, models.Document.filename == filename)
+        stmt = select(models.Document).where(models.Document.user_id == current_user.id, models.Document.filename == filename)
         result = await db.execute(stmt)
         doc_to_delete = result.scalars().first()
 

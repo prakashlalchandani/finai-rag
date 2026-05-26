@@ -5,6 +5,8 @@ from config.database import get_db
 from config.logger import logger
 from services.generation_service import GenerationService
 from services.retrieval_service import RetrievalService
+import models.model as models
+from config.auth import get_current_user
 
 router = APIRouter()
 
@@ -15,8 +17,12 @@ async def search_query(
     session_id: str = "default_user",
     gen_service: GenerationService = Depends(),
     retrieval_service: RetrievalService = Depends(),
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
 ):
+    if not session_id.startswith(f"{current_user.id}_"):
+        raise HTTPException(status_code=403, detail="Invalid session_id for current user")
+    
     logger.info(f"🔍 [QUERY START] Received query: '{query}' for session: {session_id}")
     
     try:
