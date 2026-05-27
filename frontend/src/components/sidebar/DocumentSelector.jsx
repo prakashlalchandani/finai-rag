@@ -18,7 +18,9 @@ const DocumentSelector = ({ userDocuments, selectedDocument, setSelectedDocument
       >
         <span className="flex items-center gap-2.5 overflow-hidden">
           {selectedDocument === 'all' ? <BookOpen className="w-4 h-4 shrink-0 text-zinc-400" /> : <FileText className="w-4 h-4 shrink-0 text-zinc-400" />}
-          <span className="truncate font-medium">{selectedDocument === 'all' ? 'All Documents (Global)' : selectedDocument}</span>
+          <span className="truncate font-medium text-zinc-900 dark:text-white">
+            {selectedDocument === 'all' ? 'All Documents (Global)' : selectedDocument}
+          </span>
         </span>
         <ChevronDown className={`w-4 h-4 shrink-0 text-zinc-400 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
       </button>
@@ -27,7 +29,11 @@ const DocumentSelector = ({ userDocuments, selectedDocument, setSelectedDocument
         <div className="absolute z-50 w-full mt-2 bg-white/95 dark:bg-zinc-800/95 backdrop-blur-md border border-zinc-200 dark:border-zinc-700/80 rounded-xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
           <div 
             onClick={() => { setSelectedDocument('all'); setIsDropdownOpen(false); }}
-            className={`flex items-center gap-3 p-3.5 cursor-pointer border-b border-zinc-100 dark:border-zinc-700/50 transition-colors ${selectedDocument === 'all' ? 'bg-zinc-50 dark:bg-zinc-700/50 font-medium' : 'hover:bg-zinc-50 dark:hover:bg-zinc-700/30 text-zinc-600 dark:text-zinc-300'}`}
+            className={`flex items-center gap-3 p-3.5 cursor-pointer border-b border-zinc-100 dark:border-zinc-700/50 transition-colors ${
+              selectedDocument === 'all' 
+                ? 'bg-zinc-50 dark:bg-zinc-700/50 font-medium text-zinc-900 dark:text-white' 
+                : 'hover:bg-zinc-50 dark:hover:bg-zinc-700/30 text-zinc-600 dark:text-white'
+            }`}
           >
             <BookOpen className="w-4 h-4 text-zinc-400" />
             <span className="text-sm">All Documents (Global)</span>
@@ -38,7 +44,11 @@ const DocumentSelector = ({ userDocuments, selectedDocument, setSelectedDocument
               <div 
                 key={idx}
                 onClick={() => { setSelectedDocument(doc); setIsDropdownOpen(false); }}
-                className={`flex items-start justify-between p-3.5 cursor-pointer transition-colors group ${selectedDocument === doc ? 'bg-zinc-50 dark:bg-zinc-700/50 font-medium' : 'hover:bg-zinc-50 dark:hover:bg-zinc-700/30 text-zinc-600 dark:text-zinc-300'}`}
+                className={`flex items-start justify-between p-3.5 cursor-pointer transition-colors group ${
+                  selectedDocument === doc 
+                    ? 'bg-zinc-50 dark:bg-zinc-700/50 font-medium text-zinc-900 dark:text-white' 
+                    : 'hover:bg-zinc-50 dark:hover:bg-zinc-700/30 text-zinc-600 dark:text-white'
+                }`}
               >
                 <div className="flex items-start gap-3 overflow-hidden pr-2">
                   <FileText className="w-4 h-4 shrink-0 mt-0.5 text-zinc-400" />

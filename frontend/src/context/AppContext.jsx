@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { documentAPI } from '../api/api'; // NAYA: API import karna hoga
 
 const AppContext = createContext();
 
@@ -6,19 +7,31 @@ export const AppProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
   const [isDarkMode, setIsDarkMode] = useState(true);
 
-  // src/context/AppContext.jsx mein login function ko isse replace kar:
   const login = (token, userId, username) => {
     localStorage.setItem('token', token);
     const uniqueSessionId = `${userId}_${Date.now()}`;
     localStorage.setItem('session_id', uniqueSessionId);
-    localStorage.setItem('username', username); // NAYA: Username save kar rahe hain
+    localStorage.setItem('username', username);
     setIsAuthenticated(true);
   };
 
-  const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('session_id');
-    setIsAuthenticated(false);
+  // NAYA: Logout ko async banaya aur API call add ki
+  const logout = async () => {
+    try {
+      const sessionId = localStorage.getItem('session_id');
+      if (sessionId) {
+        // Backend API call to delete all files, SQL, and vectors
+        await documentAPI.cleanupData(sessionId);
+      }
+    } catch (error) {
+      console.error("Backend cleanup failed, but proceeding with local logout", error);
+    } finally {
+      // API fail ho ya pass, browser se session hamesha clear hona chahiye
+      localStorage.removeItem('token');
+      localStorage.removeItem('session_id');
+      localStorage.removeItem('username'); 
+      setIsAuthenticated(false);
+    }
   };
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);

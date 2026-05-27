@@ -120,3 +120,56 @@ async def delete_document(
     except Exception as e:
         logger.error(f"❌ [DELETE FAILED]: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Failed to delete document.")
+
+@router.delete("/cleanup")
+async def cleanup_user_data(
+    session_id: str,
+    db: AsyncSession = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
+):
+    """Deletes all documents, vectors, and physical files for the current user upon logout/session end."""
+    logger.info(f"🧹 [CLEANUP INITIATED] Wiping data for user: {current_user.id}")
+    
+    try:
+        # Step 1: SQL Database se user ke saare documents fetch karo
+        stmt = select(models.Document).where(models.Document.user_id == current_user.id)
+        result = await db.execute(stmt)
+        user_docs = result.scalars().all()
+
+        for doc in user_docs:
+            # Step 2: Hard Drive se physical file delete karo
+            file_path = f"sample_data/{doc.unique_filename}"
+            if os.path.exists(file_path):
+                os.remove(file_path)
+                logger.info(f"🗑️ Deleted file: {file_path}")
+
+            # Step 3: SQL Database se record delete karo (Cascade delete will handle it if mapped correctly, but doing it explicitly here)
+            await db.delete(doc)
+
+        await db.commit()
+
+        # Step 4: Qdrant Vector Database se saare vectors delete karo jinme yeh session_id ho
+        await qdrant_client.delete(
+            collection_name=settings.COLLECTION_NAME,
+            points_selector=qmodels.FilterSelector(
+                filter=qmodels.Filter(
+                    must=[
+                        qmodels.FieldCondition(key="session_id", match=qmodels.MatchValue(value=session_id)),
+                    ]
+                )
+            )
+        )
+        logger.info(f"🗑️ Deleted all Qdrant vectors for session: {session_id}")
+
+        # Step 5: Local Memory Variables (BM25/Chunks) se data clear karo
+        if session_id in RetrievalService._chunks:
+            del RetrievalService._chunks[session_id]
+        if session_id in RetrievalService._bm25:
+            del RetrievalService._bm25[session_id]
+
+        return {"message": "All user data cleaned up successfully."}
+
+    except Exception as e:
+        await db.rollback()
+        logger.error(f"❌ [CLEANUP FAILED]: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Failed to cleanup user data.")
