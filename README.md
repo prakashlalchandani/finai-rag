@@ -45,3 +45,29 @@ Ensure your PostgreSQL instance is running and you have created a database for t
 
 ```powershell
 docker run -p 6333:6333 -p 6334:6334 -v ${PWD}/qdrant_storage:/qdrant/storage:z qdrant/qdrant
+
+### 2. Backend Setup (FastAPI)
+Navigate to the backend directory, set up your virtual environment, and install dependencies:
+
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+pip install -r requirements.txt
+
+Environment Variables: Create a .env file in the backend directory with your secure credentials:
+DATABASE_URL=postgresql+asyncpg://user:password@localhost/finaudit_db
+GROQ_API_KEY=your_groq_api_key_here
+SECRET_KEY=your_jwt_secret_key
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+Start the FastAPI server:
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+3. Frontend Setup (React)
+Open a new terminal, navigate to the frontend directory, and start the development server:
+cd frontend
+npm install
+npm run dev
+
+Your FinAudit AI dashboard will now be live at http://localhost:5173.
