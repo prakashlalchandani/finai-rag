@@ -9,11 +9,12 @@ from sqlalchemy import select
 
 from config.database import get_db
 import models.model as models
+from config.settings import settings
 
-# Security Settings (Production me inhe .env me daal dena)
-SECRET_KEY = "super_secret_finaudit_key_change_me_later"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 Days token validity
+# Fetching security settings securely from environment variables
+SECRET_KEY = settings.SECRET_KEY
+ALGORITHM = settings.ALGORITHM
+ACCESS_TOKEN_EXPIRE_MINUTES = settings.ACCESS_TOKEN_EXPIRE_MINUTES
 
 def get_password_hash(password: str):
     """Converts plain text into unreadable bcrypt hash using native bcrypt."""

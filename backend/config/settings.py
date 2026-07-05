@@ -21,6 +21,11 @@ class Settings(BaseSettings):
     ROUTER_MODEL: str = "llama-3.1-8b-instant"
     EMBEDDING_MODEL: str = "gemini-embedding-001"
     RERANK_MODEL: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+
+    # --- Authentication ---
+    SECRET_KEY: str 
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 5  # 7 days (60 * 24 * 7)
     
     # ==========================================
     # 4. RAG Retrieval Variables

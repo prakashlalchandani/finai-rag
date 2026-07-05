@@ -1,6 +1,4 @@
-import re
-import asyncio # <-- Naya import event loop threading ke liye
-
+import asyncio
 from unstructured.partition.auto import partition
 from llama_index.core import Document
 from llama_index.core.node_parser import SentenceSplitter

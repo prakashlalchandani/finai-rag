@@ -64,7 +64,7 @@ async def upload_pdf(
 
 @router.get("/documents")
 async def get_user_documents(
-    session_id: str, 
+    session_id: str,
     db: AsyncSession = Depends(get_db),
     current_user: models.User = Depends(get_current_user)
 ):

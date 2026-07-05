@@ -9,7 +9,7 @@ if not os.path.exists(LOG_DIR):
     os.makedirs(LOG_DIR)
 
 def setup_logger():
-    # 1. Create a master logger for FinAudit
+    # Create a master logger for FinAudit
     logger = logging.getLogger("FinAudit")
     
     # Set the lowest level of logs we want to capture
@@ -19,18 +19,18 @@ def setup_logger():
     if logger.handlers:
         return logger
 
-    # 2. Define the exact format of the log messages
+    # Define the exact format of the log messages
     # Example output: 2026-05-08 22:15:41 - [app.py] - INFO - User requested EMI calculation
     formatter = logging.Formatter(
         fmt="%(asctime)s - [%(filename)s] - %(levelname)s - %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S"
     )
 
-    # 3. Setup Terminal Output (Console)
+    # Setup Terminal Output (Console)
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(formatter)
     
-    # 4. Setup File Output (Saves to logs/finaudit.log)
+    # Setup File Output (Saves to logs/finaudit.log)
     # RotatingFileHandler keeps the file from getting too big (max 5MB per file, keeps 3 backups)
     file_handler = RotatingFileHandler(
         filename=os.path.join(LOG_DIR, "finaudit.log"),
@@ -40,7 +40,7 @@ def setup_logger():
     )
     file_handler.setFormatter(formatter)
 
-    # 5. Attach handlers to the logger
+    # Attach handlers to the logger
     logger.addHandler(console_handler)
     logger.addHandler(file_handler)
 

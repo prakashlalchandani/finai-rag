@@ -2,7 +2,6 @@ import re
 from rank_bm25 import BM25Okapi
 from sentence_transformers import CrossEncoder
 from qdrant_client.http import models
-
 from config.settings import settings
 from config.clients import qdrant_client
 from config.logger import logger
@@ -133,8 +132,6 @@ class RetrievalService:
 
                 if not active_chunks:
                     return []
-
-                # ... baaki ka tera vector search aur keyword search wala code same rahega ...
 
                 # 3. Vector Search (Qdrant)
                 query_embedding = await create_embeddings([enriched_query.lower()])

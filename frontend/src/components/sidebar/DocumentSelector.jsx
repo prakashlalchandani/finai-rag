@@ -54,9 +54,10 @@ const DocumentSelector = ({ userDocuments, selectedDocument, setSelectedDocument
                   <FileText className="w-4 h-4 shrink-0 mt-0.5 text-zinc-400" />
                   <span className="text-sm wrap-break-word leading-tight">{doc}</span>
                 </div>
+                {/* YAHAN CHANGE KIYA HAI: opacity-100 for mobile, md:opacity-0 for desktop */}
                 <button 
                   onClick={(e) => { e.stopPropagation(); handleDeleteDocument(doc); setIsDropdownOpen(false); }}
-                  className="p-1.5 rounded-md text-zinc-400 hover:text-red-600 hover:bg-red-50 dark:hover:text-red-400 dark:hover:bg-red-900/20 opacity-0 group-hover:opacity-100 transition-all"
+                  className="p-1.5 rounded-md text-zinc-400 hover:text-red-600 hover:bg-red-50 dark:hover:text-red-400 dark:hover:bg-red-900/20 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all"
                   title="Delete Document"
                 >
                   <Trash2 className="w-4 h-4" />

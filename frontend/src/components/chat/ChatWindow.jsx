@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Bot, User, Loader2, Sparkles } from 'lucide-react';
+import { Bot, Sparkles } from 'lucide-react';
 
 const ChatWindow = ({ messages, isLoading }) => {
   const messagesEndRef = useRef(null);
   
-  // Local storage se username nikal rahe hain, agar na mile to default 'User'
+  // Get username from local storage
   const username = localStorage.getItem('username') || 'User'; 
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const ChatWindow = ({ messages, isLoading }) => {
   return (
     <div className="flex-1 overflow-y-auto p-4 md:p-8 flex flex-col scroll-smooth custom-scrollbar">
       
-      {/* 🌟 PREMIUM WELCOME SCREEN (Jab chat khali ho) */}
+      {/* PREMIUM WELCOME SCREEN */}
       {messages.length === 0 && (
         <div className="flex-1 flex flex-col items-center justify-center animate-in fade-in zoom-in-95 duration-500">
           <div className="w-14 h-14 bg-zinc-100 dark:bg-zinc-800/50 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-zinc-200 dark:border-zinc-700/50">
@@ -30,7 +30,7 @@ const ChatWindow = ({ messages, isLoading }) => {
         </div>
       )}
 
-      {/* 💬 CHAT BUBBLES (Jab chat shuru ho jaye) */}
+      {/* CHAT BUBBLES */}
       {messages.length > 0 && (
         <div className="space-y-8 w-full">
           {messages.map((msg, index) => (
@@ -62,15 +62,19 @@ const ChatWindow = ({ messages, isLoading }) => {
         </div>
       )}
       
-      {/* ⏳ LOADING STATE */}
+      {/* ⏳ PREMIUM SKELETON LOADER */}
       {isLoading && (
-        <div className="flex gap-4 md:gap-6 w-full max-w-4xl mx-auto justify-start animate-pulse mt-8">
-           <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center shrink-0">
+        <div className="flex gap-4 md:gap-6 w-full max-w-4xl mx-auto justify-start mt-8 animate-in fade-in duration-300">
+           {/* Pulsing Avatar */}
+           <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center shrink-0 animate-pulse">
               <Bot className="w-5 h-5 text-zinc-400 dark:text-zinc-500" />
             </div>
-          <div className="pt-2 flex items-center gap-3">
-            <Loader2 className="w-5 h-5 animate-spin text-zinc-400" />
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 font-medium">Auditing knowledge base...</span>
+            
+          {/* Shimmering Text Blocks */}
+          <div className="pt-2 flex flex-col gap-3 w-full max-w-[60%]">
+            <div className="h-4 bg-zinc-200 dark:bg-zinc-800 rounded-md w-full animate-pulse"></div>
+            <div className="h-4 bg-zinc-200 dark:bg-zinc-800 rounded-md w-[85%] animate-pulse"></div>
+            <div className="h-4 bg-zinc-200 dark:bg-zinc-800 rounded-md w-[60%] animate-pulse"></div>
           </div>
         </div>
       )}

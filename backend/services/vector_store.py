@@ -26,7 +26,7 @@ async def build_qdrant_index(embeddings, chunks, filename, session_id: str):
                 "text": chunk, 
                 "original_index": i, 
                 "document_name": filename,
-                "session_id": session_id # <-- ADDED THIS
+                "session_id": session_id
             }
         ))
 
@@ -62,7 +62,7 @@ async def get_all_chunks(session_id: str): # <-- Parameter added
     if not await client.collection_exists(collection_name=settings.COLLECTION_NAME):
         return []
         
-    # 1. FIXED: Scroll only the chunks that belong to this session
+    # 1. Scroll only the chunks that belong to this session
     records, _ = await client.scroll(
         collection_name=settings.COLLECTION_NAME,
         scroll_filter=models.Filter(

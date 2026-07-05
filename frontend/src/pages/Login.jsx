@@ -13,10 +13,8 @@ const Login = () => {
   const handleAuth = async (e) => {
     e.preventDefault();
     try {
-      // src/pages/Login.jsx mein handleAuth ke andar is line ko update kar:
       if (isLoginMode) {
         const response = await authAPI.login({ email: authEmail, password: authPassword });
-        // NAYA: response.data.username ko pass kar rahe hain
         login(response.data.access_token, response.data.user_id, response.data.username); 
       } else {
         await authAPI.register({ username: authUsername, email: authEmail, password: authPassword });

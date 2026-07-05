@@ -3751,3 +3751,626 @@ fastapi.exceptions.HTTPException: 400: Document 'loan agreement!@#$%.docx' not f
 2026-05-27 17:06:39 - [generation_service.py] - INFO - Query Expanded with Synonyms: Financial, legal, contractual, fiscal, accounting, regulatory, statutory, procedural, administrative, compliance, auditing, tax, liability, obligation, responsibility, duty, bond, collateral, security, guarantee, indemnity, warranty, stipulation, condition, provision, clause, agreement, settlement, resolution, judgment, decree, verdict, ruling, order, directive, mandate, authorization, approval, consent, assent, ratification, validation, verification, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement, declaration, affidavit, testimony, evidence, proof, substantiation, validation, authentication, certification, documentation, record, report, statement
 2026-05-27 17:06:39 - [generation_service.py] - INFO - Multi-queries generated: ['Review and provide a comprehensive analysis of the document in question.', 'I would appreciate it if you could conduct a thorough examination of the document and provide a detailed report on its contents.', 'Please perform a document review and provide a written summary of the key findings and recommendations.', 'Please analyze the document and provide a formal assessment of its accuracy, completeness, and adherence to relevant regulations and standards.']
 2026-05-27 17:06:41 - [generation_service.py] - INFO - Synthesizing response for session: 1_1779881060503 using DB history...
+2026-06-18 15:20:05 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-18 22:33:02 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-18 23:02:59 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-23 11:12:00 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-23 11:20:22 - [main.py] - INFO - Health check endpoint hit.
+2026-06-23 11:21:00 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-06-23 11:22:19 - [auth.py] - INFO - Registering new user: jhon@gmail.com
+2026-06-23 11:23:14 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-23 11:29:27 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-23 11:29:42 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 8
+2026-06-23 11:29:42 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 8_1782194367347
+2026-06-23 11:29:46 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-06-23 11:30:21 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-06-23 11:30:21 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 11:30:42 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 11:30:46 - [retrieval_service.py] - INFO - Memory index appended with 'loan agreement!@#$%.docx' (1 chunks) for 3_1782194387058.
+2026-06-23 11:31:23 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hello' for session: 3_1782194387058
+2026-06-23 11:31:29 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-23 11:31:41 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What are you doing today?' for session: 3_1782194387058
+2026-06-23 11:31:42 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-23 11:32:04 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Can you tell me about important information inside the document?' for session: 3_1782194387058
+2026-06-23 11:32:05 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-23 11:32:05 - [generation_service.py] - INFO - Query Expanded with Synonyms: Financial disclosure, contractual stipulation, fiscal obligation, legal stipulation, regulatory compliance.
+2026-06-23 11:32:06 - [generation_service.py] - INFO - Multi-queries generated: ['What key data points are contained within the document?', 'What pertinent information is included in the document?', 'What salient details are presented within the document?']
+2026-06-23 11:32:13 - [generation_service.py] - INFO - Synthesizing response for session: 3_1782194387058 using DB history...
+2026-06-23 13:40:32 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hello' for session: 3_1782194387058
+2026-06-23 13:40:33 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-23 13:40:45 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 3
+2026-06-23 13:40:45 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/6f6fee4b-5e2d-4ad2-8c8a-2d6a41c6287d.docx
+2026-06-23 13:40:46 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 3_1782194387058
+2026-06-23 13:40:54 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-06-23 13:41:02 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part1.docx
+2026-06-23 13:41:02 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 13:41:04 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 13:41:07 - [retrieval_service.py] - INFO - Memory index appended with 'loan part1.docx' (1 chunks) for 3_1782202255265.
+2026-06-23 13:48:20 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part1.docx
+2026-06-23 13:48:20 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 13:48:20 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 13:48:21 - [retrieval_service.py] - INFO - Memory index appended with 'loan part1.docx' (1 chunks) for 3_1782202255265.
+2026-06-23 13:49:11 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the total loan amount?' for session: 3_1782202255265
+2026-06-23 13:49:12 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-23 13:49:12 - [generation_service.py] - INFO - Query Expanded with Synonyms: Outstanding principal balance, total indebtedness, aggregate loan amount, gross loan balance.
+2026-06-23 13:49:13 - [generation_service.py] - INFO - Multi-queries generated: ['Total Outstanding Loan Balance Inquiry', 'Total Aggregate Loan Principal Outstanding', 'Request for Total Loan Portfolio Value', 'Total Loan Exposure Calculation', 'Total Outstanding Loan Amount Determination', 'Total Aggregate Loan Value Inquiry', 'Total Loan Portfolio Value Calculation']
+2026-06-23 13:49:15 - [generation_service.py] - INFO - Synthesizing response for session: 3_1782202255265 using DB history...
+2026-06-23 14:16:47 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-23 14:17:29 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part1.pdf
+2026-06-23 14:17:29 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 14:18:30 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 14:18:34 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part1.pdf' (1 chunks) for 8_1782204407812.
+2026-06-23 14:19:21 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part2.pdf
+2026-06-23 14:19:21 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 14:19:34 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 14:19:36 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part2.pdf' (1 chunks) for 8_1782204407812.
+2026-06-23 14:20:40 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'WHat is lockin period?' for session: 8_1782204407812
+2026-06-23 14:20:41 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-23 14:20:41 - [generation_service.py] - INFO - Query Expanded with Synonyms: Fixed tenure, stipulated lock-in, mandatory holding period, minimum retention period.
+2026-06-23 14:20:42 - [generation_service.py] - INFO - Multi-queries generated: ['Lock-in Period Definition Search', 'What is the duration of the lock-in period in financial instruments?', 'What is the meaning of lock-in period in banking and finance?', 'What is the definition of lock-in period in investment products?', 'Lock-in Period Duration Search', 'What is the typical length of a lock-in period in securities?', 'What is the standard duration of a lock-in period in financial markets?', 'What is the average lock-in period in investment products?', 'Lock-in Period Implications Search', 'What are the implications of a lock-in period on investment returns?', 'What are the effects of a lock-in period on financial instrument pricing?', 'What are the consequences of a lock-in period on investment portfolio management?']
+2026-06-23 14:20:43 - [generation_service.py] - INFO - Synthesizing response for session: 8_1782204407812 using DB history...
+2026-06-23 14:21:55 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the base monthly rent?' for session: 8_1782204407812
+2026-06-23 14:21:55 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-23 14:22:21 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the base monthly rent?' for session: 8_1782204407812
+2026-06-23 14:22:23 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-23 14:23:06 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part1.docx
+2026-06-23 14:23:06 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 14:23:06 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 14:23:07 - [retrieval_service.py] - INFO - Memory index appended with 'loan part1.docx' (1 chunks) for 8_1782204407812.
+2026-06-23 14:23:13 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part2.docx
+2026-06-23 14:23:13 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 14:23:13 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 14:23:14 - [retrieval_service.py] - INFO - Memory index appended with 'loan part2.docx' (1 chunks) for 8_1782204407812.
+2026-06-23 14:24:07 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'tenure of loan?' for session: 8_1782204407812
+2026-06-23 14:24:08 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-23 14:24:08 - [generation_service.py] - INFO - Query Expanded with Synonyms: Loan duration, loan term, repayment period, amortization schedule, loan maturity date.
+2026-06-23 14:24:08 - [generation_service.py] - INFO - Multi-queries generated: ['Loan duration', 'Loan term', 'Maturity period of a loan', 'Loan repayment period', 'Loan tenor', 'Loan length', 'Loan lifespan', 'Loan amortization period', 'Loan repayment horizon']
+2026-06-23 14:24:10 - [generation_service.py] - INFO - Synthesizing response for session: 8_1782204407812 using DB history...
+2026-06-23 14:24:41 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the foreclosure panelties?' for session: 8_1782204407812
+2026-06-23 14:24:46 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-23 14:24:49 - [generation_service.py] - INFO - Query Expanded with Synonyms: Foreclosure penalties, foreclosure fines, foreclosure fees, deficiency judgment, deficiency liability.
+2026-06-23 14:24:53 - [generation_service.py] - INFO - Multi-queries generated: ['Foreclosure Penalties Definition', 'What are the consequences of foreclosure, specifically the penalties associated with the process?', 'What are the foreclosure penalties and fees incurred by borrowers in default?', 'What are the foreclosure penalties and charges imposed on delinquent property owners?']
+2026-06-23 14:25:11 - [generation_service.py] - INFO - Synthesizing response for session: 8_1782204407812 using DB history...
+2026-06-23 14:25:27 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the foreclosure panelties?' for session: 8_1782204407812
+2026-06-23 14:25:29 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-23 14:25:29 - [generation_service.py] - INFO - Query Expanded with Synonyms: Foreclosure penalties, foreclosure fines, foreclosure fees, deficiency judgment, deficiency liability.
+2026-06-23 14:25:30 - [generation_service.py] - INFO - Multi-queries generated: ['What are the foreclosure penalties and consequences associated with mortgage default?', 'What are the repercussions and fines associated with foreclosure proceedings?', 'What are the penalties and sanctions imposed on borrowers in the event of foreclosure?']
+2026-06-23 14:25:36 - [generation_service.py] - INFO - Synthesizing response for session: 8_1782204407812 using DB history...
+2026-06-23 14:27:06 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Who am I?' for session: 8_1782204407812
+2026-06-23 14:27:16 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-23 14:28:25 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 8
+2026-06-23 14:28:25 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/a58ff11d-b5f4-4e5f-87e3-81e47809e837.docx
+2026-06-23 14:28:25 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/ab509582-d6a0-431d-8da8-38b61a44e539.docx
+2026-06-23 14:28:25 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 8_1782204407812
+2026-06-23 14:28:26 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-23 14:28:44 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: OMEGA PRIME FINANCIAL SERVICES.docx
+2026-06-23 14:28:44 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 14:28:46 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-23 14:28:48 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 14:28:55 - [retrieval_service.py] - INFO - Memory index appended with 'OMEGA PRIME FINANCIAL SERVICES.docx' (2 chunks) for 8_1782205107501.
+2026-06-23 15:35:19 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-23 16:01:54 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-06-23 16:02:27 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-06-23 16:02:46 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 8
+2026-06-23 16:02:46 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/0cb4a26c-26fb-462c-aea5-3a56f498302d.docx
+2026-06-23 16:02:47 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 8_1782205107501
+2026-06-23 16:03:01 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: OMEGA PRIME FINANCIAL SERVICES.docx
+2026-06-23 16:03:01 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 16:03:14 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-23 16:03:16 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 16:03:19 - [retrieval_service.py] - INFO - Memory index appended with 'OMEGA PRIME FINANCIAL SERVICES.docx' (2 chunks) for 3_1782202255265.
+2026-06-23 16:03:52 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 3
+2026-06-23 16:03:52 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/2af54670-1fdf-49c8-8e13-c4876667852d.docx
+2026-06-23 16:03:52 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 3_1782202255265
+2026-06-23 16:04:00 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-06-23 16:04:07 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-06-23 16:04:07 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 16:04:09 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 16:04:10 - [retrieval_service.py] - INFO - Memory index appended with 'loan agreement!@#$%.docx' (1 chunks) for 3_1782210840505.
+2026-06-23 16:10:14 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-23 16:11:08 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-06-23 16:11:50 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 8
+2026-06-23 16:11:50 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 3_1782210840505
+2026-06-23 16:11:52 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-23 16:11:57 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part1.docx
+2026-06-23 16:11:57 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-23 16:11:57 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-23 16:11:59 - [retrieval_service.py] - INFO - Memory index appended with 'loan part1.docx' (1 chunks) for 8_1782211312387.
+2026-06-25 11:09:38 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-25 11:21:17 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-25 11:22:52 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-25 11:23:41 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_3.pdf
+2026-06-25 11:23:41 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-25 11:25:16 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 11:25:35 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-25 11:26:08 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_3.pdf' (1 chunks) for 8_1782366773578.
+2026-06-25 11:28:11 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the key information is in the document which I need to know?
+' for session: 8_1782366773578
+2026-06-25 11:28:13 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-25 11:28:13 - [generation_service.py] - INFO - Query Expanded with Synonyms: Contractual stipulations, financial obligations, legal liabilities, fiscal responsibilities, and regulatory compliance.
+2026-06-25 11:28:14 - [generation_service.py] - INFO - Multi-queries generated: ['What are the critical data points and key performance indicators (KPIs) contained within the document that require my attention?', 'What are the essential financial metrics and analytical insights presented in the document that I need to be aware of?', 'What are the primary financial data elements and relevant information contained within the document that necessitate my knowledge?']
+2026-06-25 11:28:18 - [generation_service.py] - INFO - Synthesizing response for session: 8_1782366773578 using DB history...
+2026-06-25 15:27:44 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 8
+2026-06-25 15:27:44 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/749fe5d0-c3c2-49b2-85af-a4dd0d847d4b.docx
+2026-06-25 15:27:44 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/558d8a82-c75d-455a-8a11-4453585e4656.pdf
+2026-06-25 15:27:46 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 8_1782366773578
+2026-06-25 15:27:50 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-25 15:28:13 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 8
+2026-06-25 15:28:13 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 8_1782381471217
+2026-06-25 15:28:19 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-25 15:33:01 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-25 19:44:17 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 8
+2026-06-25 19:44:18 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 8_1782381499746
+2026-06-25 19:44:22 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-25 19:46:01 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-06-25 19:46:01 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-25 19:48:00 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 19:48:02 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 19:48:03 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 19:48:03 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-25 19:48:10 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 8_1782396863142.
+2026-06-25 19:48:45 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 8
+2026-06-25 19:48:45 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/2d59ccae-7b93-45d2-b56a-bf1d5e2882c8.pdf
+2026-06-25 19:48:45 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 8_1782396863142
+2026-06-25 19:48:50 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-06-25 19:49:54 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hello' for session: 3_1782397130671
+2026-06-25 19:49:54 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-25 19:51:50 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-06-25 19:53:21 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hii' for session: 3_1782397130671
+2026-06-25 19:53:21 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-25 19:53:52 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 3
+2026-06-25 19:53:52 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/d1a675cf-6e09-4866-8d6e-f3142e73d2c1.docx
+2026-06-25 19:53:52 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 3_1782397130671
+2026-06-25 19:53:56 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-06-25 19:54:20 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 8
+2026-06-25 19:54:20 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 8_1782397436846
+2026-06-25 19:54:29 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-06-25 19:54:48 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 2
+2026-06-25 19:54:48 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 2_1782397470053
+2026-06-25 19:54:51 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-06-25 19:54:58 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 2
+2026-06-25 19:54:58 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 2_1782397492437
+2026-06-25 19:55:05 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-06-25 19:55:14 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-06-25 19:55:38 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-06-25 19:56:30 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: OMEGA PRIME FINANCIAL SERVICES.docx
+2026-06-25 19:56:30 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-25 19:56:34 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 19:56:34 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-25 19:56:36 - [retrieval_service.py] - INFO - Memory index appended with 'OMEGA PRIME FINANCIAL SERVICES.docx' (2 chunks) for 1_1782397311179.
+2026-06-25 20:46:38 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-06-25 20:46:51 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-06-25 20:46:51 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-25 20:46:54 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-25 20:46:56 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 1_1782397311179.
+2026-06-25 20:46:58 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 1
+2026-06-25 20:46:58 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/024ad08a-3eca-4f1f-af70-1672858369ea.docx
+2026-06-25 20:46:58 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/0dc320e8-f1fe-48ba-901a-d2dc390b9b6e.docx
+2026-06-25 20:46:58 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/5a5463d7-0704-4a5e-a755-3782e12a930c.txt
+2026-06-25 20:46:58 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 2_1782397514602
+2026-06-25 20:47:04 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-06-25 20:47:16 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 2
+2026-06-25 20:47:16 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 2_1782400624672
+2026-06-25 20:47:25 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_3.pdf
+2026-06-25 20:47:25 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-25 20:47:31 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-06-25 20:47:44 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_3.pdf
+2026-06-25 20:47:44 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-25 20:48:15 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 20:48:16 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-25 20:48:18 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_3.pdf' (1 chunks) for 1_1782397311179.
+2026-06-25 20:48:21 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 20:48:21 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-25 20:48:23 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_3.pdf' (1 chunks) for 2_1782400652672.
+2026-06-25 22:22:20 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-06-25 22:22:20 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-25 22:22:23 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-25 22:22:26 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 2_1782400652672.
+2026-06-25 22:22:33 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hii' for session: 2_1782400652672
+2026-06-25 22:22:34 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-25 22:22:46 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is EMI amount?' for session: 2_1782400652672
+2026-06-25 22:22:46 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-25 22:22:47 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Installment Payment, Monthly Amortization Payment, Monthly Loan Repayment.
+2026-06-25 22:22:47 - [generation_service.py] - INFO - Multi-queries generated: ['What is the monthly installment amount for a loan?', 'What is the periodic payment amount for an amortizing loan?', 'What is the regular monthly payment amount for a loan with equal monthly installments?']
+2026-06-25 22:22:50 - [generation_service.py] - INFO - Synthesizing response for session: 2_1782400652672 using DB history...
+2026-06-25 22:24:35 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-25 22:26:12 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 2
+2026-06-25 22:26:12 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/235f2972-ad35-40fe-9f4e-c6db7b033cf8.pdf
+2026-06-25 22:26:12 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/d1fee172-e3b8-4d27-b259-bee434890a4c.txt
+2026-06-25 22:26:12 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 2_1782400652672
+2026-06-25 22:26:17 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-06-25 22:26:32 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-06-25 22:26:32 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-25 22:27:24 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 22:27:26 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 22:27:27 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-25 22:27:27 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-25 22:27:31 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 1_1782397311179.
+2026-06-25 22:42:41 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hello' for session: 1_1782397311179
+2026-06-25 22:42:42 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-25 22:42:48 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Who are you?' for session: 1_1782397311179
+2026-06-25 22:42:48 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-25 22:43:15 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is EMI amount?' for session: 1_1782397311179
+2026-06-25 22:43:15 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-25 22:43:15 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment, Regular Installment, Monthly Amortization, Monthly Capital Repayment.
+2026-06-25 22:43:15 - [generation_service.py] - INFO - Multi-queries generated: ['What is the monthly installment amount for a loan?', 'What is the periodic payment amount for an amortizing loan?', 'What is the monthly equivalent installment (MEI) amount for a loan?']
+2026-06-25 22:43:18 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782397311179 using DB history...
+2026-06-25 22:43:31 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What if I do not pay it?' for session: 1_1782397311179
+2026-06-25 22:43:31 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-25 22:43:32 - [generation_service.py] - INFO - Query Expanded with Synonyms: Default judgment, non-payment penalty, late fee, interest accrual, debt collection.
+2026-06-25 22:43:32 - [generation_service.py] - INFO - Multi-queries generated: ['What are the consequences of non-payment of an outstanding obligation?', 'What happens if a debtor fails to fulfill their financial liability?', 'What are the repercussions of defaulting on a financial commitment?']
+2026-06-25 22:43:33 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782397311179 using DB history...
+2026-06-25 22:56:59 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 1
+2026-06-25 22:56:59 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/03c4437e-c85a-477f-90db-d4ba7cbaae72.pdf
+2026-06-25 22:56:59 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/ebd6fb69-0c9f-4274-8571-682b6044ccef.pdf
+2026-06-25 22:56:59 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 1_1782397311179
+2026-06-25 22:59:42 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-27 11:06:17 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-27 11:10:22 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-27 11:31:48 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-27 11:32:09 - [auth.py] - INFO - Login attempt for: prakash@gmaill.ocm
+2026-06-27 11:32:18 - [auth.py] - INFO - Login attempt for: prakash@gmaill.com
+2026-06-27 11:32:20 - [auth.py] - INFO - Login attempt for: prakash@gmaill.com
+2026-06-27 11:32:25 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-06-27 11:34:00 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-06-27 11:34:00 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 11:34:15 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 11:34:24 - [retrieval_service.py] - INFO - Memory index appended with 'loan agreement!@#$%.docx' (1 chunks) for 1_1782540146182.
+2026-06-27 11:37:02 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'If borrower receives secondary income from consulting exceeding:
+Rs. 600,000 annually
+what right lender has regarding repayment obligations?' for session: 1_1782540146182
+2026-06-27 11:37:09 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 11:37:09 - [generation_service.py] - INFO - Query Expanded with Synonyms: Default interest, Enhanced repayment liability, Increased debt servicing, Secondary income garnishment, Enhanced collateralization.
+2026-06-27 11:37:10 - [generation_service.py] - INFO - Multi-queries generated: ["What are the implications of a borrower's secondary income exceeding Rs. 600,000 annually on loan repayment obligations, and what are the lender's rights and responsibilities in such a scenario?", "What are the lender's entitlements and obligations when a borrower's secondary income, derived from consulting services, exceeds Rs. 600,000 annually, impacting loan repayment schedules?", "In the event of a borrower's secondary income from consulting exceeding Rs. 600,000 annually, what are the lender's rights and obligations regarding the borrower's loan repayment obligations, and are there any adjustments to the loan agreement that may be necessary?"]
+2026-06-27 11:37:15 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782540146182 using DB history...
+2026-06-27 11:42:20 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Who is lender? Who is borrower? Reason of borrowing? Principal amount? net amount? what are the charges deducted? EMI amount? What if I do pay EMI?' for session: 1_1782540146182
+2026-06-27 11:42:21 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 11:42:21 - [generation_service.py] - INFO - Query Expanded with Synonyms: Interest payer, Debtor, Financial obligation, Loan agreement, Principal sum, Outstanding balance, Deductions, Prepayment penalty, Default interest, EMI installment, Non-payment penalty, Late payment fee, Interest rate, Loan repayment, Defaulted loan, Outstanding debt, Interest accrued.
+2026-06-27 11:42:22 - [generation_service.py] - INFO - Multi-queries generated: ['Who is the Lending Institution and Who is the Borrower? What are the Terms and Conditions of the Loan Agreement?', 'What is the Identity of the Credit Provider and the Debtor? What are the Reasons for the Loan Disbursement?', 'What is the Principal Amount of the Loan and What are the Associated Fees and Charges? What is the Net Amount Disbursed to the Borrower?', 'What are the Components of the Equated Monthly Installment (EMI) and What are the Charges Deducted Therefrom?', 'What are the Consequences of Non-Payment of EMI and What are the Remedies Available to the Borrower?']
+2026-06-27 11:42:23 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782540146182 using DB history...
+2026-06-27 11:43:14 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-06-27 11:43:14 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 11:43:14 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 11:43:16 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 1_1782540146182.
+2026-06-27 11:52:55 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement.pdf
+2026-06-27 11:52:55 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 11:55:54 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 11:56:01 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 11:56:02 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 11:56:03 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 11:56:03 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 11:56:18 - [documents.py] - ERROR - ❌ [UPLOAD FAILED]: [Errno 11001] getaddrinfo failed
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\documents.py", line 44, in upload_pdf
+    embeddings = await create_embeddings(chunks)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\services\embeddings.py", line 30, in create_embeddings
+    response = client.models.embed_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\models.py", line 6189, in embed_content
+    return self._embed_content(model=model, contents=contents, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\models.py", line 4996, in _embed_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\_api_client.py", line 1579, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\_api_client.py", line 1372, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\_api_client.py", line 1348, in _request_once
+    response = self._httpx_client.send(httpx_request, stream=stream)  # type: ignore[union-attr]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-06-27 11:58:29 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-06-27 11:58:29 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 11:59:02 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 11:59:04 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 11:59:04 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 11:59:05 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 11:59:07 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 1_1782540146182.
+2026-06-27 11:59:41 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hii' for session: 1_1782540146182
+2026-06-27 11:59:42 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-27 11:59:51 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is EMI a mount?' for session: 1_1782540146182
+2026-06-27 11:59:51 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 11:59:51 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Monthly Payment, Monthly Amortization Payment, Monthly Loan Repayment.
+2026-06-27 11:59:52 - [generation_service.py] - INFO - Multi-queries generated: ['What is the definition of an Equated Monthly Installment (EMI) amount?', 'What is the formula for calculating the monthly installment amount of an Equated Monthly Installment (EMI) loan?', 'What is the standard calculation for determining the monthly payment amount of an Equated Monthly Installment (EMI) loan?']
+2026-06-27 11:59:56 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782540146182 using DB history...
+2026-06-27 12:00:19 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement.pdf
+2026-06-27 12:00:19 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 12:02:35 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 12:02:46 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 12:02:47 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 12:02:47 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 12:02:48 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 12:03:04 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement.pdf' (13 chunks) for 1_1782540146182.
+2026-06-27 12:03:49 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hello' for session: 1_1782540146182
+2026-06-27 12:03:52 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-27 12:04:10 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is principal loan amount?' for session: 1_1782540146182
+2026-06-27 12:04:13 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 12:04:15 - [generation_service.py] - INFO - Query Expanded with Synonyms: Outstanding principal balance, initial loan principal, initial mortgage principal, initial loan amount, initial principal balance.
+2026-06-27 12:04:22 - [generation_service.py] - INFO - Multi-queries generated: ['What is the outstanding principal balance of a loan?', 'What is the initial principal sum borrowed by a borrower?', 'What is the principal amount disbursed to a borrower at the inception of a loan?']
+2026-06-27 12:04:31 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782540146182 using DB history...
+2026-06-27 12:06:00 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What interest rate and number of installments?' for session: 1_1782540146182
+2026-06-27 12:06:03 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 12:06:04 - [generation_service.py] - INFO - Query Expanded with Synonyms: Amortization rate, periodic interest rate, installment payment schedule, loan amortization terms, interest accrual rate.
+2026-06-27 12:06:04 - [generation_service.py] - INFO - Multi-queries generated: ['Interest Rate and Amortization Schedule Inquiry', 'What is the prevailing interest rate and corresponding amortization period for a loan or financial instrument?', 'What are the applicable interest rates and repayment terms for a specified loan or financial product?', 'What is the prevailing interest rate and associated amortization schedule for a given loan or financial instrument, including the number of installments and repayment period?']
+2026-06-27 12:06:06 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782540146182 using DB history...
+2026-06-27 12:06:50 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is EMI and last date to pay EMI?' for session: 1_1782540146182
+2026-06-27 12:06:52 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 12:06:52 - [generation_service.py] - INFO - Query Expanded with Synonyms: Installment payment, periodic payment, scheduled payment, due date, final payment date, maturity date, last payment date, final installment date, final payment deadline.
+2026-06-27 12:06:53 - [generation_service.py] - INFO - Multi-queries generated: ['What is the definition of Equated Monthly Installment (EMI) and the final due date for EMI payments?', 'What is the Equated Monthly Installment (EMI) and what is the last payment date for EMI obligations?', 'What is the Equated Monthly Installment (EMI) definition, and what is the deadline for EMI repayment?', 'What is the Equated Monthly Installment (EMI) and what is the final payment date for EMI disbursements?', 'What is the Equated Monthly Installment (EMI) definition, and what is the last payment due date for EMI repayments?', 'What is the Equated Monthly Installment (EMI) and what is the final payment date for EMI disbursements in accordance with loan agreements?']
+2026-06-27 12:06:54 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782540146182 using DB history...
+2026-06-27 12:08:08 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Who are the lender and borrower of the loan?' for session: 1_1782540146182
+2026-06-27 12:08:08 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 12:08:09 - [generation_service.py] - INFO - Query Expanded with Synonyms: Lessor, Lessee, Debtor, Creditor, Obligor, Obligee, Mortgagor, Mortgagee, Pledgor, Pledgee.
+2026-06-27 12:08:09 - [generation_service.py] - INFO - Multi-queries generated: ['What are the principal parties involved in the loan agreement, specifically the obligor and obligee?', 'What are the identities of the parties to the loan contract, namely the debtor and creditor?', 'What are the names of the parties to the loan transaction, specifically the borrower and lender?']
+2026-06-27 12:08:11 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782540146182 using DB history...
+2026-06-27 12:11:09 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What if i not pay emi?' for session: 1_1782540146182
+2026-06-27 12:11:09 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 12:11:09 - [generation_service.py] - INFO - Query Expanded with Synonyms: Default on loan repayment, Fail to make mortgage payments, Non-payment of installment loan, Missed EMI payment, Default on installment loan.
+2026-06-27 12:11:10 - [generation_service.py] - INFO - Multi-queries generated: ['What are the consequences of non-payment of Equated Monthly Installments (EMIs) on outstanding loan balances?', 'What happens if a borrower fails to make timely payments of EMIs on a mortgage or personal loan?', 'What are the implications of defaulting on EMI payments for a loan, including potential penalties and interest charges?']
+2026-06-27 12:11:12 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782540146182 using DB history...
+2026-06-27 12:45:33 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 1
+2026-06-27 12:45:33 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/c52887f0-187f-4324-b12b-3ca52bca4f69.pdf
+2026-06-27 12:45:33 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 1_1782540146182
+2026-06-27 12:45:57 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-06-27 13:20:28 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-06-27 13:20:52 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-06-27 13:20:52 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 13:21:20 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 13:21:23 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 13:21:24 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 13:21:25 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 13:21:27 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 1_1782546628410.
+2026-06-27 13:21:36 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hello' for session: 1_1782546628410
+2026-06-27 13:21:37 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-27 13:21:47 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'I don't like you' for session: 1_1782546628410
+2026-06-27 13:21:49 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-27 13:22:10 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Run any financial query about uploaded document' for session: 1_1782546628410
+2026-06-27 13:22:14 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 13:22:14 - [generation_service.py] - INFO - Query Expanded with Synonyms: Financial analysis, fiscal review, accounting audit, financial statement examination, tax compliance assessment
+2026-06-27 13:22:15 - [generation_service.py] - INFO - Multi-queries generated: ['Financial Transaction Query: Retrieve all relevant financial data associated with uploaded documentation.', 'Financial Statement Query: Extract and analyze financial information from uploaded documents to facilitate informed decision-making.', 'Document-Based Financial Analysis Query: Conduct a comprehensive review of uploaded financial documents to identify key trends and patterns.']
+2026-06-27 13:22:17 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782546628410 using DB history...
+2026-06-27 13:23:43 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'If i pay EMI for 2 years without missing any EMI now how much more left to be paid' for session: 1_1782546628410
+2026-06-27 13:23:44 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 13:23:46 - [generation_service.py] - INFO - Query Expanded with Synonyms: Amortized balance, outstanding principal, residual debt, remaining liability, unpaid obligation
+2026-06-27 13:23:46 - [generation_service.py] - INFO - Multi-queries generated: ['Amortization Schedule Query: What is the outstanding principal balance after 24 consecutive monthly installments have been paid in accordance with the original loan agreement?', 'Loan Repayment Schedule Query: What is the remaining principal amount due after a period of 2 years, assuming timely payment of all scheduled monthly equivalent installments (EMIs)?', 'Mortgage Amortization Query: What is the current principal balance remaining after 2 years of regular, uninterrupted monthly mortgage payments, with no missed or delayed payments?']
+2026-06-27 13:23:49 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782546628410 using DB history...
+2026-06-27 13:52:02 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Tell me something about this document/' for session: 1_1782546628410
+2026-06-27 13:52:03 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 13:52:06 - [generation_service.py] - INFO - Query Expanded with Synonyms: litigation, arbitration, mediation, settlement, agreement, contract, deed, indenture, conveyance, transfer, assignment, title, ownership, possession, property, asset, estate, inheritance, will, testament, probate, estate planning, succession, intestacy, guardianship, conservatorship, power of attorney, fiduciary, executor, administrator, beneficiary, heir, legatee, devisee, intestate, testate, probate court, estate administration, estate tax, inheritance tax, gift tax, capital gains tax, tax liability, tax exemption, tax deduction, tax credit, tax return, tax audit, tax evasion, tax avoidance, tax shelter, tax planning, financial planning, wealth management, asset protection, estate protection, succession planning, business succession, corporate succession, family business succession, family office, family trust, family foundation, family limited partnership, family limited liability company, family business entity, business entity, corporate entity, limited liability company, limited partnership, partnership, joint venture, joint ownership, co-ownership, co-tenancy, tenancy in common, joint tenancy, community property, community property with right of survivorship, tenancy by the entirety, sole ownership, sole tenancy, sole possession, sole property, sole asset, sole estate, sole inheritance, sole will, sole testament, sole probate, sole estate administration, sole tax return, sole tax audit, sole tax evasion, sole tax avoidance, sole tax shelter, sole tax planning, sole financial planning, sole wealth management, sole asset protection, sole estate protection, sole succession planning, sole business succession, sole corporate succession, sole family business succession, sole family office, sole family trust, sole family foundation, sole family limited partnership, sole family limited liability company, sole family business entity, sole business entity, sole corporate entity, sole limited liability company, sole limited partnership, sole partnership, sole joint venture, sole joint ownership, sole co-ownership, sole co-tenancy, sole tenancy in common, sole joint tenancy, sole community property, sole community property with right of survivorship, sole tenancy by the entirety, sole sole ownership, sole sole tenancy, sole sole possession, sole sole property, sole sole asset, sole sole estate, sole sole inheritance, sole sole will, sole sole testament, sole sole probate, sole sole estate administration, sole sole tax return, sole sole tax audit, sole sole tax evasion, sole sole tax avoidance, sole sole tax shelter, sole sole tax planning, sole sole financial planning, sole sole wealth management, sole sole asset protection, sole sole estate protection, sole sole succession planning, sole sole business succession, sole sole corporate succession, sole sole family business succession, sole sole family office, sole sole family trust, sole sole family foundation, sole sole family limited partnership, sole sole family limited liability company, sole sole family business entity, sole sole business entity, sole sole corporate entity, sole sole limited liability company, sole sole limited partnership, sole sole partnership, sole sole joint venture, sole sole joint ownership, sole sole co-ownership, sole sole co-tenancy, sole sole tenancy in common, sole sole joint tenancy, sole sole community property, sole sole community property with right of survivorship, sole sole tenancy by the entirety, sole sole sole ownership, sole sole sole tenancy, sole sole sole possession, sole sole sole property, sole sole sole asset, sole sole sole estate, sole sole sole inheritance, sole sole sole will, sole sole sole testament, sole sole sole probate, sole sole sole estate administration, sole sole sole tax return, sole sole sole tax audit, sole sole sole tax evasion, sole sole sole tax avoidance, sole sole sole tax shelter, sole sole sole tax planning, sole sole sole financial planning, sole sole sole wealth management, sole sole sole asset protection, sole sole sole estate protection, sole sole sole succession planning, sole sole sole business succession, sole sole sole corporate succession, sole sole sole family business succession, sole sole sole family office, sole sole sole family trust, sole sole sole family foundation, sole sole sole family limited partnership, sole sole sole family limited liability company, sole sole sole family business entity, sole sole sole business entity, sole sole sole corporate entity, sole sole sole limited liability company, sole sole sole limited partnership, sole sole sole partnership, sole sole sole joint venture, sole sole sole joint ownership, sole sole sole co-ownership, sole sole sole co-tenancy, sole sole sole tenancy in common, sole sole sole joint tenancy, sole sole sole community property, sole sole sole community property with right of survivorship, sole sole sole tenancy by the entirety, sole sole sole sole ownership, sole sole sole sole tenancy, sole sole sole sole possession, sole sole sole sole property, sole sole sole sole asset, sole sole sole sole estate, sole sole sole sole inheritance, sole sole sole sole will, sole sole sole sole testament, sole sole sole sole probate, sole sole sole sole estate administration, sole sole sole sole tax return, sole sole sole sole tax audit, sole sole sole sole tax evasion, sole sole sole sole tax avoidance, sole sole sole sole tax shelter, sole sole sole sole tax planning, sole sole sole sole financial planning, sole sole sole sole wealth management, sole sole sole sole asset protection, sole sole sole sole estate protection, sole sole sole sole succession planning, sole sole sole sole business succession, sole sole sole sole corporate succession, sole sole sole sole family business succession, sole sole sole sole family office, sole sole sole sole family trust, sole sole sole sole family foundation, sole sole sole sole family limited partnership, sole sole sole sole family limited liability company, sole sole sole sole family business entity, sole sole sole sole business entity, sole sole sole sole corporate entity, sole sole sole sole limited liability company, sole sole sole sole limited partnership, sole sole sole sole partnership, sole sole sole sole joint venture, sole sole sole sole joint ownership, sole sole sole sole co-ownership, sole sole sole sole co-tenancy, sole sole sole sole tenancy in common, sole sole sole sole joint tenancy, sole sole sole sole community property, sole sole sole sole community property with right of survivorship, sole sole sole sole tenancy by the entirety, sole sole sole sole sole ownership, sole sole sole sole sole tenancy, sole sole sole sole sole possession, sole sole sole sole sole property, sole sole sole sole sole asset, sole sole sole sole sole estate, sole sole sole sole sole inheritance, sole sole sole sole sole will, sole sole sole sole sole testament, sole sole sole sole sole probate, sole sole sole sole sole estate administration, sole sole sole sole sole tax return, sole sole sole sole sole tax audit, sole sole sole sole sole tax evasion, sole sole sole sole sole tax avoidance, sole sole sole sole sole tax shelter, sole sole sole sole sole tax planning, sole sole sole sole sole financial planning, sole sole sole sole sole wealth management, sole sole sole sole sole asset protection, sole sole sole sole sole estate protection, sole sole sole sole sole succession planning, sole sole sole sole sole business succession, sole sole sole sole sole corporate succession, sole sole sole sole sole family business succession, sole sole sole sole sole family office, sole sole sole sole sole family trust, sole sole sole sole sole family foundation, sole sole sole sole sole family limited partnership, sole sole sole sole sole family limited liability company, sole sole sole sole sole family business entity, sole sole sole sole sole business entity, sole sole sole sole sole corporate entity, sole sole sole sole sole limited liability company, sole sole sole sole sole limited partnership, sole sole sole sole sole partnership, sole sole sole sole sole joint venture, sole sole sole sole sole joint ownership, sole sole sole sole sole co-ownership, sole sole sole sole sole co-tenancy, sole sole sole sole sole tenancy in common, sole sole sole sole sole joint tenancy, sole sole sole sole sole community property, sole sole sole sole sole community property with right of survivorship, sole sole sole sole sole tenancy by the entirety, sole sole sole sole sole sole ownership, sole sole sole sole sole sole tenancy, sole sole sole sole sole sole possession, sole sole sole sole sole sole property, sole sole sole sole sole sole asset, sole sole sole sole sole sole estate, sole sole sole sole sole sole inheritance, sole sole sole sole sole sole will, sole sole sole sole sole sole testament, sole sole sole sole sole sole probate, sole sole sole sole sole sole estate administration, sole sole sole sole sole sole tax return, sole sole sole sole sole sole tax audit, sole sole sole sole sole sole tax evasion, sole sole sole sole sole sole tax avoidance, sole sole sole sole sole sole tax shelter, sole sole sole sole sole sole tax planning, sole sole sole sole sole sole financial planning, sole sole sole sole sole sole wealth management, sole sole sole sole sole sole asset protection, sole sole sole sole sole sole estate protection, sole sole sole sole sole sole succession planning, sole sole sole sole sole sole business succession, sole sole sole sole sole sole corporate succession, sole sole sole sole sole sole family business succession, sole sole sole sole sole sole family office, sole sole sole sole sole sole family trust, sole sole sole sole sole sole family foundation, sole sole sole sole sole sole family limited partnership, sole sole sole sole sole sole family limited liability company, sole sole sole sole sole sole family business entity, sole sole sole sole sole sole business entity, sole sole sole sole sole sole corporate entity, sole sole sole sole sole sole limited liability company, sole sole sole sole sole sole limited partnership, sole sole sole sole sole sole partnership, sole sole sole sole sole sole joint venture, sole sole sole sole sole sole joint ownership, sole sole sole sole sole sole co-ownership, sole sole sole sole sole sole co-tenancy, sole sole sole sole sole sole tenancy in common, sole sole sole sole sole sole joint tenancy, sole sole sole sole sole sole community property, sole sole sole sole sole sole community property with right of
+2026-06-27 13:52:06 - [generation_service.py] - INFO - Multi-queries generated: ["Can you provide the original query? I'll rewrite it into 3 different variations using formal financial and banking terminology.", 'Please provide the original query so I can assist you.']
+2026-06-27 14:04:11 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-06-27 14:05:09 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-06-27 14:06:35 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-06-27 14:06:35 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 14:07:43 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 14:07:56 - [chunking.py] - WARNING - Table summarization failed. Error: Connection error.
+2026-06-27 14:07:56 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 14:07:58 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 14:07:58 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 14:08:01 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 1_1782549309940.
+2026-06-27 14:22:54 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-06-27 14:22:54 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 14:22:57 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 14:23:09 - [documents.py] - ERROR - ❌ [UPLOAD FAILED]: [Errno 11001] getaddrinfo failed
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\documents.py", line 44, in upload_pdf
+    embeddings = await create_embeddings(chunks)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\services\embeddings.py", line 30, in create_embeddings
+    response = client.models.embed_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\models.py", line 6189, in embed_content
+    return self._embed_content(model=model, contents=contents, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\models.py", line 4996, in _embed_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\_api_client.py", line 1579, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\_api_client.py", line 1372, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 418, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 185, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\google\genai\_api_client.py", line 1348, in _request_once
+    response = self._httpx_client.send(httpx_request, stream=stream)  # type: ignore[union-attr]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-06-27 14:23:37 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-06-27 14:23:37 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 14:23:38 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 14:23:41 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 1_1782549309940.
+2026-06-27 15:17:53 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hii' for session: 1_1782549309940
+2026-06-27 15:17:54 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-06-27 15:18:17 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is EMI amount?' for session: 1_1782549309940
+2026-06-27 15:18:18 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 15:18:18 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment, Regular Installment, Monthly Amortization, Monthly Capital Repayment.
+2026-06-27 15:18:18 - [generation_service.py] - INFO - Multi-queries generated: ['What is the monthly installments amount for a loan?', 'What is the periodic payment amount for an installment loan?', 'What is the monthly equivalent installment amount for a loan agreement?']
+2026-06-27 15:18:21 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782549309940 using DB history...
+2026-06-27 15:22:08 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-06-27 15:22:08 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 15:22:08 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 15:22:11 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 1_1782549309940.
+2026-06-27 15:22:24 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_3.pdf
+2026-06-27 15:22:24 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 15:23:09 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:23:10 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 15:23:11 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_3.pdf' (1 chunks) for 1_1782549309940.
+2026-06-27 15:27:25 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is emi amount?' for session: 1_1782549309940
+2026-06-27 15:27:25 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-06-27 15:27:26 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Monthly Payment, Monthly Amortization Payment, Monthly Loan Repayment.
+2026-06-27 15:27:26 - [generation_service.py] - INFO - Multi-queries generated: ['Monthly Installment Amount Calculation', 'What is the formula for determining the monthly installment amount of a loan?', 'What is the calculation for the periodic payment amount of a loan?', 'What is the formula for calculating the monthly amortization amount of a loan?']
+2026-06-27 15:27:27 - [generation_service.py] - INFO - Synthesizing response for session: 1_1782549309940 using DB history...
+2026-06-27 15:29:03 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-06-27 15:29:03 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 15:29:05 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 15:29:07 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 1_1782549309940.
+2026-06-27 15:32:23 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-06-27 15:32:23 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 15:32:53 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:32:53 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:32:54 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:32:54 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 15:32:55 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 1_1782549309940.
+2026-06-27 15:36:42 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-06-27 15:36:42 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 15:36:58 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-06-27 15:36:58 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 15:37:12 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:37:14 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:37:15 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:37:16 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 15:37:17 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 1_1782549309940.
+2026-06-27 15:37:24 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:37:24 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:37:25 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 15:37:25 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 15:37:26 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 1_1782549309940.
+2026-06-27 16:18:24 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-06-27 16:18:24 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-06-27 16:18:48 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 16:18:50 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 16:18:50 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-06-27 16:18:51 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-06-27 16:18:52 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 1_1782549309940.

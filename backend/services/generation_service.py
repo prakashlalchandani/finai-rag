@@ -32,7 +32,7 @@ class GenerationService:
         result = await db.execute(stmt)
         db_messages = result.scalars().all()
         
-        # LangChain compatible format mein convert karo
+        # Convert into Compatible format
         langchain_history = []
         for msg in db_messages:
             if msg.role == "user":
@@ -42,13 +42,13 @@ class GenerationService:
         return langchain_history
 
     async def save_message_to_db(self, db: AsyncSession, session_id: str, role: str, text: str):
-        """Naye chat message ko database mein permanently save karta hai."""
+        """save messages in db."""
         # Ensure session exists first
         session_check = await db.get(models.ChatSession, session_id)
         if not session_check:
             new_session = models.ChatSession(id=session_id, user_id=1, session_name=f"Chat {session_id[:8]}")
             db.add(new_session)
-            await db.flush() # Memory state validate karo bina commit kiye
+            await db.flush() # Memory state validate 
             
         new_msg = models.Message(session_id=session_id, role=role, text=text)
         db.add(new_msg)
