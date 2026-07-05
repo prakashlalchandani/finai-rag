@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
@@ -7,12 +8,13 @@ class Settings(BaseSettings):
     GROQ_API_KEY: str  # No default value; forces it to be in the .env file
 
     # ==========================================
-    # 2. Database (Qdrant Docker)
+    # 2. Database (Qdrant Cloud)
     # ==========================================
     QDRANT_URL: str = "http://localhost:6333"
+    QDRANT_API_KEY: str | None = None
     FRONTEND_URL: str = "http://localhost:5173"
     COLLECTION_NAME: str = "finaudit_agreements"
-    DATABASE_URL: str = "postgresql+asyncpg://postgres:db_sql123@localhost:5432/finaudit_db"
+    DATABASE_URL: str
 
     # ==========================================
     # 3. AI Models (Groq)

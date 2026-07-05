@@ -9,4 +9,4 @@ groq_client = AsyncGroq(api_key=settings.GROQ_API_KEY)
 
 # 2. The Single Qdrant Database Client
 # Used for all vector database operations
-qdrant_client = AsyncQdrantClient(url=settings.QDRANT_URL)
+qdrant_client = AsyncQdrantClient(url=settings.QDRANT_URL, api_key=settings.QDRANT_API_KEY)
