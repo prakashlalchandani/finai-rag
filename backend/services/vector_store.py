@@ -8,7 +8,7 @@ import uuid
 async def build_qdrant_index(embeddings, chunks, filename, session_id: str):
     dimension = len(embeddings[0])
 
-    # 1. FIXED: Do NOT delete the collection. Only create if it doesn't exist.
+    # 1. Create collection if it doesn't exist
     if not await client.collection_exists(collection_name=settings.COLLECTION_NAME):
         print(f"Creating collection: {settings.COLLECTION_NAME}")
         await client.create_collection(
@@ -16,13 +16,19 @@ async def build_qdrant_index(embeddings, chunks, filename, session_id: str):
             vectors_config=VectorParams(size=dimension, distance=Distance.COSINE),
         )
 
+    # 2. FIX: Ensure the payload index for session_id always exists
+    try:
         await client.create_payload_index(
             collection_name=settings.COLLECTION_NAME,
             field_name="session_id",
             field_schema=models.PayloadSchemaType.KEYWORD,
         )
+        print("✅ Payload index for 'session_id' verified/created.")
+    except Exception as e:
+        # If it already exists, Qdrant will handle it or throw a minor error, which we safely pass
+        print(f"Payload index status: {e}")
 
-    # 2. Insert points with session_id tag
+    # 3. Insert points with session_id tag
     points = []
     for i, (embedding, chunk) in enumerate(zip(embeddings, chunks)):
         points.append(PointStruct(
@@ -40,8 +46,6 @@ async def build_qdrant_index(embeddings, chunks, filename, session_id: str):
         collection_name=settings.COLLECTION_NAME,
         points=points
     )
-    return True
-
 
 async def search_qdrant(query_embedding, session_id: str): # <-- Parameter added
     if not await client.collection_exists(collection_name=settings.COLLECTION_NAME):
