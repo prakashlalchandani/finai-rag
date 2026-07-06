@@ -18,14 +18,21 @@ async def build_qdrant_index(embeddings, chunks, filename, session_id: str):
 
     # 2. FIX: Ensure the payload index for session_id always exists
     try:
+        # Keep your existing session_id index
         await client.create_payload_index(
             collection_name=settings.COLLECTION_NAME,
             field_name="session_id",
             field_schema=models.PayloadSchemaType.KEYWORD,
         )
-        print("✅ Payload index for 'session_id' verified/created.")
+        
+        # ADD THIS NEW BLOCK for document_name
+        await client.create_payload_index(
+            collection_name=settings.COLLECTION_NAME,
+            field_name="document_name",
+            field_schema=models.PayloadSchemaType.KEYWORD,
+        )
+        print("✅ Payload indices for 'session_id' and 'document_name' verified/created.")
     except Exception as e:
-        # If it already exists, Qdrant will handle it or throw a minor error, which we safely pass
         print(f"Payload index status: {e}")
 
     # 3. Insert points with session_id tag
