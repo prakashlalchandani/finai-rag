@@ -5,7 +5,7 @@ from qdrant_client.http import models
 from config.settings import settings
 from config.clients import qdrant_client
 from config.logger import logger
-from services.embeddings import create_embeddings
+from services.embeddings import create_embeddings, get_query_embedding
 
 logger.info("Loading CrossEncoder Re-ranker into memory...")
 reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
@@ -134,13 +134,14 @@ class RetrievalService:
                     return []
 
                 # 3. Vector Search (Qdrant)
-                query_embedding = await create_embeddings([enriched_query.lower()])
+                # 3. Vector Search (Qdrant)
+                query_embedding = await get_query_embedding(enriched_query.lower())
                 response = await self.qdrant.query_points(
                     collection_name=settings.COLLECTION_NAME,
-                    query=query_embedding[0].tolist(),
+                    query=query_embedding.tolist(),
                     query_filter=qdrant_filter,
                     limit=settings.TOP_K_RESULTS
-                )
+)
                 
                 # If searching "all", indices map differently, so we extract raw text directly from Qdrant payloads
                 vector_chunks = [hit.payload["text"] for hit in response.points]

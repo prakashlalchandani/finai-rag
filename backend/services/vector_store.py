@@ -16,6 +16,12 @@ async def build_qdrant_index(embeddings, chunks, filename, session_id: str):
             vectors_config=VectorParams(size=dimension, distance=Distance.COSINE),
         )
 
+        await client.create_payload_index(
+            collection_name=settings.COLLECTION_NAME,
+            field_name="session_id",
+            field_schema=models.PayloadSchemaType.KEYWORD,
+        )
+
     # 2. Insert points with session_id tag
     points = []
     for i, (embedding, chunk) in enumerate(zip(embeddings, chunks)):

@@ -54,3 +54,17 @@ async def create_embeddings(chunks):
                     raise e
     
     return np.array(all_embeddings)
+
+# Add this at the bottom of embeddings.py
+
+async def get_query_embedding(query_text: str):
+    """Generates a single embedding for a user search query."""
+    response = client.models.embed_content(
+        model=settings.EMBEDDING_MODEL, 
+        contents=query_text,
+        config=types.EmbedContentConfig(
+            task_type="RETRIEVAL_QUERY"
+        )
+    )
+    # Extract the vector array for the search
+    return np.array(response.embeddings[0].values)
