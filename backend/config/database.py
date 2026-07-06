@@ -5,7 +5,9 @@ from config.settings import settings
 DATABASE_URL = settings.DATABASE_URL 
 
 # Async Engine create
-engine = create_async_engine(DATABASE_URL, echo=False)
+engine = create_async_engine(DATABASE_URL, 
+                            connect_args={"prepared_statement_cache_size": 0,"statement_cache_size": 0},
+                            echo=False)
 
 # Async Session maker
 AsyncSessionLocal = async_sessionmaker(
