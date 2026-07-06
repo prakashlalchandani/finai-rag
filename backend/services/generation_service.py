@@ -43,12 +43,18 @@ class GenerationService:
 
     async def save_message_to_db(self, db: AsyncSession, session_id: str, role: str, text: str):
         """save messages in db."""
-        # Ensure session exists first
         session_check = await db.get(models.ChatSession, session_id)
         if not session_check:
-            new_session = models.ChatSession(id=session_id, user_id=1, session_name=f"Chat {session_id[:8]}")
+            # Extract the actual user_id from the session_id string
+            actual_user_id = int(session_id.split('_')[0])
+            
+            new_session = models.ChatSession(
+                id=session_id, 
+                user_id=actual_user_id, # No more hardcoded 1!
+                session_name=f"Chat {session_id[:8]}"
+            )
             db.add(new_session)
-            await db.flush() # Memory state validate 
+            await db.flush() 
             
         new_msg = models.Message(session_id=session_id, role=role, text=text)
         db.add(new_msg)
