@@ -4383,3 +4383,7 @@ httpx.ConnectError: [Errno 11001] getaddrinfo failed
 2026-07-05 17:56:13 - [init_db.py] - INFO - ✅ All tables created successfully inside PostgreSQL!
 2026-07-05 17:56:13 - [init_db.py] - INFO - ☁️ Checking Qdrant Cloud collections...
 2026-07-05 17:56:14 - [init_db.py] - INFO - ✅ Qdrant collection 'finaudit_agreements' already exists.
+2026-07-06 10:33:11 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-06 10:52:15 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-07-06 10:52:29 - [auth.py] - INFO - Registering new user: yash@gmail.com
+2026-07-06 10:52:45 - [auth.py] - INFO - Registering new user: yash@gmail.com
