@@ -6,6 +6,8 @@ from config.settings import settings
 from config.clients import qdrant_client
 from config.logger import logger
 from services.embeddings import create_embeddings, get_query_embedding
+from agentlens_sdk.instrumentation import trace_span
+from agentlens_sdk.models.model import SpanType
 
 logger.info("Loading CrossEncoder Re-ranker into memory...")
 reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
@@ -90,6 +92,7 @@ class RetrievalService:
     # ==========================================
     # SEARCH PIPELINE
     # ==========================================
+    @trace_span(name="qdrant_hybrid_search", span_type=SpanType.RETRIEVER)
     async def execute_hybrid_search(self, original_query: str, enriched_query: str, expanded_queries: list, session_id: str, document_selector: str = "all"):
                 """Runs hybrid retrieval filtering by session_id and conditionally by document_name."""
                 

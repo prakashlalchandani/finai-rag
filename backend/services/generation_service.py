@@ -3,6 +3,8 @@ import asyncio
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import HumanMessage, AIMessage
+from agentlens_sdk.instrumentation import trace_span
+from agentlens_sdk.models.model import SpanType
 
 # --- New Database Imports ---
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -140,6 +142,7 @@ class GenerationService:
                     logger.error(f"Groq API unavailable. Skipping Multi-Query. Error: {e}")
                     return []
 
+    @trace_span(name="groq_financial_synthesis", span_type=SpanType.LLM)
     async def generate_answer(self, query: str, retrieved_chunks: list, session_id: str, db: AsyncSession):
         """Synthesizes the final answer using DB Chat History."""
         context = "\n\n".join(retrieved_chunks)

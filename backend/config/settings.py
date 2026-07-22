@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     # --- Authentication ---
     SECRET_KEY: str 
     ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 10080  # 7 days (60 * 24 * 7)
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 1440  # 7 days (60 * 24 * 7)
     
     # ==========================================
     # 4. RAG Retrieval Variables

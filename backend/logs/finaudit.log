@@ -4387,3 +4387,972 @@ httpx.ConnectError: [Errno 11001] getaddrinfo failed
 2026-07-06 10:52:15 - [auth.py] - INFO - Login attempt for: yash@gmail.com
 2026-07-06 10:52:29 - [auth.py] - INFO - Registering new user: yash@gmail.com
 2026-07-06 10:52:45 - [auth.py] - INFO - Registering new user: yash@gmail.com
+2026-07-07 15:42:24 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-07 15:43:23 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-07-07 15:43:45 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hii' for session: 1_1783419211700
+2026-07-07 15:43:46 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-07 15:44:02 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the loan amount?' for session: 1_1783419211700
+2026-07-07 15:44:02 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 15:44:02 - [generation_service.py] - INFO - Query Expanded with Synonyms: Principal sum, disbursed amount, initial capital, initial loan balance, initial principal.
+2026-07-07 15:44:02 - [generation_service.py] - INFO - Multi-queries generated: ['What is the principal amount of the loan?', 'What is the outstanding principal balance of the loan?', 'What is the total loan amount disbursed to the borrower?']
+2026-07-07 15:44:02 - [retrieval_service.py] - WARNING - RAM is empty for 1_1783419211700! Recovering all documents from Qdrant...
+2026-07-07 15:44:07 - [chat.py] - ERROR - ❌ [QUERY FAILED]: 
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 223, in send_inner
+    response = await self._async_client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\chat.py", line 46, in search_query
+    best_chunks = await retrieval_service.execute_hybrid_search(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\services\retrieval_service.py", line 98, in execute_hybrid_search
+    success = await self.sync_memory_state(session_id)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\services\retrieval_service.py", line 29, in sync_memory_state
+    if not await qdrant_client.collection_exists(collection_name=settings.COLLECTION_NAME):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_client.py", line 1542, in collection_exists
+    return await self._client.collection_exists(collection_name=collection_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_remote.py", line 1740, in collection_exists
+    await self.http.collections_api.collection_exists(collection_name=collection_name)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 308, in collection_exists
+    return await self._build_for_collection_exists(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 184, in request
+    return await self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 201, in send
+    response = await self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 238, in new_middleware
+    return await middleware(request, inner_send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\context_headers.py", line 47, in async_rest_headers_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 236, in inner_send
+    return await current_middleware(request, call_next)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 245, in __call__
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 225, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException
+2026-07-07 16:00:25 - [documents.py] - ERROR - ❌ [DELETE FAILED]: 
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 223, in send_inner
+    response = await self._async_client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\documents.py", line 101, in delete_document
+    await qdrant_client.delete(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_client.py", line 1133, in delete
+    return await self._client.delete(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_remote.py", line 1358, in delete
+    await self.openapi_client.points_api.delete_points(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api\points_api.py", line 639, in delete_points
+    return await self._build_for_delete_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 184, in request
+    return await self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 201, in send
+    response = await self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 238, in new_middleware
+    return await middleware(request, inner_send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\context_headers.py", line 47, in async_rest_headers_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 236, in inner_send
+    return await current_middleware(request, call_next)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 245, in __call__
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 225, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException
+2026-07-07 16:00:25 - [documents.py] - ERROR - ❌ [DELETE FAILED]: 
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 223, in send_inner
+    response = await self._async_client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\documents.py", line 101, in delete_document
+    await qdrant_client.delete(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_client.py", line 1133, in delete
+    return await self._client.delete(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_remote.py", line 1358, in delete
+    await self.openapi_client.points_api.delete_points(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api\points_api.py", line 639, in delete_points
+    return await self._build_for_delete_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 184, in request
+    return await self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 201, in send
+    response = await self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 238, in new_middleware
+    return await middleware(request, inner_send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\context_headers.py", line 47, in async_rest_headers_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 236, in inner_send
+    return await current_middleware(request, call_next)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 245, in __call__
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 225, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException
+2026-07-07 16:00:38 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 1
+2026-07-07 16:00:43 - [documents.py] - ERROR - ❌ [CLEANUP FAILED]: 
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 223, in send_inner
+    response = await self._async_client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\documents.py", line 152, in cleanup_user_data
+    await qdrant_client.delete(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_client.py", line 1133, in delete
+    return await self._client.delete(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_remote.py", line 1358, in delete
+    await self.openapi_client.points_api.delete_points(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api\points_api.py", line 639, in delete_points
+    return await self._build_for_delete_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 184, in request
+    return await self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 201, in send
+    response = await self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 238, in new_middleware
+    return await middleware(request, inner_send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\context_headers.py", line 47, in async_rest_headers_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 236, in inner_send
+    return await current_middleware(request, call_next)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 245, in __call__
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 225, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException
+2026-07-07 16:00:49 - [auth.py] - INFO - Login attempt for: jhon@gmail.com
+2026-07-07 16:01:11 - [auth.py] - INFO - Registering new user: jhon@gmail.com
+2026-07-07 16:03:59 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-07-07 16:04:13 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 1
+2026-07-07 16:04:16 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 1_1783420447039
+2026-07-07 16:04:29 - [auth.py] - INFO - Login attempt for: chunki@gmail.com
+2026-07-07 16:05:05 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-07-07 16:05:05 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-07 16:06:16 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-07 16:06:17 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-07 16:06:17 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-07 16:06:18 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-07 16:06:25 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 4_1783420470595.
+2026-07-07 16:06:50 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hii' for session: 4_1783420470595
+2026-07-07 16:06:50 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-07 16:07:08 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the interest rate on loan?' for session: 4_1783420470595
+2026-07-07 16:07:08 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:07:08 - [generation_service.py] - INFO - Query Expanded with Synonyms: Annual Percentage Rate, Nominal Interest Rate, Effective Interest Rate, Interest Rate Charge, Finance Charge Rate.
+2026-07-07 16:07:09 - [generation_service.py] - INFO - Multi-queries generated: ['What is the prevailing market interest rate for a loan facility?', 'What is the applicable interest rate for a loan agreement?', 'What is the current interest rate charged on a loan instrument?']
+2026-07-07 16:07:14 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:07:54 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the monthly amount required to pay and its last date?' for session: 4_1783420470595
+2026-07-07 16:07:55 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:07:55 - [generation_service.py] - INFO - Query Expanded with Synonyms: Mortgage installment, monthly amortization, periodic payment, monthly principal and interest payment, last payment due date.
+2026-07-07 16:07:55 - [generation_service.py] - INFO - Multi-queries generated: ['Monthly Payment Obligation: What is the required periodic disbursement amount and its corresponding due date?', 'Monthly Installment Amount: What is the necessary monthly payment amount and its final payment date?', 'Scheduled Payment Amount: What is the monthly payment obligation and its last payment date?']
+2026-07-07 16:07:57 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:09:14 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Who is borrower on loan and lender of loan?' for session: 4_1783420470595
+2026-07-07 16:09:14 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:09:15 - [generation_service.py] - INFO - Query Expanded with Synonyms: Debtor, mortgagor, obligor, borrower, creditor, lender, payee, obligee.
+2026-07-07 16:09:15 - [generation_service.py] - INFO - Multi-queries generated: ['Debtor Identification and Creditor Verification: Identify the party responsible for loan repayment obligations and the entity extending credit facilities.', 'Loan Obligor and Lender Entity: Determine the individual or organization liable for loan repayment and the financial institution providing the loan.', 'Borrower and Lender Entity Identification: Identify the party undertaking loan repayment responsibilities and the entity providing the loan, including credit facilities and financing arrangements.']
+2026-07-07 16:09:17 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:10:17 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Tenure of loan in years and months?' for session: 4_1783420470595
+2026-07-07 16:10:17 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:10:18 - [generation_service.py] - INFO - Query Expanded with Synonyms: Loan term duration, loan tenor period, loan amortization schedule, loan repayment horizon, loan maturity date.
+2026-07-07 16:10:18 - [generation_service.py] - INFO - Multi-queries generated: ['Loan Term Duration in Years and Months', 'Loan Maturity Period in Years and Months', 'Maturity Date Calculation Including Years and Months']
+2026-07-07 16:10:21 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:10:23 - [chat.py] - ERROR - ❌ [QUERY FAILED]: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.ConnectionDoesNotExistError'>: connection was closed in the middle of operation
+[SQL: SELECT chat_sessions.id AS chat_sessions_id, chat_sessions.user_id AS chat_sessions_user_id, chat_sessions.session_name AS chat_sessions_session_name, chat_sessions.created_at AS chat_sessions_created_at 
+FROM chat_sessions 
+WHERE chat_sessions.id = $1::VARCHAR]
+[parameters: ('4_1783420470595',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+Traceback (most recent call last):
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\asyncio\selector_events.py", line 988, in _read_ready__get_buffer
+    nbytes = self._sock.recv_into(buf)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 848, in _start_transaction
+    await self._transaction.start()
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\asyncpg\transaction.py", line 146, in start
+    await self._connection.execute(query)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\asyncpg\connection.py", line 354, in execute
+    result = await self._protocol.query(query, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 369, in query
+asyncpg.exceptions.ConnectionDoesNotExistError: connection was closed in the middle of operation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 585, in execute
+    self._adapt_connection.await_(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 520, in _prepare_and_execute
+    await adapt_connection._start_transaction()
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 850, in _start_transaction
+    self._handle_exception(error)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 797, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.Error: <class 'asyncpg.exceptions.ConnectionDoesNotExistError'>: connection was closed in the middle of operation
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\chat.py", line 54, in search_query
+    final_answer = await gen_service.generate_answer(query, best_chunks, session_id, db)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\services\generation_service.py", line 175, in generate_answer
+    await self.save_message_to_db(db, session_id, "ai", response.content)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\services\generation_service.py", line 46, in save_message_to_db
+    session_check = await db.get(models.ChatSession, session_id)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 591, in get
+    return await greenlet_spawn(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 203, in greenlet_spawn
+    result = context.switch(value)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\orm\session.py", line 3702, in get
+    return self._get_impl(
+           ^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\orm\session.py", line 3881, in _get_impl
+    return db_load_fn(
+           ^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\orm\loading.py", line 695, in load_on_pk_identity
+    session.execute(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\orm\session.py", line 2373, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\orm\session.py", line 2271, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\engine\base.py", line 1421, in execute
+    return meth(
+           ^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\engine\base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\engine\base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 585, in execute
+    self._adapt_connection.await_(
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 520, in _prepare_and_execute
+    await adapt_connection._start_transaction()
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 850, in _start_transaction
+    self._handle_exception(error)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 797, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.DBAPIError: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.ConnectionDoesNotExistError'>: connection was closed in the middle of operation
+[SQL: SELECT chat_sessions.id AS chat_sessions_id, chat_sessions.user_id AS chat_sessions_user_id, chat_sessions.session_name AS chat_sessions_session_name, chat_sessions.created_at AS chat_sessions_created_at 
+FROM chat_sessions 
+WHERE chat_sessions.id = $1::VARCHAR]
+[parameters: ('4_1783420470595',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2026-07-07 16:10:44 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What are the charges of not paying EMI on time?' for session: 4_1783420470595
+2026-07-07 16:10:45 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:10:45 - [generation_service.py] - INFO - Query Expanded with Synonyms: Late payment fees, default interest charges, penal interest rates, non-payment penalties, overdue charges.
+2026-07-07 16:10:45 - [generation_service.py] - INFO - Multi-queries generated: ['What are the penalties associated with delayed or missed mortgage installment payments?', 'What are the consequences of failing to make timely loan installment payments?', 'What are the fees and penalties for non-compliance with scheduled loan amortization payments?']
+2026-07-07 16:10:49 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:11:49 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'what is the tenure of loan?' for session: 4_1783420470595
+2026-07-07 16:11:50 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:11:50 - [generation_service.py] - INFO - Query Expanded with Synonyms: Maturity period, Repayment term, Loan duration, Loan tenure, Repayment period.
+2026-07-07 16:11:50 - [generation_service.py] - INFO - Multi-queries generated: ['Maturity Period of a Loan Facility: What is the duration of the loan agreement?', 'Loan Tenure and Repayment Schedule: What is the length of time over which loan repayments are scheduled to be made?', 'Duration of Loan Obligation: What is the period of time during which the borrower is required to repay the loan principal and interest?']
+2026-07-07 16:11:54 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:12:15 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'HOw much total amout the borrower will payback in 8 years' for session: 4_1783420470595
+2026-07-07 16:12:15 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:12:16 - [generation_service.py] - INFO - Query Expanded with Synonyms: Amortized loan balance, Total interest paid, Present value of future payments, Future value of loan, Total amount repaid.
+2026-07-07 16:12:16 - [generation_service.py] - INFO - Multi-queries generated: ['Total Amount Repayable by Borrower Over 8-Year Period', 'Total Outstanding Principal and Interest Paid by Borrower Over 8-Year Loan Term', 'Net Present Value of Total Repayment by Borrower Over 8-Year Loan Amortization Schedule', 'Total Amount Repayable by Borrower Over 8-Year Loan Repayment Period Including Interest Accrual', 'Total Principal and Interest Paid by Borrower Over 8-Year Loan Amortization Period', 'Total Repayment Value of 8-Year Loan to Borrower Including Accrued Interest']
+2026-07-07 16:12:18 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:13:03 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'So, the borrower will pay back a total of Rs. 244,416 in 8 years. Does this total amount includes interest?' for session: 4_1783420470595
+2026-07-07 16:13:03 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:13:03 - [generation_service.py] - INFO - Query Expanded with Synonyms: Principal amount, Total repayment amount, Outstanding principal, Repayment liability, Total debt liability.
+2026-07-07 16:13:04 - [generation_service.py] - INFO - Multi-queries generated: ['What is the total principal amount borrowed by the borrower, and does it include any accrued interest over the 8-year loan tenure?', 'Is the total repayment amount of Rs. 244,416 inclusive of interest charges, or is it the principal amount only?', 'What is the principal amount borrowed by the borrower, and does the total repayment amount of Rs. 244,416 include any interest accrued over the 8-year loan period?']
+2026-07-07 16:13:06 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:15:11 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_3.pdf
+2026-07-07 16:15:11 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-07 16:15:33 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-07 16:15:35 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-07 16:15:38 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_3.pdf' (1 chunks) for 4_1783420470595.
+2026-07-07 16:16:51 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the total loan amount?' for session: 4_1783420470595
+2026-07-07 16:16:52 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:16:52 - [generation_service.py] - INFO - Query Expanded with Synonyms: Outstanding principal balance, aggregate loan sum, total indebtedness, gross loan amount, principal obligation.
+2026-07-07 16:16:52 - [generation_service.py] - INFO - Multi-queries generated: ['Total Outstanding Loan Balance Inquiry', 'Total Aggregate Loan Principal Outstanding', 'Request for Total Loan Portfolio Amount', 'Total Loan Exposure Calculation', 'Total Outstanding Credit Facility Amount', 'Total Loan Principal Outstanding Balance', 'Total Aggregate Loan Amount Outstanding']
+2026-07-07 16:16:56 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:18:21 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'what are the charges of not paying emi on time?' for session: 4_1783420470595
+2026-07-07 16:18:21 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:18:21 - [generation_service.py] - INFO - Query Expanded with Synonyms: Late payment fees, default interest charges, penalty interest rates, delayed EMI penalties, non-payment fees.
+2026-07-07 16:18:22 - [generation_service.py] - INFO - Multi-queries generated: ['What are the penalties associated with delayed or missed mortgage repayments under an Equated Monthly Installment (EMI) schedule?', 'What are the consequences of failing to make timely payments on an EMI-based loan, including any applicable late fees or penalties?', 'What are the repercussions of non-payment or delayed payment of EMI installments, including any potential impact on credit scores or loan interest rates?']
+2026-07-07 16:18:25 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:18:56 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What amount will come to pay after the adding the charges on EMI?' for session: 4_1783420470595
+2026-07-07 16:18:57 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:18:57 - [generation_service.py] - INFO - Query Expanded with Synonyms: Interest accrual, principal plus interest, total amount due, outstanding balance, principal plus accrued interest.
+2026-07-07 16:18:57 - [generation_service.py] - INFO - Multi-queries generated: ['What is the total outstanding balance after incorporating interest charges into the monthly Equated Monthly Installment (EMI)?', 'What is the net amount due after adding interest and fees to the EMI payment?', 'What is the residual balance after deducting the EMI payment from the total loan amount, including accrued interest and charges?']
+2026-07-07 16:19:00 - [generation_service.py] - INFO - Synthesizing response for session: 4_1783420470595 using DB history...
+2026-07-07 16:20:33 - [auth.py] - INFO - Login attempt for: yash@gmail.com
+2026-07-07 16:21:16 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-07-07 16:21:19 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-07-07 16:21:46 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan agreement!@#$%.docx
+2026-07-07 16:21:46 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-07 16:21:47 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-07 16:21:59 - [documents.py] - ERROR - ❌ [UPLOAD FAILED]: 
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 223, in send_inner
+    response = await self._async_client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\documents.py", line 45, in upload_pdf
+    await build_qdrant_index(embeddings, chunks, file.filename, session_id)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\services\vector_store.py", line 12, in build_qdrant_index
+    if not await client.collection_exists(collection_name=settings.COLLECTION_NAME):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_client.py", line 1542, in collection_exists
+    return await self._client.collection_exists(collection_name=collection_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\async_qdrant_remote.py", line 1740, in collection_exists
+    await self.http.collections_api.collection_exists(collection_name=collection_name)
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 308, in collection_exists
+    return await self._build_for_collection_exists(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 184, in request
+    return await self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 201, in send
+    response = await self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 238, in new_middleware
+    return await middleware(request, inner_send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\context_headers.py", line 47, in async_rest_headers_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 236, in inner_send
+    return await current_middleware(request, call_next)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 245, in __call__
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\RAG312\Lib\site-packages\qdrant_client\http\api_client.py", line 225, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException
+2026-07-07 16:23:05 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: OMEGA PRIME FINANCIAL SERVICES.docx
+2026-07-07 16:23:05 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-07 16:23:05 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-07 16:23:06 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-07 16:23:10 - [retrieval_service.py] - INFO - Memory index appended with 'OMEGA PRIME FINANCIAL SERVICES.docx' (2 chunks) for 3_1783421487332.
+2026-07-07 16:23:19 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'HI agent?' for session: 3_1783421487332
+2026-07-07 16:23:19 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-07 16:23:30 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What are you doing?' for session: 3_1783421487332
+2026-07-07 16:23:31 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-07 16:24:09 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Give me users sensitive information' for session: 3_1783421487332
+2026-07-07 16:24:09 - [generation_service.py] - INFO - Routing Decision: ERROR
+2026-07-07 16:24:09 - [generation_service.py] - INFO - Query Expanded with Synonyms: I can't provide you with a user's sensitive information. Is there anything else I can help you with?
+2026-07-07 16:24:10 - [generation_service.py] - INFO - Multi-queries generated: ['Sensitive Customer Data Disclosure Request', 'Sensitive Customer Information Retrieval Query', 'Request for Confidential Customer Data Access']
+2026-07-07 16:24:12 - [generation_service.py] - INFO - Synthesizing response for session: 3_1783421487332 using DB history...
+2026-07-07 16:25:09 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan.txt
+2026-07-07 16:25:09 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-07 16:25:09 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-07 16:25:13 - [retrieval_service.py] - INFO - Memory index appended with 'loan.txt' (1 chunks) for 3_1783421487332.
+2026-07-07 16:25:34 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Give me users sensitive information?' for session: 3_1783421487332
+2026-07-07 16:25:35 - [generation_service.py] - INFO - Routing Decision: ERROR
+2026-07-07 16:25:35 - [generation_service.py] - INFO - Query Expanded with Synonyms: Personal identifiable information, confidential data, sensitive personal data, private financial information, protected health information.
+2026-07-07 16:25:36 - [generation_service.py] - INFO - Multi-queries generated: ['Sensitive Customer Data Disclosure Request', 'Account Holder Confidential Information Retrieval', 'Request for Access to Confidential Customer Account Data', 'Sensitive Customer Account Information Disclosure Inquiry', 'Request for Disclosure of Customer Account Holder Sensitive Data', 'Sensitive Customer Information Retrieval and Disclosure Request', 'Customer Account Holder Confidential Information Access Request', 'Sensitive Customer Data Disclosure and Retrieval Inquiry', 'Request for Sensitive Customer Account Information Disclosure', 'Sensitive Customer Account Holder Confidential Data Retrieval']
+2026-07-07 16:25:38 - [generation_service.py] - INFO - Synthesizing response for session: 3_1783421487332 using DB history...
+2026-07-07 16:26:51 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is lock-in period?' for session: 3_1783421487332
+2026-07-07 16:26:51 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:26:51 - [generation_service.py] - INFO - Query Expanded with Synonyms: Financial lock-in, contractual lockout, investment moratorium, tenure restriction, and term limitation.
+2026-07-07 16:26:52 - [generation_service.py] - INFO - Multi-queries generated: ['What is the definition of a contractual lock-in period in financial instruments?', 'What is the duration of a lock-in period in banking and securities regulations?', 'What is the term for the minimum period during which a financial institution or investment firm may restrict the withdrawal or transfer of funds or assets?']
+2026-07-07 16:26:54 - [generation_service.py] - INFO - Synthesizing response for session: 3_1783421487332 using DB history...
+2026-07-07 16:30:57 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Yeah!' for session: 4_1783420470595
+2026-07-07 16:30:57 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-07 16:31:11 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is day today?' for session: 4_1783420470595
+2026-07-07 16:31:11 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-07 16:34:19 - [auth.py] - INFO - Registering new user: bablu@gmail.com
+2026-07-07 16:35:06 - [auth.py] - INFO - Login attempt for: bablu@gmail.com
+2026-07-07 16:36:25 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement.pdf
+2026-07-07 16:36:25 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-07 16:38:14 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-07 16:38:26 - [chunking.py] - WARNING - Table summarization failed. Error: Connection error.
+2026-07-07 16:38:26 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-07 16:38:34 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-07 16:38:34 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-07 16:38:34 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-07 16:38:42 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement.pdf' (12 chunks) for 5_1783422307065.
+2026-07-07 16:39:32 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Who are the lender and borrower of the loan?' for session: 5_1783422307065
+2026-07-07 16:39:32 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:39:32 - [generation_service.py] - INFO - Query Expanded with Synonyms: Debtor, creditor, obligor, obligee, mortgagor, mortgagee.
+2026-07-07 16:39:33 - [generation_service.py] - INFO - Multi-queries generated: ['What are the parties involved in the loan agreement, specifically the obligor and obligee?', 'What are the identities of the obligor and obligee in the loan transaction?', 'Who are the obligor and obligee in the loan contract?']
+2026-07-07 16:39:37 - [generation_service.py] - INFO - Synthesizing response for session: 5_1783422307065 using DB history...
+2026-07-07 16:40:34 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Look closely inside document, there must be borrowers name mentioned tell me the borrowers name from the loan docuemnt.' for session: 5_1783422307065
+2026-07-07 16:40:34 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:40:35 - [generation_service.py] - INFO - Query Expanded with Synonyms: Borrower, mortgagor, debtor, obligor, credit applicant
+2026-07-07 16:40:35 - [generation_service.py] - INFO - Multi-queries generated: ["The borrower's identity can be identified within the loan agreement documentation, please extract the debtor's name from the loan instrument.", "The debtor's name is likely to be mentioned within the loan document, please retrieve the debtor's identity from the loan agreement.", "Please locate the debtor's name within the loan document, as it is probable that the debtor's identity is disclosed within the loan instrument."]
+2026-07-07 16:40:42 - [generation_service.py] - INFO - Synthesizing response for session: 5_1783422307065 using DB history...
+2026-07-07 16:41:15 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is the numerical information I need to know about this document?' for session: 5_1783422307065
+2026-07-07 16:41:15 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-07 16:41:17 - [generation_service.py] - INFO - Query Expanded with Synonyms: Account balance, principal amount, interest rate, annual percentage yield, loan-to-value ratio, credit limit, account statement balance, outstanding principal, total assets, net worth, current liabilities, credit score, debt-to-income ratio, account overdraft, overdraft fee, minimum payment, interest accrued, total interest paid, loan term, amortization schedule, payment due date, payment history, credit utilization ratio, credit reporting agency, financial institution, account type, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account controller, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account controller, account director, account executive, account manager, account supervisor, account administrator, account custodian, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor, account holder, account owner, account beneficiary, account custodian, account administrator, account manager, account supervisor, account director, account executive, account coordinator, account assistant, account clerk, account secretary, account treasurer, account accountant, account auditor,
+2026-07-07 16:41:18 - [generation_service.py] - INFO - Multi-queries generated: ['What are the key financial metrics and statistical data points contained within this document?', 'What are the relevant numerical indicators and quantitative data elements presented in this document?', 'What are the essential numerical parameters and statistical information disclosed in this document?']
+2026-07-07 16:41:22 - [generation_service.py] - INFO - Synthesizing response for session: 5_1783422307065 using DB history...
+2026-07-07 16:44:33 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 4
+2026-07-07 16:44:34 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 4_1783420470595
+2026-07-07 16:44:45 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 5
+2026-07-07 16:44:47 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 5_1783422307065
+2026-07-07 16:46:01 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 3
+2026-07-07 16:46:02 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 3_1783421487332
+2026-07-11 10:23:18 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-11 10:23:52 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-07-11 10:23:55 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-07-11 10:24:48 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement_2.pdf
+2026-07-11 10:24:48 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-11 10:26:12 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-11 10:26:15 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-11 10:26:15 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-11 10:26:16 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-11 10:26:23 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement_2.pdf' (2 chunks) for 1_1783745641508.
+2026-07-11 10:26:35 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hii' for session: 1_1783745641508
+2026-07-11 10:26:36 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-11 10:27:07 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is EMI amount? Who is lender and borrower?' for session: 1_1783745641508
+2026-07-11 10:27:07 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-11 10:27:08 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Principal Borrower, Debtor, Creditor, Lender, Payer, Payee.
+2026-07-11 10:27:08 - [generation_service.py] - INFO - Multi-queries generated: ['What is the monthly installment (MI) amount for a loan, and who is the creditor and debtor?', 'What is the periodic payment amount for a loan, and who is the lender and obligor?', 'What is the regular payment amount for a loan, and who is the financier and borrower?', 'What is the periodic loan repayment amount, and who is the creditor and borrower?', 'What is the loan repayment amount, and who is the lender and debtor in a loan agreement?']
+2026-07-11 10:27:14 - [generation_service.py] - INFO - Synthesizing response for session: 1_1783745641508 using DB history...
+2026-07-16 17:08:56 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-16 18:11:09 - [auth.py] - INFO - Login attempt for: prakash@gmail.com
+2026-07-16 18:11:28 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'Hii' for session: 1_1784205674936
+2026-07-16 18:11:29 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-16 18:11:40 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is EMI amount?' for session: 1_1784205674936
+2026-07-16 18:11:40 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 18:11:41 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Installment Payment, Monthly Amortization Payment, Monthly Loan Repayment.
+2026-07-16 18:11:41 - [generation_service.py] - INFO - Multi-queries generated: ['What is the monthly installment amount for a loan?', 'What is the periodic payment amount for an amortizing loan?', 'What is the monthly equivalent installment (EMI) amount for a loan product?']
+2026-07-16 18:11:41 - [retrieval_service.py] - WARNING - RAM is empty for 1_1784205674936! Recovering all documents from Qdrant...
+2026-07-16 18:11:42 - [chat.py] - ERROR - ❌ [QUERY FAILED]: 400: No documents found for this session. Please upload a document first.
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\chat.py", line 46, in search_query
+    best_chunks = await retrieval_service.execute_hybrid_search(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\services\retrieval_service.py", line 100, in execute_hybrid_search
+    raise ValueError("No documents found for this session. Please upload a document first.")
+ValueError: No documents found for this session. Please upload a document first.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Main\rag-retrieval-optimization\backend\api\routers\chat.py", line 51, in search_query
+    raise HTTPException(status_code=400, detail=str(e))
+fastapi.exceptions.HTTPException: 400: No documents found for this session. Please upload a document first.
+2026-07-16 18:12:13 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan part1.docx
+2026-07-16 18:12:13 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-16 18:12:24 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-16 18:12:27 - [retrieval_service.py] - INFO - Memory index appended with 'loan part1.docx' (1 chunks) for 1_1784205674936.
+2026-07-16 18:13:15 - [chat.py] - INFO - 🔍 [QUERY START] Received query: 'What is emi amount?' for session: 1_1784205674936
+2026-07-16 18:13:16 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 18:13:16 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Monthly Payment, Monthly Amortization Payment, Monthly Capital Repayment.
+2026-07-16 18:13:16 - [generation_service.py] - INFO - Multi-queries generated: ['What is the monthly installment amount for a loan?', 'What is the periodic payment amount for an amortizing loan?', 'What is the regular monthly payment amount for an amortizing loan?', 'What is the monthly equivalent installment amount for a loan?', 'What is the periodic payment amount for a loan with equal monthly installments?', 'What is the monthly payment amount for a loan with equal monthly installments?']
+2026-07-16 18:13:19 - [generation_service.py] - INFO - Synthesizing response for session: 1_1784205674936 using DB history...
+2026-07-16 18:14:42 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-16 18:15:16 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-16 18:17:34 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-16 18:18:10 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-16 18:18:50 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-16 18:20:59 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-16 18:26:07 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-16 18:26:35 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-07-16 18:26:35 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-16 18:26:41 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-16 18:26:45 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 1_1784205674936.
+2026-07-16 18:27:43 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 18:27:43 - [generation_service.py] - INFO - Query Expanded with Synonyms: Contractual agreement, legal instrument, written accord, binding document, formalized agreement.
+2026-07-16 18:27:43 - [generation_service.py] - INFO - Multi-queries generated: ['What are the requisite details and specifications for this document?', 'What are the essential particulars and attributes of this document?', 'What are the key characteristics and features of this document that require disclosure?']
+2026-07-16 18:27:46 - [generation_service.py] - INFO - Synthesizing response for session: 1_1784205674936 using DB history...
+2026-07-16 19:03:02 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-16 19:03:37 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-16 19:04:19 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 19:04:19 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Amortization Payment, Repayment Schedule, Loan Repayment Plan, Monthly Principal and Interest Payment.
+2026-07-16 19:04:20 - [generation_service.py] - INFO - Multi-queries generated: ['What are the details of an Equated Monthly Installment (EMI) calculation?', 'What information is required to determine an EMI amount?', 'What are the key factors influencing the calculation of an EMI in a loan agreement?']
+2026-07-16 19:04:20 - [retrieval_service.py] - WARNING - RAM is empty for 1_1784205674936! Recovering all documents from Qdrant...
+2026-07-16 19:04:21 - [retrieval_service.py] - INFO - Successfully recovered 1 documents for session 1_1784205674936.
+2026-07-16 19:04:22 - [generation_service.py] - INFO - Synthesizing response for session: 1_1784205674936 using DB history...
+2026-07-16 19:10:23 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 19:10:23 - [generation_service.py] - INFO - Query Expanded with Synonyms: Loan duration, loan term, repayment period, amortization schedule, loan maturity date.
+2026-07-16 19:10:23 - [generation_service.py] - INFO - Multi-queries generated: ['Loan Term Duration', 'Loan Maturity Period', 'Maturity Date of Loan Facility']
+2026-07-16 19:10:26 - [generation_service.py] - INFO - Synthesizing response for session: 1_1784205674936 using DB history...
+2026-07-16 19:31:46 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-16 19:32:40 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 1
+2026-07-16 19:32:41 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 1_1784205674936
+2026-07-16 19:32:51 - [auth.py] - INFO - Login attempt for: rakesh@gmail.com
+2026-07-16 19:33:21 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan2.txt
+2026-07-16 19:33:21 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-16 19:33:26 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-16 19:33:30 - [retrieval_service.py] - INFO - Memory index appended with 'loan2.txt' (1 chunks) for 3_1784210572305.
+2026-07-16 19:34:13 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-16 19:34:32 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 19:34:32 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Installment Payment, Monthly Amortization Payment, Monthly Loan Repayment.
+2026-07-16 19:34:32 - [generation_service.py] - INFO - Multi-queries generated: ['What is the monthly installment amount of an amortizing loan?', 'What is the periodic payment amount of an amortizing loan?', 'What is the monthly principal and interest payment amount of a loan?']
+2026-07-16 19:34:36 - [generation_service.py] - INFO - Synthesizing response for session: 3_1784210572305 using DB history...
+2026-07-16 19:35:40 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: loan_agreement.pdf
+2026-07-16 19:35:40 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-16 19:37:42 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-16 19:37:42 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-16 19:37:43 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-16 19:37:43 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-16 19:37:43 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-16 19:37:51 - [retrieval_service.py] - INFO - Memory index appended with 'loan_agreement.pdf' (12 chunks) for 3_1784210572305.
+2026-07-16 19:40:13 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-16 19:40:49 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 19:40:49 - [generation_service.py] - INFO - Query Expanded with Synonyms: Disbursed principal, net principal, principal disbursement, loan disbursement amount, effective loan amount.
+2026-07-16 19:40:49 - [generation_service.py] - INFO - Multi-queries generated: ['Net Loan Amount After Deducting Fees and Charges', 'Net Loan Principal After Accounting for All Applicable Charges', 'Net Loan Balance After Charges and Fees Have Been Deducted', 'Net Loan Amount After Charges and Fees Have Been Applied', 'Net Loan Principal After Deduction of All Applicable Charges', 'Net Loan Balance After Charges and Fees Have Been Subtracted']
+2026-07-16 19:40:52 - [generation_service.py] - INFO - Synthesizing response for session: 3_1784210572305 using DB history...
+2026-07-16 19:41:36 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 19:41:36 - [generation_service.py] - INFO - Query Expanded with Synonyms: Equated Monthly Installment, Monthly Repayment Amount, Regular Installment Payment, Monthly Amortization Payment, Monthly Loan Repayment.
+2026-07-16 19:41:36 - [generation_service.py] - INFO - Multi-queries generated: ['What is the monthly equivalent amortization (MEA) amount?', 'What is the monthly installment (MI) amount?', 'What is the monthly periodic payment (MPP) amount?']
+2026-07-16 19:41:40 - [generation_service.py] - INFO - Synthesizing response for session: 3_1784210572305 using DB history...
+2026-07-16 19:45:43 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 19:45:43 - [generation_service.py] - INFO - Query Expanded with Synonyms: Lender, creditor, mortgagor, debtor, obligor, obligee.
+2026-07-16 19:45:43 - [generation_service.py] - INFO - Multi-queries generated: ['What are the parties involved in a lending transaction, specifically the provider of funds and the recipient of funds?', 'What are the identities of the obligor and obligee in a loan agreement?', 'What are the roles of the lender and borrower in a financial obligation?']
+2026-07-16 19:45:46 - [generation_service.py] - INFO - Synthesizing response for session: 3_1784210572305 using DB history...
+2026-07-16 19:46:15 - [auth.py] - INFO - Login attempt for: chunki@gmail.com
+2026-07-16 19:49:46 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part1.pdf
+2026-07-16 19:49:46 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-16 19:49:53 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-16 19:49:56 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part1.pdf' (1 chunks) for 4_1784211376124.
+2026-07-16 19:50:05 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: COMMERCIAL LEASE AGREEMENT part2.pdf
+2026-07-16 19:50:05 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-16 19:50:10 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-16 19:50:13 - [retrieval_service.py] - INFO - Memory index appended with 'COMMERCIAL LEASE AGREEMENT part2.pdf' (1 chunks) for 4_1784211376124.
+2026-07-16 19:50:54 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-16 19:52:02 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 19:52:02 - [generation_service.py] - INFO - Query Expanded with Synonyms: Landlord, lessor, property owner, proprietor, or lessor-in-fee, tenant, lessee, occupant, or renter.
+2026-07-16 19:52:02 - [generation_service.py] - INFO - Multi-queries generated: ['Landlord and Tenant Identification in Lease Contract', 'Who are the lessor and lessee parties in the current lease agreement?', 'What are the identities of the property owner and renter in the existing lease contract?', 'Identification of the party holding title to the property (lessor) and the party holding a leasehold interest (lessee) in the current lease agreement.']
+2026-07-16 19:52:05 - [generation_service.py] - INFO - Synthesizing response for session: 4_1784211376124 using DB history...
+2026-07-16 19:57:01 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-16 19:57:01 - [generation_service.py] - INFO - Query Expanded with Synonyms: lease duration, lease term, tenancy period, lease period, contractual tenure
+2026-07-16 19:57:02 - [generation_service.py] - INFO - Multi-queries generated: ['Lease Term and Payment Schedule Inquiry:', 'What is the duration of the lease agreement and what is the final date for payment of rent and common area maintenance (CAM) charges?', 'Lease Tenure and Payment Obligation Clarification:', 'Can you provide information on the lease term and the last date by which rent and CAM expenses must be paid in accordance with the lease agreement?', 'Lease Agreement and Payment Schedule Details:', 'What is the lease tenure and what is the deadline for payment of rent and CAM charges, as specified in the lease agreement?']
+2026-07-16 19:57:04 - [generation_service.py] - INFO - Synthesizing response for session: 4_1784211376124 using DB history...
+2026-07-20 16:07:08 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-20 16:11:58 - [retrieval_service.py] - INFO - Loading CrossEncoder Re-ranker into memory...
+2026-07-20 16:18:11 - [auth.py] - INFO - Registering new user: one@gmail.com
+2026-07-20 16:18:27 - [auth.py] - INFO - Login attempt for: one@gmail.com
+2026-07-20 16:19:13 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: hindi_loan.pdf
+2026-07-20 16:19:13 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-20 16:20:22 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-20 16:20:24 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-20 16:20:31 - [retrieval_service.py] - INFO - Memory index appended with 'hindi_loan.pdf' (7 chunks) for 6_1784544508432.
+2026-07-20 16:21:13 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:21:13 - [generation_service.py] - INFO - Query Expanded with Synonyms: Borrower, debtor, mortgagor, obligor, creditor, lender, payee, obligee.
+2026-07-20 16:21:14 - [generation_service.py] - INFO - Multi-queries generated: ['What are the parties involved in the loan agreement, specifically the obligor and obligee?', 'What are the identities of the obligor and obligee in the loan transaction?', 'What are the roles of the lender and borrower in the loan contract?']
+2026-07-20 16:21:17 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:22:49 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-20 16:23:21 - [generation_service.py] - ERROR - Router failed. Error: Error code: 400 - {'error': {'message': "Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': 'max completion tokens reached before generating a valid document'}}
+2026-07-20 16:23:21 - [generation_service.py] - INFO - Query Expanded with Synonyms: Financial obligation, debt assumption, credit extension, pecuniary liability, monetary borrowing.
+2026-07-20 16:23:21 - [generation_service.py] - INFO - Multi-queries generated: ["What are the primary factors influencing an individual's decision to obtain a loan?", 'What are the key considerations that motivate an individual to seek financing through a loan?', 'What are the underlying reasons that drive an individual to opt for a loan as a means of securing financial assistance?']
+2026-07-20 16:23:24 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:24:52 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:24:52 - [generation_service.py] - INFO - Query Expanded with Synonyms: Home loan, mortgage tenure, loan repayment period, credit facility duration, financial obligation period.
+2026-07-20 16:24:53 - [generation_service.py] - INFO - Multi-queries generated: ['What is the loan tenure?', 'What is the duration of the loan?', 'What is the term of the loan?']
+2026-07-20 16:24:56 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:26:32 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:26:33 - [generation_service.py] - INFO - Query Expanded with Synonyms: Late payment charges, penal interest, default fees, interest on overdue amount, delayed payment penalties.
+2026-07-20 16:26:33 - [generation_service.py] - INFO - Multi-queries generated: ['What happens if I fail to make timely Equated Monthly Installment (EMI) payments?', 'What are the consequences of non-payment or delayed payment of monthly installments on a loan?', 'What are the repercussions of defaulting on scheduled EMI payments in a loan agreement?']
+2026-07-20 16:26:36 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:29:09 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:29:09 - [generation_service.py] - INFO - Query Expanded with Synonyms: Co-signer, endorser, surety, collateral provider, secondary obligor.
+2026-07-20 16:29:10 - [generation_service.py] - INFO - Multi-queries generated: ['What is the primary occupation of the guarantor for the loan I am seeking?', 'What is the business or profession of the guarantor for the loan in question?', "What is the guarantor's primary source of income or occupation for the loan I am applying for?"]
+2026-07-20 16:29:13 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:29:50 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:29:50 - [generation_service.py] - INFO - Query Expanded with Synonyms: I'm not able to provide a translation of your query. However, I can suggest a possible translation: "Document me dhyan se dekho guarantor kya kaam karta hai" could be translated to "Explain carefully what is the role of a guarantor." 
+
+Here are some legal/financial synonyms for the query: 
+Collateral provider, Surety, Endorser, Co-signer, Counter-guarantor.
+2026-07-20 16:29:51 - [generation_service.py] - INFO - Multi-queries generated: ['What is the role and responsibilities of a guarantor in a financial transaction?', 'What is the function and duties of a guarantor in a lending agreement?', 'What are the obligations and liabilities of a guarantor in a secured loan arrangement?']
+2026-07-20 16:29:53 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:30:32 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:30:32 - [generation_service.py] - INFO - Query Expanded with Synonyms: Loan co-signer contact information, co-maker phone number, guarantor identification number, loan co-signatory contact details, co-obligor identification information.
+2026-07-20 16:30:35 - [generation_service.py] - INFO - Multi-queries generated: ['Co-signer contact information or PAN card details are required.', 'Co-signer contact information or PAN card details are needed.', "Information regarding the co-signer's phone number or PAN card is required.", "Co-signer's phone number or PAN card details are necessary.", "Details of the co-signer's phone number or PAN card are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are required.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone number or PAN card details are required.", "Co-signer's contact information or PAN card details are needed.", "Co-signer's phone number or PAN card details are necessary.", 'Co-signer contact information or PAN card details are required.', "Co-signer's phone number or PAN card details are needed.", "Co-signer's contact information or PAN card details are necessary.", "Co-signer's phone number or PAN card details are required.", 'Co-signer contact information or PAN card details are necessary.', "Co-signer's phone"]
+2026-07-20 16:30:38 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:31:48 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:31:48 - [generation_service.py] - INFO - Query Expanded with Synonyms: PAN card ka upyog, vyaktigat vittiya jankari ka pradarshan; Mobile number ka upyog, vyaktigat sambandhan ka pradarshan;
+2026-07-20 16:31:48 - [generation_service.py] - INFO - Multi-queries generated: ['Loan agreement mein karyakarta ka PAN aur mobile number diya gaya hai, iska arth kya hai?', "In a loan agreement, what does it mean when the guarantor's PAN and mobile number are disclosed?", "What is the significance of disclosing the guarantor's PAN and mobile number in a loan agreement?"]
+2026-07-20 16:31:52 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:35:20 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:35:20 - [generation_service.py] - INFO - Query Expanded with Synonyms: Co-signers, guarantors, sureties, endorsers.
+2026-07-20 16:35:20 - [generation_service.py] - INFO - Multi-queries generated: ["Co-signatories associated with the debtor's account", 'Number of guarantors linked to the account holder', 'Count of endorsers affiliated with the account owner']
+2026-07-20 16:35:23 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:35:56 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:35:57 - [generation_service.py] - INFO - Query Expanded with Synonyms: I'm not able to provide information on specific individuals.
+2026-07-20 16:35:57 - [generation_service.py] - INFO - Multi-queries generated: ['Account Holder Beneficiary Identification Details Request: What is the Mobile Phone Number of the Endorsing Witness?', 'Identification of Endorsing Witness Contact Information: What is the Mobile Phone Number Associated with the Witness to the Account?', "Request for Mobile Phone Number of Endorser's Witness: What is the Mobile Number of the Witness Who Has Endorsed the Account Holder?"]
+2026-07-20 16:36:00 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:36:27 - [generation_service.py] - INFO - Routing Decision: CHAT
+2026-07-20 16:36:54 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:36:54 - [generation_service.py] - INFO - Query Expanded with Synonyms: Total loan amount, aggregate loan balance, outstanding loan principal, total indebtedness, cumulative loan liability.
+2026-07-20 16:36:54 - [generation_service.py] - INFO - Multi-queries generated: ['What is the aggregate principal balance of the loan?', 'What is the total outstanding loan amount?', 'What is the cumulative loan principal balance?']
+2026-07-20 16:36:58 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:38:31 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:38:31 - [generation_service.py] - INFO - Query Expanded with Synonyms: I can't provide financial information or advice. Is there anything else I can help you with?
+2026-07-20 16:38:31 - [generation_service.py] - INFO - Multi-queries generated: ['Incorrect data has been provided; kindly verify and furnish the loan principal amount.', 'The loan principal amount is incorrect; please confirm and provide the accurate loan principal amount.', 'We have been furnished with inaccurate data; could you please verify and provide the loan principal amount for our records.']
+2026-07-20 16:38:34 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:39:48 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:39:48 - [generation_service.py] - INFO - Query Expanded with Synonyms: Verified loan amount, outstanding principal balance, actual loan amount, stipulated loan amount, and principal sum.
+2026-07-20 16:39:48 - [generation_service.py] - INFO - Multi-queries generated: ['The loan amount discrepancy necessitates a thorough review of the loan documentation to ensure accuracy.', 'The loan amount discrepancy requires verification against the loan agreement and supporting documentation to confirm the correct amount.', 'I request that you re-examine the loan documentation and confirm the loan amount to prevent any discrepancies in the loan records.']
+2026-07-20 16:39:52 - [generation_service.py] - INFO - Synthesizing response for session: 6_1784544508432 using DB history...
+2026-07-20 16:41:08 - [auth.py] - INFO - Registering new user: two@gmail.com
+2026-07-20 16:41:10 - [auth.py] - INFO - Registering new user: two@gmail.com
+2026-07-20 16:41:17 - [auth.py] - INFO - Login attempt for: two@gmail.com
+2026-07-20 16:55:42 - [documents.py] - INFO - 📥 [UPLOAD START] Receiving file: gujarati loan.docx
+2026-07-20 16:55:42 - [chunking.py] - INFO - Extracting text and tables using Unstructured (hi_res mode) in background thread...
+2026-07-20 16:55:47 - [chunking.py] - INFO - Table detected! Generating semantic summary with Groq...
+2026-07-20 16:55:48 - [chunking.py] - INFO - Chunking text using SentenceSplitter...
+2026-07-20 16:55:54 - [retrieval_service.py] - INFO - Memory index appended with 'gujarati loan.docx' (38 chunks) for 7_1784545878642.
+2026-07-20 16:56:16 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:56:16 - [generation_service.py] - INFO - Query Expanded with Synonyms: Lender, creditor, mortgagee, debtor, borrower.
+2026-07-20 16:56:17 - [generation_service.py] - INFO - Multi-queries generated: ['What are the parties involved in a loan agreement, specifically the provider of funds and the recipient of funds?', 'What are the identities of the obligor and obligee in a loan transaction?', 'Who are the principal parties in a loan contract, namely the lender and the borrower?']
+2026-07-20 16:56:20 - [generation_service.py] - INFO - Synthesizing response for session: 7_1784545878642 using DB history...
+2026-07-20 16:57:20 - [generation_service.py] - INFO - Routing Decision: RAG
+2026-07-20 16:57:21 - [generation_service.py] - INFO - Query Expanded with Synonyms: Loan principal amount, Principal amount borrowed, Outstanding loan balance, Loan sum, Principal loan amount, EMI repayment amount, Monthly loan installment, Loan repayment amount, EMI payment, Loan instalment.
+2026-07-20 16:57:21 - [generation_service.py] - INFO - Multi-queries generated: ['What is the principal amount of a loan facility, and what is the monthly equivalent installment (EMI) amount?', 'What is the outstanding principal balance of a loan, and what is the periodic mortgage repayment (EMI) amount?', 'What is the initial loan principal, and what is the periodic loan installment (EMI) amount?', 'What is the principal balance of a loan, and what is the periodic loan repayment (EMI) amount?', 'What is the initial loan amount, and what is the periodic loan installment (EMI) amount?', 'What is the outstanding loan principal, and what is the periodic loan repayment (EMI) amount?']
+2026-07-20 16:57:24 - [generation_service.py] - INFO - Synthesizing response for session: 7_1784545878642 using DB history...
+2026-07-20 17:00:44 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 7
+2026-07-20 17:00:44 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/4e40e7c4-e432-4045-a992-0ed73f6905f4.docx
+2026-07-20 17:00:45 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 7_1784545878642
+2026-07-20 17:00:57 - [documents.py] - INFO - 🧹 [CLEANUP INITIATED] Wiping data for user: 6
+2026-07-20 17:00:58 - [documents.py] - INFO - 🗑️ Deleted file: sample_data/1c98aca6-6f86-4f40-8f8c-3d516107fd12.pdf
+2026-07-20 17:00:59 - [documents.py] - INFO - 🗑️ Deleted all Qdrant vectors for session: 6_1784544508432
